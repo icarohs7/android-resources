@@ -14,6 +14,7 @@ import com.jaychang.sa.AuthCallback
 import com.jaychang.sa.SocialUser
 import com.jaychang.sa.facebook.SimpleAuth
 import kotlinx.coroutines.launch
+import splitties.views.onClick
 
 class FacebookLoginFragment : BaseLoginFragment<FragmentFacebookLoginBinding>() {
     private val permissions: List<String> by lazy {

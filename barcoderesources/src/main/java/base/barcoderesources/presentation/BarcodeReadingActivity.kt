@@ -13,6 +13,7 @@ import com.github.icarohs7.unoxandroidarch.presentation.fragments.BaseScopedFrag
 import com.github.icarohs7.unoxandroidarch.toplevel.showErrorFlashBar
 import com.google.android.gms.vision.barcode.Barcode
 import io.reactivex.android.schedulers.AndroidSchedulers
+import io.sellmair.disposer.disposeBy
 import io.sellmair.disposer.onStop
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.channels.ReceiveChannel

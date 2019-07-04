@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import base.authresources.R
 import base.authresources.databinding.FragmentPinLoginBinding
+import base.authresources.domain.AuthenticationType
 
 class PinLoginFragment : BaseLoginFragment<FragmentPinLoginBinding>() {
     private val length by lazy { arguments?.getInt(LENGTH_ARG) ?: 5 }

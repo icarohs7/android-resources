@@ -1,6 +1,7 @@
 package base.domaindefinitionresources.presentation
 
 import android.os.Bundle
+import android.text.InputType
 import arrow.core.None
 import arrow.core.Option
 import arrow.core.Some

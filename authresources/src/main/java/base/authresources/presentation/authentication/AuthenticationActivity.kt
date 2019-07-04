@@ -2,6 +2,8 @@ package base.authresources.presentation.authentication
 
 import android.os.Bundle
 import androidx.annotation.StringRes
+import androidx.core.view.children
+import androidx.core.view.isGone
 import base.authresources.R
 import base.authresources.databinding.ActivityAuthenticationBinding
 import base.authresources.databinding.PartialSwitchButtonBinding
@@ -14,6 +16,8 @@ import base.authresources.presentation.fragments.UserPassLoginFragment
 import base.corelibrary.presentation.CoreNavigation
 import com.github.icarohs7.unoxandroidarch.presentation.activities.BaseBindingActivity
 import com.github.icarohs7.unoxandroidarch.toplevel.showErrorFlashBar
+import splitties.views.onClick
+import splitties.views.textResource
 import kotlin.reflect.KClass
 
 abstract class AuthenticationActivity(

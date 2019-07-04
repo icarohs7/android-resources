@@ -1,8 +1,13 @@
 package base.authresources.presentation.fragments
 
+import androidx.core.view.isGone
 import androidx.databinding.ViewDataBinding
 import base.authresources.domain.AuthenticationType
 import base.authresources.presentation.authentication.AuthenticationActivity
+import base.authresources.presentation.authentication.loadFragment
+import base.corelibrary.data.entities.User
+import base.corelibrary.data.isLogged
+import com.github.icarohs7.unoxandroidarch.extensions.hideKeyboard
 import com.github.icarohs7.unoxandroidarch.presentation.fragments.BaseBindingFragment
 import com.github.icarohs7.unoxandroidarch.toplevel.onActivity
 import kotlinx.coroutines.launch
