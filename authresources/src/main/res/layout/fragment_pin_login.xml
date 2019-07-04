@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <in.arjsna.passcodeview.PassCodeView
+            android:id="@+id/edit_pin"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:padding="25.0dp"
+            app:digit_size="30.0dp"
+            app:digits="6"
+            app:empty_drawable="@drawable/bg_empty_circle_shape"
+            app:filled_drawable="@drawable/bg_filled_circle_shape"
+            app:key_text_size="30.0sp" />
+    </FrameLayout>
+</layout>

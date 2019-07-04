@@ -1,0 +1,7 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="base.barcoderesources">
+
+    <application>
+        <activity android:name="base.barcoderesources.presentation.BarcodeReadingActivity" />
+    </application>
+</manifest>
