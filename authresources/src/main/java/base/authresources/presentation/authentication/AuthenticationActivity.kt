@@ -86,6 +86,14 @@ abstract class AuthenticationActivity(
      * Called when an authentication error happens
      */
     open suspend fun onLoginError(type: AuthenticationType) {
+        showDefaultAuthErrorMessage()
+    }
+
+    /**
+     * Show the default message used to tell the user
+     * the authentication process failed
+     */
+    fun showDefaultAuthErrorMessage() {
         showErrorFlashBar(
                 "Ocorreu um erro ao tentar se autenticar, verifique suas credenciais e sua conexão.",
                 duration = 3500
