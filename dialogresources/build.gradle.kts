@@ -12,9 +12,9 @@ android {
 }
 
 dependencies {
-    api(project(":resmodules:dialogresources"))
+    api(project(":corelibrary"))
 
-    api(AndroidDeps.materialDialogsBottomSheets)
+    api(AndroidDeps.materialDialogs)
 
     AndroidKaptDeps.core.forEach(::kapt)
 }
