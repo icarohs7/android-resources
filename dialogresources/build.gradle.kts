@@ -15,6 +15,7 @@ dependencies {
     api(project(":corelibrary"))
 
     api(AndroidDeps.materialDialogs)
+    api(AndroidDeps.spotsDialog)
 
     AndroidKaptDeps.core.forEach(::kapt)
 }

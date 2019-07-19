@@ -7,12 +7,12 @@ import splitties.resources.appStr
 import splitties.views.backgroundColor
 
 @Suppress("FunctionName")
-fun ConfirmDisconnectDialog(ctx: Context, yesHandler: () -> Unit) {
+fun ConfirmDisconnectDialog(ctx: Context, confirmHandler: () -> Unit) {
     val dialog = ConfirmDialog(
             ctx,
             title = "Confirmar",
             message = "Deseja se desconectar?",
-            confirmHandler = yesHandler
+            confirmHandler = confirmHandler
     )
     dialog.binding.apply {
         btnConfirm.text = appStr(R.string.sim)
