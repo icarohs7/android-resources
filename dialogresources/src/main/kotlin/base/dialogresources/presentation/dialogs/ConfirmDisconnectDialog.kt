@@ -6,6 +6,7 @@ import splitties.resources.appColor
 import splitties.resources.appStr
 import splitties.views.backgroundColor
 
+@Suppress("FunctionName")
 fun ConfirmDisconnectDialog(ctx: Context, yesHandler: () -> Unit) {
     val dialog = ConfirmDialog(
             ctx,
@@ -18,4 +19,5 @@ fun ConfirmDisconnectDialog(ctx: Context, yesHandler: () -> Unit) {
         btnCancel.text = appStr(R.string.nao)
         txtTitle.backgroundColor = appColor(R.color.colorPrimary)
     }
+    dialog.show()
 }
