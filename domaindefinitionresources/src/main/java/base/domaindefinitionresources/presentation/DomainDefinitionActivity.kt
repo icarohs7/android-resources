@@ -11,7 +11,7 @@ import base.domaindefinitionresources.R
 import base.domaindefinitionresources.data.entities.DomainHolder
 import base.domaindefinitionresources.databinding.ActivityDomainDefinitionBinding
 import com.github.icarohs7.unoxandroidarch.presentation.activities.BaseBindingActivity
-import com.github.icarohs7.unoxandroidarch.toplevel.showErrorFlashBar
+import com.github.icarohs7.unoxandroidarch.toplevel.FlashBar
 import com.github.icarohs7.unoxcore.extensions.coroutines.onBackground
 import kotlinx.coroutines.launch
 
@@ -21,7 +21,7 @@ open class DomainDefinitionActivity : BaseBindingActivity<ActivityDomainDefiniti
     }
 
     open fun onInvalidDomain() {
-        showErrorFlashBar("Domínio inválido")
+        FlashBar.error("Domínio inválido")
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

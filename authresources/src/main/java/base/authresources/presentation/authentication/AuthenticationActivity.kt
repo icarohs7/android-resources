@@ -15,7 +15,7 @@ import base.authresources.presentation.fragments.PinLoginFragment
 import base.authresources.presentation.fragments.UserPassLoginFragment
 import base.corelibrary.presentation.CoreNavigation
 import com.github.icarohs7.unoxandroidarch.presentation.activities.BaseBindingActivity
-import com.github.icarohs7.unoxandroidarch.toplevel.showErrorFlashBar
+import com.github.icarohs7.unoxandroidarch.toplevel.FlashBar
 import splitties.views.onClick
 import splitties.views.textResource
 import kotlin.reflect.KClass
@@ -94,7 +94,7 @@ abstract class AuthenticationActivity(
      * the authentication process failed
      */
     fun showDefaultAuthErrorMessage() {
-        showErrorFlashBar(
+        FlashBar.error(
                 "Ocorreu um erro ao tentar se autenticar, verifique suas credenciais e sua conexão.",
                 duration = 3500
         )
