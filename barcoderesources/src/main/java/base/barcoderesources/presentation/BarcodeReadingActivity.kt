@@ -10,7 +10,7 @@ import com.github.icarohs7.unoxandroidarch.extensions.requestPermissions
 import com.github.icarohs7.unoxandroidarch.extensions.startActivity
 import com.github.icarohs7.unoxandroidarch.presentation.activities.BaseBindingActivity
 import com.github.icarohs7.unoxandroidarch.presentation.fragments.BaseScopedFragment
-import com.github.icarohs7.unoxandroidarch.toplevel.showErrorFlashBar
+import com.github.icarohs7.unoxandroidarch.toplevel.FlashBar
 import com.google.android.gms.vision.barcode.Barcode
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.sellmair.disposer.disposeBy
@@ -64,7 +64,7 @@ class BarcodeReadingActivity : BaseBindingActivity<ActivityBarcodeReadingBinding
         }
 
         private fun showNoCameraPermissionError() {
-            showErrorFlashBar(appStr(R.string.erro_sem_permissao_camera_scan_barcode))
+            FlashBar.error(appStr(R.string.erro_sem_permissao_camera_scan_barcode))
         }
     }
 }
