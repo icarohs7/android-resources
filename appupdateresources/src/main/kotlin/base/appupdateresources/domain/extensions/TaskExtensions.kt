@@ -1,14 +1,15 @@
 package base.appupdateresources.domain.extensions
 
 import com.google.android.play.core.tasks.Task
-import kotlinx.coroutines.suspendCancellableCoroutine
+import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
+import kotlin.coroutines.suspendCoroutine
 
 /**
  * Suspend until the given task return
  */
 suspend fun <T> Task<T>.await(): T {
-    return suspendCancellableCoroutine { cont ->
+    return suspendCoroutine { cont ->
         val resumeResult = {
             when (isSuccessful) {
                 true -> cont.resume(result)
