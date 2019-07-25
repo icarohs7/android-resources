@@ -13,7 +13,10 @@ import com.github.icarohs7.unoxcore.extensions.coroutines.cancelCoroutineScope
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.launch
 import splitties.systemservices.layoutInflater
 
@@ -25,20 +28,20 @@ abstract class BaseMaterialDialog<T : ViewDataBinding>(
         protected val context: Context
 ) : CoroutineScope by MainScope() {
     private val compositeDisposable = CompositeDisposable()
+    val binding: T by lazy { createBinding() }
+    val dialog: MaterialDialog by lazy { createDialog() }
 
-    val binding: T by lazy {
-        DataBindingUtil.inflate<T>(context.layoutInflater, getLayout(), null, false)
+    private fun createBinding(): T {
+        val inflater = context.layoutInflater
+        return DataBindingUtil.inflate<T>(inflater, getLayout(), null, false)
                 .also { launch { onCreateBinding() } }
     }
-    val dialog: MaterialDialog by lazy {
-        getMaterialDialog()
+
+    private fun createDialog(): MaterialDialog {
+        return getMaterialDialog()
                 .customView(view = binding.root, noVerticalPadding = true)
                 .onCancel { onCancel() }
                 .onDismiss { onDismiss() }
-    }
-
-    fun show() {
-        dialog.show()
     }
 
     /**
@@ -47,6 +50,10 @@ abstract class BaseMaterialDialog<T : ViewDataBinding>(
      * another reason
      */
     abstract suspend fun onCreateBinding()
+
+    fun show() {
+        dialog.show()
+    }
 
     open fun onCancel() {
     }
@@ -60,9 +67,8 @@ abstract class BaseMaterialDialog<T : ViewDataBinding>(
         return MaterialDialog(context)
     }
 
-    fun Disposable.disposeOnDismiss() {
-        this.addTo(compositeDisposable)
-    }
+    fun Flow<*>.launchInScope(): Job = launchIn(this@BaseMaterialDialog)
+    fun Disposable.disposeOnDismiss(): Disposable = this.addTo(compositeDisposable)
 
     @LayoutRes
     abstract fun getLayout(): Int
