@@ -14,8 +14,9 @@ android {
 dependencies {
     api(project(":corelibrary"))
 
-    implementation(AndroidDeps.roomKtx)
-    implementation(AndroidDeps.roomRxJava2)
+    api(AndroidDeps.roomKtx)
+    api(AndroidDeps.roomRxJava2)
 
     AndroidKaptDeps.core.forEach(::kapt)
+    AndroidKaptDeps.core.forEach(::kaptTest)
 }

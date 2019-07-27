@@ -8,7 +8,6 @@ import base.dataresources.data.db.flowable
 import base.dataresources.data.entities.TestClass
 import base.dataresources.data.repository.TestRepository
 import com.github.icarohs7.unoxandroidarch.Injector
-import com.github.icarohs7.unoxandroidarch.data.db.flowable
 import io.reactivex.subscribers.TestSubscriber
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
