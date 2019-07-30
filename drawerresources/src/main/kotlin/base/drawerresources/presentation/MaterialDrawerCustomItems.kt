@@ -9,14 +9,13 @@ import co.zsmb.materialdrawerkt.draweritems.badge
 import co.zsmb.materialdrawerkt.draweritems.badgeable.PrimaryDrawerItemKt
 import co.zsmb.materialdrawerkt.draweritems.badgeable.primaryItem
 import com.github.icarohs7.unoxandroidarch.presentation.activities.BaseScopedActivity
-import com.github.icarohs7.unoxcore.extensions.setupAndroidSchedulers
 import com.mikepenz.google_material_typeface_library.GoogleMaterial
 import com.mikepenz.materialdrawer.Drawer
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem
-import io.reactivex.Flowable
-import io.sellmair.disposer.disposeBy
-import io.sellmair.disposer.onDestroy
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 
 fun Builder.disconnectButton(extraBuilder: PrimaryDrawerItemKt.() -> Unit = {}): PrimaryDrawerItem {
@@ -31,7 +30,7 @@ fun Builder.disconnectButton(extraBuilder: PrimaryDrawerItemKt.() -> Unit = {}):
 fun Builder.synchronizeButton(
         activity: BaseScopedActivity,
         drawer: () -> Drawer?,
-        badgeTextFlowable: Flowable<Int>,
+        badgeTextFlow: Flow<Int>,
         onClick: suspend CoroutineScope.() -> Unit,
         extraBuilder: PrimaryDrawerItemKt.() -> Unit = {}
 ): PrimaryDrawerItem {
@@ -50,9 +49,9 @@ fun Builder.synchronizeButton(
         extraBuilder()
     }
 
-    badgeTextFlowable.setupAndroidSchedulers().subscribe { number ->
+    badgeTextFlow.onEach { number ->
         drawer()?.updateIntBadgeNoZero(R.id.menu_sync, number)
-    }.disposeBy(activity.onDestroy)
+    }.launchIn(activity)
 
     return item
 }

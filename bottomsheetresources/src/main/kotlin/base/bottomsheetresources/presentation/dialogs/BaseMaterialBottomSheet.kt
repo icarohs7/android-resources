@@ -10,10 +10,8 @@ import com.afollestad.materialdialogs.bottomsheets.BottomSheet
 import com.afollestad.materialdialogs.callbacks.onCancel
 import com.afollestad.materialdialogs.callbacks.onDismiss
 import com.afollestad.materialdialogs.customview.customView
-import com.github.icarohs7.unoxcore.extensions.addTo
 import com.github.icarohs7.unoxcore.extensions.coroutines.cancelCoroutineScope
 import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.disposables.Disposable
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
@@ -60,10 +58,6 @@ abstract class BaseMaterialBottomSheet<T : ViewDataBinding>(
 
     open fun getMaterialDialog(): MaterialDialog {
         return MaterialDialog(context, BottomSheet(LayoutMode.WRAP_CONTENT))
-    }
-
-    fun Disposable.disposeOnDismiss() {
-        this.addTo(compositeDisposable)
     }
 
     @LayoutRes

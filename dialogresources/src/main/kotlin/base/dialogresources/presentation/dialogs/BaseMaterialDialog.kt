@@ -8,10 +8,8 @@ import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.callbacks.onCancel
 import com.afollestad.materialdialogs.callbacks.onDismiss
 import com.afollestad.materialdialogs.customview.customView
-import com.github.icarohs7.unoxcore.extensions.addTo
 import com.github.icarohs7.unoxcore.extensions.coroutines.cancelCoroutineScope
 import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.disposables.Disposable
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.MainScope
@@ -68,7 +66,6 @@ abstract class BaseMaterialDialog<T : ViewDataBinding>(
     }
 
     fun Flow<*>.launchInScope(): Job = launchIn(this@BaseMaterialDialog)
-    fun Disposable.disposeOnDismiss(): Disposable = this.addTo(compositeDisposable)
 
     @LayoutRes
     abstract fun getLayout(): Int

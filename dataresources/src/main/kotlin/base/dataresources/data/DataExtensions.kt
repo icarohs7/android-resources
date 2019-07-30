@@ -6,7 +6,7 @@ import arrow.core.Tuple4
 import arrow.core.Tuple5
 import arrow.core.Tuple6
 import base.dataresources.data.db.BaseDao
-import com.github.icarohs7.unoxcore.extensions.plus
+import com.github.icarohs7.unoxandroidarch.rx.domain.plus
 import io.reactivex.Flowable
 
 /**
