@@ -7,10 +7,10 @@ import base.authresources.R
 fun AuthenticationActivity.loadFragment(frag: Fragment) {
     supportFragmentManager.commit {
         setCustomAnimations(
-                R.anim.activity_transition_enter,
-                R.anim.activity_transition_exit,
-                R.anim.activity_transition_enter,
-                R.anim.activity_transition_exit
+                R.anim.fragment_transition_enter,
+                R.anim.fragment_transition_exit,
+                R.anim.fragment_transition_enter,
+                R.anim.fragment_transition_exit
         )
         replace(R.id.layout_main_content, frag)
     }
