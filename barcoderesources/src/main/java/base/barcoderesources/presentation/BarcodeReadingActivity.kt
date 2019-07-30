@@ -11,19 +11,21 @@ import com.github.icarohs7.unoxandroidarch.extensions.startActivity
 import com.github.icarohs7.unoxandroidarch.presentation.activities.BaseBindingActivity
 import com.github.icarohs7.unoxandroidarch.presentation.fragments.BaseScopedFragment
 import com.github.icarohs7.unoxandroidarch.toplevel.FlashBar
+import com.github.icarohs7.unoxcore.extensions.coroutines.job
 import com.google.android.gms.vision.barcode.Barcode
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.sellmair.disposer.disposeBy
-import io.sellmair.disposer.onStop
+import kotlinx.coroutines.cancelChildren
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.channels.ReceiveChannel
+import kotlinx.coroutines.channels.awaitClose
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.flow.onEach
 import splitties.init.appCtx
 import splitties.resources.appStr
 import splitties.resources.str
 import timber.log.Timber
 
 class BarcodeReadingActivity : BaseBindingActivity<ActivityBarcodeReadingBinding>() {
-
     override fun onBindingCreated(savedInstanceState: Bundle?) {
         super.onBindingCreated(savedInstanceState)
         setSupportActionBar(binding.toolbar)
@@ -33,16 +35,32 @@ class BarcodeReadingActivity : BaseBindingActivity<ActivityBarcodeReadingBinding
 
     override fun onStart() {
         super.onStart()
-        binding.barcodeView
+        barcodeFlow()
+                .onEach { processBarcode(it) }
+                .launchInScope()
+    }
+
+    private fun barcodeFlow(): Flow<Barcode> = callbackFlow {
+        val onNext: (t: Barcode) -> Unit = { barcode -> offer(barcode) }
+        val onError: (t: Throwable) -> Unit = { ex ->
+            Timber.e(ex)
+            close()
+        }
+        val disposable = binding
+                .barcodeView
                 .drawOverlay()
                 .getObservable()
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(::processBarcode, Timber::e)
-                .disposeBy(onStop)
+                .subscribe(onNext, onError)
+        awaitClose { disposable.dispose() }
     }
 
     private fun processBarcode(barcode: Barcode) {
         _barcodeChannel.offer(this toT barcode)
+    }
+
+    override fun onStop() {
+        job.cancelChildren()
+        super.onStop()
     }
 
     override fun getLayout(): Int {
