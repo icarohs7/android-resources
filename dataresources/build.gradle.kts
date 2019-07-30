@@ -16,7 +16,6 @@ dependencies {
 
     api(AndroidDeps.roomKtx)
     api(AndroidDeps.roomRxJava2)
-    api(AndroidDeps.unoxAndroidArchRx)
 
     AndroidKaptDeps.core.forEach(::kapt)
     AndroidKaptDeps.core.forEach(::kaptTest)
