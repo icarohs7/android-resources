@@ -1,9 +1,7 @@
 package base.fluxarchresources.domain
 
-import io.reactivex.BackpressureStrategy
-import io.reactivex.Flowable
 import io.sellmair.quantum.Quantum
-import io.sellmair.quantum.rx.rx
+import kotlinx.coroutines.flow.Flow
 
 /**
  * Create a state manager from an instance of [Quantum]
@@ -35,9 +33,9 @@ fun <T, O> StateManager.Companion.fromQuantum(
  * Create a state manager from an instance of [Quantum]
  * using a Flowable as the observable type
  */
-fun <T> StateManager.Companion.fromQuantum(quantum: Quantum<T>): StateManager<T, Flowable<T>> {
-    return object : StateManager<T, Flowable<T>> {
-        override val observable: Flowable<T> get() = quantum.rx.toFlowable(BackpressureStrategy.LATEST)
+fun <T> StateManager.Companion.fromQuantum(quantum: Quantum<T>): StateManager<T, Flow<T>> {
+    return object : StateManager<T, Flow<T>> {
+        override val observable: Flow<T> get() = quantum.flow()
 
         override fun reduce(reducer: Reducer<T>) {
             quantum.setState(reducer)
