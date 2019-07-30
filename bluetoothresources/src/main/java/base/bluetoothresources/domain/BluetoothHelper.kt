@@ -4,13 +4,12 @@ import android.bluetooth.BluetoothDevice
 import arrow.core.Try
 import arrow.core.getOrElse
 import arrow.core.orNull
-import com.github.icarohs7.unoxcore.extensions.coroutines.forEach
 import com.github.icarohs7.unoxcore.tryBg
 import com.sirvar.bluetoothkit.BluetoothKit
 import com.sirvar.bluetoothkit.BluetoothKitSocketInterface
 import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.reactive.openSubscription
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.withTimeout
 import java.io.Closeable
 import java.util.UUID
@@ -35,16 +34,15 @@ object BluetoothHelper : Closeable {
         private set
 
     init {
-        val eventChannel = BluetoothBroadcastReceiver.events.openSubscription()
-        GlobalScope.launch {
-            eventChannel.forEach { event ->
-                when (event) {
-                    BluetoothBroadcastReceiver.Event.BluetoothOff -> isConnected = false
-                    BluetoothBroadcastReceiver.Event.BluetoothTurningOff -> isConnected = false
-                    is BluetoothBroadcastReceiver.Event.DeviceDisconnected -> isConnected = false
-                }
-            }
-        }
+        BluetoothBroadcastReceiver
+                .eventFlow
+                .onEach { event ->
+                    when (event) {
+                        BluetoothBroadcastReceiver.Event.BluetoothOff -> isConnected = false
+                        BluetoothBroadcastReceiver.Event.BluetoothTurningOff -> isConnected = false
+                        is BluetoothBroadcastReceiver.Event.DeviceDisconnected -> isConnected = false
+                    }
+                }.launchIn(GlobalScope)
     }
 
     /**

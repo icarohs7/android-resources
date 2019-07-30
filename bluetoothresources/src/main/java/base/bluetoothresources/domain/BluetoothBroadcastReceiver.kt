@@ -5,9 +5,8 @@ import android.bluetooth.BluetoothDevice
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import com.jakewharton.rxrelay2.PublishRelay
-import io.reactivex.BackpressureStrategy
-import io.reactivex.Flowable
+import base.corelibrary.domain.extensions.coroutines.PublishDataFlow
+import kotlinx.coroutines.flow.Flow
 
 class BluetoothBroadcastReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {
@@ -20,26 +19,26 @@ class BluetoothBroadcastReceiver : BroadcastReceiver() {
 
     private fun onStateChange(intent: Intent) {
         when (intent.getIntExtra(BluetoothAdapter.EXTRA_STATE, BluetoothAdapter.ERROR)) {
-            BluetoothAdapter.STATE_OFF -> relay.accept(Event.BluetoothOff)
-            BluetoothAdapter.STATE_TURNING_OFF -> relay.accept(Event.BluetoothTurningOff)
-            BluetoothAdapter.STATE_ON -> relay.accept(Event.BluetoothOn)
-            BluetoothAdapter.STATE_TURNING_ON -> relay.accept(Event.BluetoothTurningOn)
+            BluetoothAdapter.STATE_OFF -> dataFlow.offer(Event.BluetoothOff)
+            BluetoothAdapter.STATE_TURNING_OFF -> dataFlow.offer(Event.BluetoothTurningOff)
+            BluetoothAdapter.STATE_ON -> dataFlow.offer(Event.BluetoothOn)
+            BluetoothAdapter.STATE_TURNING_ON -> dataFlow.offer(Event.BluetoothTurningOn)
         }
     }
 
     private fun onLowEnergyDeviceConnected(intent: Intent) {
         val device = intent.getParcelableExtra<BluetoothDevice>(BluetoothDevice.EXTRA_DEVICE)
-        relay.accept(Event.DeviceConnected(device))
+        dataFlow.offer(Event.DeviceConnected(device))
     }
 
     private fun onLowEnergyDeviceDisconnected(intent: Intent) {
         val device = intent.getParcelableExtra<BluetoothDevice>(BluetoothDevice.EXTRA_DEVICE)
-        relay.accept(Event.DeviceDisconnected(device))
+        dataFlow.offer(Event.DeviceDisconnected(device))
     }
 
     companion object {
-        private val relay by lazy { PublishRelay.create<Event>() }
-        val events: Flowable<Event> get() = relay.hide().toFlowable(BackpressureStrategy.LATEST)
+        private val dataFlow by lazy { PublishDataFlow<Event>() }
+        val eventFlow: Flow<Event> get() = dataFlow.flow()
     }
 
     sealed class Event {
