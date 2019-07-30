@@ -13,6 +13,7 @@ android {
 
 dependencies {
     api(project(":corelibrary"))
+    api(Deps.coroutinesRx2)
 
     api(AndroidDeps.roomKtx)
     api(AndroidDeps.roomRxJava2)
