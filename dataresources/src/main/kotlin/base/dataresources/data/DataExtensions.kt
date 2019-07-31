@@ -76,7 +76,7 @@ fun <A, B, C, D, E, F> combineDaoFlows(
 }
 
 /**
- * Short hand syntax to get the flowable of the
+ * Short hand syntax to get the liveData of the
  * given repository
  */
 private fun <T> f(dao: BaseDao<T>): Flow<List<T>> = dao.flow()

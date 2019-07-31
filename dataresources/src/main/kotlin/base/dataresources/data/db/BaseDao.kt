@@ -1,10 +1,11 @@
 package base.dataresources.data.db
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Update
-import io.reactivex.Flowable
 
 /** Base dao class with insert and delete methods */
 interface BaseDao<T> {
@@ -66,8 +67,8 @@ interface BaseDao<T> {
     suspend fun eraseTable(): Unit = Unit
 
     /**
-     * Get a flowable emitting the
+     * Get a liveData emitting the
      * latest values from the given table
      */
-    fun flowable(): Flowable<List<T>> = Flowable.empty()
+    fun liveData(): LiveData<List<T>> = MutableLiveData()
 }

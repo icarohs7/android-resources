@@ -130,7 +130,7 @@ class DBAndRepositoryTest {
 
     @Test
     fun `should get flowable of repository`() {
-        val flowable = testRepository.flowable()
+        val flowable = testRepository.liveData()
         val subscriber = TestSubscriber.create<List<TestClass>>()
         flowable.subscribe(subscriber)
 
@@ -150,7 +150,7 @@ class DBAndRepositoryTest {
 
     @Test
     fun `should get flowable with map of repository`() {
-        val flowable = testRepository.flowable { map { TestClass(it.id, "${it.id * 10}") } }
+        val flowable = testRepository.liveData { map { TestClass(it.id, "${it.id * 10}") } }
         val subscriber = TestSubscriber.create<List<TestClass>>()
         flowable.subscribe(subscriber)
 
