@@ -6,6 +6,7 @@ import arrow.core.Tuple2
 import arrow.core.toT
 import base.barcoderesources.R
 import base.barcoderesources.databinding.ActivityBarcodeReadingBinding
+import base.corelibrary.domain.extensions.asFlow
 import com.github.icarohs7.unoxandroidarch.extensions.requestPermissions
 import com.github.icarohs7.unoxandroidarch.extensions.startActivity
 import com.github.icarohs7.unoxandroidarch.presentation.activities.BaseBindingActivity
@@ -16,9 +17,8 @@ import com.google.android.gms.vision.barcode.Barcode
 import kotlinx.coroutines.cancelChildren
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.channels.ReceiveChannel
-import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.onEach
 import splitties.init.appCtx
 import splitties.resources.appStr
@@ -36,22 +36,17 @@ class BarcodeReadingActivity : BaseBindingActivity<ActivityBarcodeReadingBinding
     override fun onStart() {
         super.onStart()
         barcodeFlow()
+                .catch { Timber.e(it) }
                 .onEach { processBarcode(it) }
                 .launchInScope()
     }
 
-    private fun barcodeFlow(): Flow<Barcode> = callbackFlow {
-        val onNext: (t: Barcode) -> Unit = { barcode -> offer(barcode) }
-        val onError: (t: Throwable) -> Unit = { ex ->
-            Timber.e(ex)
-            close()
-        }
-        val disposable = binding
+    private fun barcodeFlow(): Flow<Barcode> {
+        return binding
                 .barcodeView
                 .drawOverlay()
                 .getObservable()
-                .subscribe(onNext, onError)
-        awaitClose { disposable.dispose() }
+                .asFlow()
     }
 
     private fun processBarcode(barcode: Barcode) {
