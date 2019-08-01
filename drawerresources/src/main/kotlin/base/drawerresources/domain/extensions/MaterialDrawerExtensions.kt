@@ -1,4 +1,4 @@
-package base.drawerresources.domain
+package base.drawerresources.domain.extensions
 
 import base.corelibrary.R
 import base.corelibrary.databinding.NavHeaderBinding

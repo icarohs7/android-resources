@@ -9,7 +9,8 @@ import arrow.core.Tuple2
 import base.corelibrary.R
 import base.corelibrary.data.entities.User
 import base.corelibrary.presentation.main.BaseMainActivity
-import base.drawerresources.domain.defaultHeader
+import base.drawerresources.domain.extensions.defaultHeader
+import base.drawerresources.domain.extensions.picture
 import co.zsmb.materialdrawerkt.builders.DrawerBuilderKt
 import co.zsmb.materialdrawerkt.builders.accountHeader
 import co.zsmb.materialdrawerkt.builders.drawer
@@ -57,7 +58,7 @@ open class BaseDrawerConfig<T : BaseMainActivity>(
 
             profile(name.capitalizeWords(), email.ifBlank { null }) {
                 icon = R.drawable.ic_default_profile_128dp
-                val userPicture = User["picture"]
+                val userPicture = User.picture
                 if (userPicture.isNotBlank())
                     iconUrl = userPicture
             }

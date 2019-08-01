@@ -18,7 +18,5 @@ dependencies {
     api(AndroidDeps.materialDrawer)
     api(AndroidDeps.materialDrawerKt)
 
-    implementation(AndroidDeps.splittiesInitprovider)
-
     AndroidKaptDeps.core.forEach(::kapt)
 }

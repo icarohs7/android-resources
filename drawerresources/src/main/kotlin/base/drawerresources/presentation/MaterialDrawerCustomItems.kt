@@ -2,8 +2,8 @@ package base.drawerresources.presentation
 
 import android.graphics.Color
 import base.corelibrary.R
-import base.drawerresources.domain.id
-import base.drawerresources.domain.updateIntBadgeNoZero
+import base.drawerresources.domain.extensions.id
+import base.drawerresources.domain.extensions.updateIntBadgeNoZero
 import co.zsmb.materialdrawerkt.builders.Builder
 import co.zsmb.materialdrawerkt.draweritems.badge
 import co.zsmb.materialdrawerkt.draweritems.badgeable.PrimaryDrawerItemKt

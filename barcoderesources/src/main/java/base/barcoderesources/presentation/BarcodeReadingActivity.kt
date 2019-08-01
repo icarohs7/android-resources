@@ -3,10 +3,9 @@ package base.barcoderesources.presentation
 import android.Manifest
 import android.os.Bundle
 import arrow.core.Tuple2
-import arrow.core.toT
 import base.barcoderesources.R
 import base.barcoderesources.databinding.ActivityBarcodeReadingBinding
-import base.corelibrary.domain.extensions.asFlow
+import base.barcoderesources.domain.getFlow
 import com.github.icarohs7.unoxandroidarch.extensions.requestPermissions
 import com.github.icarohs7.unoxandroidarch.extensions.startActivity
 import com.github.icarohs7.unoxandroidarch.presentation.activities.BaseBindingActivity
@@ -17,7 +16,6 @@ import com.google.android.gms.vision.barcode.Barcode
 import kotlinx.coroutines.cancelChildren
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.channels.ReceiveChannel
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.onEach
 import splitties.init.appCtx
@@ -35,22 +33,17 @@ class BarcodeReadingActivity : BaseBindingActivity<ActivityBarcodeReadingBinding
 
     override fun onStart() {
         super.onStart()
-        barcodeFlow()
-                .catch { Timber.e(it) }
+        binding
+                .barcodeView
+                .drawOverlay()
+                .getFlow()
                 .onEach { processBarcode(it) }
+                .catch { Timber.e(it) }
                 .launchInScope()
     }
 
-    private fun barcodeFlow(): Flow<Barcode> {
-        return binding
-                .barcodeView
-                .drawOverlay()
-                .getObservable()
-                .asFlow()
-    }
-
     private fun processBarcode(barcode: Barcode) {
-        _barcodeChannel.offer(this toT barcode)
+        _barcodeChannel.offer(Tuple2(this, barcode))
     }
 
     override fun onStop() {

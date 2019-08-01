@@ -1,5 +1,15 @@
 package base.drawerresources.domain
 
+/*
+Adding support to image loading using url to account header:
+
+1st.
+Add the dependency to support InitProviders
+implementation(AndroidDeps.splittiesInitprovider)
+
+2nd.
+- Create the following provider that will setup the loading
+
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.net.Uri
@@ -33,3 +43,16 @@ class SetupMaterialDrawerImageLoadingProvider : InitProvider() {
         return true
     }
 }
+
+3rd.
+- Add the provider to the manifest:
+<application>
+    <provider
+        android:name=".domain.SetupMaterialDrawerImageLoadingProvider"
+        android:authorities="${applicationId}.setupmaterialdrawerimageloadingprovider"
+        android:directBootAware="true"
+        android:exported="false"
+        android:initOrder="900"
+        tools:ignore="UnusedAttribute" />
+</application>
+*/
