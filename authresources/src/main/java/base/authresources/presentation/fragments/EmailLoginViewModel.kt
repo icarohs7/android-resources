@@ -1,8 +1,8 @@
 package base.authresources.presentation.fragments
 
 import androidx.lifecycle.MutableLiveData
-import com.github.icarohs7.unoxandroidarch.presentation.viewmodel.BaseScopedViewModel
+import base.corelibrary.presentation._baseclasses.CoreScopedViewModel
 
-class EmailLoginViewModel : BaseScopedViewModel() {
+class EmailLoginViewModel : CoreScopedViewModel() {
     val email: MutableLiveData<String> = MutableLiveData()
 }

@@ -6,9 +6,9 @@ import arrow.core.Tuple2
 import base.barcoderesources.R
 import base.barcoderesources.databinding.ActivityBarcodeReadingBinding
 import base.barcoderesources.domain.getFlow
+import base.corelibrary.presentation._baseclasses.BaseBindingActivity
 import com.github.icarohs7.unoxandroidarch.extensions.requestPermissions
 import com.github.icarohs7.unoxandroidarch.extensions.startActivity
-import com.github.icarohs7.unoxandroidarch.presentation.activities.BaseBindingActivity
 import com.github.icarohs7.unoxandroidarch.presentation.fragments.BaseScopedFragment
 import com.github.icarohs7.unoxandroidarch.toplevel.FlashBar
 import com.github.icarohs7.unoxcore.extensions.coroutines.job

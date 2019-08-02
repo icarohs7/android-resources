@@ -2,7 +2,7 @@ package base.authresources.presentation.fragments
 
 import base.authresources.R
 import base.authresources.databinding.FragmentBootingBinding
-import com.github.icarohs7.unoxandroidarch.presentation.fragments.BaseBindingFragment
+import base.corelibrary.presentation._baseclasses.BaseBindingFragment
 
 class BootingFragment : BaseBindingFragment<FragmentBootingBinding>() {
     override fun getLayout(): Int {

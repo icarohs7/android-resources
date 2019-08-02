@@ -1,9 +1,9 @@
 package base.authresources.presentation.fragments
 
 import androidx.lifecycle.MutableLiveData
-import com.github.icarohs7.unoxandroidarch.presentation.viewmodel.BaseScopedViewModel
+import base.corelibrary.presentation._baseclasses.CoreScopedViewModel
 
-class UserPassLoginViewModel : BaseScopedViewModel() {
+class UserPassLoginViewModel : CoreScopedViewModel() {
     val user: MutableLiveData<String> = MutableLiveData()
     val password: MutableLiveData<String> = MutableLiveData()
 }

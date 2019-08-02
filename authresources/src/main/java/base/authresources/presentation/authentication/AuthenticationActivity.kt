@@ -14,7 +14,7 @@ import base.authresources.presentation.fragments.EmailLoginFragment
 import base.authresources.presentation.fragments.PinLoginFragment
 import base.authresources.presentation.fragments.UserPassLoginFragment
 import base.corelibrary.presentation.CoreNavigation
-import com.github.icarohs7.unoxandroidarch.presentation.activities.BaseBindingActivity
+import base.corelibrary.presentation._baseclasses.BaseBindingActivity
 import com.github.icarohs7.unoxandroidarch.toplevel.FlashBar
 import splitties.views.onClick
 import splitties.views.textResource
