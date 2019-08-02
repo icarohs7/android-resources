@@ -13,7 +13,10 @@ import com.afollestad.materialdialogs.customview.customView
 import com.github.icarohs7.unoxcore.extensions.coroutines.cancelCoroutineScope
 import io.reactivex.disposables.CompositeDisposable
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.launch
 import splitties.systemservices.layoutInflater
 
@@ -59,6 +62,8 @@ abstract class BaseMaterialBottomSheet<T : ViewDataBinding>(
     open fun getMaterialDialog(): MaterialDialog {
         return MaterialDialog(context, BottomSheet(LayoutMode.WRAP_CONTENT))
     }
+
+    fun Flow<*>.launchInScope(): Job = launchIn(this@BaseMaterialBottomSheet)
 
     @LayoutRes
     abstract fun getLayout(): Int
