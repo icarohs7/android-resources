@@ -109,7 +109,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:onClick="@{ loginHandler }"
-            android:text="@string/fazerLogin" />
+            android:text="@string/fazer_login" />
 
     </LinearLayout>
 </layout>
