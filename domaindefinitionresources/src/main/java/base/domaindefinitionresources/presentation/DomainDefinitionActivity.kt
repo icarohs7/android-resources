@@ -6,6 +6,7 @@ import arrow.core.None
 import arrow.core.Option
 import arrow.core.Some
 import base.corelibrary.databinding.CustomInputFieldBinding
+import base.corelibrary.domain.extensions.coroutines.launch
 import base.corelibrary.presentation.CoreNavigation
 import base.corelibrary.presentation._baseclasses.BaseBindingActivity
 import base.domaindefinitionresources.R
@@ -13,7 +14,6 @@ import base.domaindefinitionresources.data.entities.DomainHolder
 import base.domaindefinitionresources.databinding.ActivityDomainDefinitionBinding
 import com.github.icarohs7.unoxandroidarch.toplevel.FlashBar
 import com.github.icarohs7.unoxcore.extensions.coroutines.onBackground
-import kotlinx.coroutines.launch
 
 open class DomainDefinitionActivity : BaseBindingActivity<ActivityDomainDefinitionBinding>() {
     private val layoutEditDomainBinding by lazy {

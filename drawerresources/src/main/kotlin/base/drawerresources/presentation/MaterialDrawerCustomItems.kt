@@ -1,14 +1,16 @@
 package base.drawerresources.presentation
 
 import android.graphics.Color
+import androidx.fragment.app.FragmentActivity
+import androidx.lifecycle.lifecycleScope
 import base.corelibrary.R
+import base.corelibrary.domain.extensions.coroutines.launch
 import base.drawerresources.domain.extensions.id
 import base.drawerresources.domain.extensions.updateIntBadgeNoZero
 import co.zsmb.materialdrawerkt.builders.Builder
 import co.zsmb.materialdrawerkt.draweritems.badge
 import co.zsmb.materialdrawerkt.draweritems.badgeable.PrimaryDrawerItemKt
 import co.zsmb.materialdrawerkt.draweritems.badgeable.primaryItem
-import com.github.icarohs7.unoxandroidarch.presentation.activities.BaseScopedActivity
 import com.mikepenz.google_material_typeface_library.GoogleMaterial
 import com.mikepenz.materialdrawer.Drawer
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem
@@ -16,7 +18,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.launch
 
 fun Builder.disconnectButton(extraBuilder: PrimaryDrawerItemKt.() -> Unit = {}): PrimaryDrawerItem {
     return primaryItem(R.string.desconectar) {
@@ -28,7 +29,7 @@ fun Builder.disconnectButton(extraBuilder: PrimaryDrawerItemKt.() -> Unit = {}):
 }
 
 fun Builder.synchronizeButton(
-        activity: BaseScopedActivity,
+        activity: FragmentActivity,
         drawer: () -> Drawer?,
         badgeTextFlow: Flow<Int>,
         onClick: suspend CoroutineScope.() -> Unit,
@@ -51,7 +52,7 @@ fun Builder.synchronizeButton(
 
     badgeTextFlow.onEach { number ->
         drawer()?.updateIntBadgeNoZero(R.id.menu_sync, number)
-    }.launchIn(activity)
+    }.launchIn(activity.lifecycleScope)
 
     return item
 }

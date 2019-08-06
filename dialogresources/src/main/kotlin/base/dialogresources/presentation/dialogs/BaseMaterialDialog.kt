@@ -9,7 +9,6 @@ import com.afollestad.materialdialogs.callbacks.onCancel
 import com.afollestad.materialdialogs.callbacks.onDismiss
 import com.afollestad.materialdialogs.customview.customView
 import com.github.icarohs7.unoxcore.extensions.coroutines.cancelCoroutineScope
-import io.reactivex.disposables.CompositeDisposable
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.MainScope
@@ -25,7 +24,6 @@ import splitties.systemservices.layoutInflater
 abstract class BaseMaterialDialog<T : ViewDataBinding>(
         protected val context: Context
 ) : CoroutineScope by MainScope() {
-    private val compositeDisposable = CompositeDisposable()
     val binding: T by lazy { createBinding() }
     val dialog: MaterialDialog by lazy { createDialog() }
 
@@ -58,7 +56,6 @@ abstract class BaseMaterialDialog<T : ViewDataBinding>(
 
     open fun onDismiss() {
         cancelCoroutineScope()
-        compositeDisposable.clear()
     }
 
     open fun getMaterialDialog(): MaterialDialog {

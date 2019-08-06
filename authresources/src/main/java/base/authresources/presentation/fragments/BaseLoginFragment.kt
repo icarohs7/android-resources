@@ -7,10 +7,10 @@ import base.authresources.presentation.authentication.AuthenticationActivity
 import base.authresources.presentation.authentication.loadFragment
 import base.corelibrary.data.entities.User
 import base.corelibrary.data.isLogged
+import base.corelibrary.domain.extensions.coroutines.launch
 import base.corelibrary.presentation._baseclasses.BaseBindingFragment
 import com.github.icarohs7.unoxandroidarch.extensions.hideKeyboard
 import com.github.icarohs7.unoxandroidarch.toplevel.onActivity
-import kotlinx.coroutines.launch
 
 abstract class BaseLoginFragment<DB : ViewDataBinding> : BaseBindingFragment<DB>() {
     fun handleLogin(type: AuthenticationType) {

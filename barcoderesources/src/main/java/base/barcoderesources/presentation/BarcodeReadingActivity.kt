@@ -2,6 +2,7 @@ package base.barcoderesources.presentation
 
 import android.Manifest
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import arrow.core.Tuple2
 import base.barcoderesources.R
 import base.barcoderesources.databinding.ActivityBarcodeReadingBinding
@@ -9,14 +10,17 @@ import base.barcoderesources.domain.getFlow
 import base.corelibrary.presentation._baseclasses.BaseBindingActivity
 import com.github.icarohs7.unoxandroidarch.extensions.requestPermissions
 import com.github.icarohs7.unoxandroidarch.extensions.startActivity
-import com.github.icarohs7.unoxandroidarch.presentation.fragments.BaseScopedFragment
 import com.github.icarohs7.unoxandroidarch.toplevel.FlashBar
 import com.github.icarohs7.unoxcore.extensions.coroutines.job
 import com.google.android.gms.vision.barcode.Barcode
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancelChildren
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.channels.ReceiveChannel
 import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import splitties.init.appCtx
 import splitties.resources.appStr
@@ -24,6 +28,8 @@ import splitties.resources.str
 import timber.log.Timber
 
 class BarcodeReadingActivity : BaseBindingActivity<ActivityBarcodeReadingBinding>() {
+    private val barcodeScope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
+
     override fun onBindingCreated(savedInstanceState: Bundle?) {
         super.onBindingCreated(savedInstanceState)
         setSupportActionBar(binding.toolbar)
@@ -39,16 +45,16 @@ class BarcodeReadingActivity : BaseBindingActivity<ActivityBarcodeReadingBinding
                 .getFlow()
                 .onEach { processBarcode(it) }
                 .catch { Timber.e(it) }
-                .launchInScope()
+                .launchIn(barcodeScope)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        barcodeScope.job.cancelChildren()
     }
 
     private fun processBarcode(barcode: Barcode) {
         _barcodeChannel.offer(Tuple2(this, barcode))
-    }
-
-    override fun onStop() {
-        job.cancelChildren()
-        super.onStop()
     }
 
     override fun getLayout(): Int {
@@ -60,12 +66,12 @@ class BarcodeReadingActivity : BaseBindingActivity<ActivityBarcodeReadingBinding
         private val _barcodeChannel by lazy { Channel<Tuple2<BarcodeReadingActivity, Barcode>>(Channel.CONFLATED) }
         val barcodeChannel: ReceiveChannel<Tuple2<BarcodeReadingActivity, Barcode>> by lazy { _barcodeChannel }
 
-        suspend fun start(fragment: BaseScopedFragment) {
+        suspend fun start(fragment: Fragment) {
             if (!requestCameraPermission(fragment)) showNoCameraPermissionError()
             else appCtx.startActivity<BarcodeReadingActivity>()
         }
 
-        private suspend fun requestCameraPermission(fragment: BaseScopedFragment): Boolean {
+        private suspend fun requestCameraPermission(fragment: Fragment): Boolean {
             return fragment.requestPermissions(Manifest.permission.CAMERA)
         }
 
