@@ -1,11 +1,11 @@
 package base.dataresources.data.db
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Update
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.emptyFlow
 
 /** Base dao class with insert and delete methods */
 interface BaseDao<T> {
@@ -67,8 +67,8 @@ interface BaseDao<T> {
     suspend fun eraseTable(): Unit = Unit
 
     /**
-     * Get a liveData emitting the
+     * Get a flow emitting the
      * latest values from the given table
      */
-    fun liveData(): LiveData<List<T>> = MutableLiveData()
+    fun flow(): Flow<List<T>> = emptyFlow()
 }
