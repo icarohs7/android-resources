@@ -2,6 +2,12 @@ package base.dialogresources.domain
 
 import android.app.Dialog
 import base.dialogresources.presentation.dialogs.BaseMaterialDialog
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.CoroutineStart
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
+import kotlin.coroutines.CoroutineContext
+import kotlin.coroutines.EmptyCoroutineContext
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 
@@ -28,3 +34,13 @@ suspend fun <D : Dialog> D.showAndAwaitDismiss() {
         show()
     }
 }
+
+/**
+ * Launch a coroutine tied to the lifecycle
+ * of the given dialog
+ */
+fun BaseMaterialDialog<*>.launch(
+        context: CoroutineContext = EmptyCoroutineContext,
+        start: CoroutineStart = CoroutineStart.DEFAULT,
+        block: suspend CoroutineScope.() -> Unit
+): Job = lifecycleScope.launch(context, start, block)
