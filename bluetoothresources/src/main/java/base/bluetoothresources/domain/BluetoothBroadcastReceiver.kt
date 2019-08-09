@@ -27,12 +27,12 @@ class BluetoothBroadcastReceiver : BroadcastReceiver() {
     }
 
     private fun onLowEnergyDeviceConnected(intent: Intent) {
-        val device = intent.getParcelableExtra<BluetoothDevice>(BluetoothDevice.EXTRA_DEVICE)
+        val device = intent.getParcelableExtra<BluetoothDevice>(BluetoothDevice.EXTRA_DEVICE) ?: return
         dataFlow.offer(Event.DeviceConnected(device))
     }
 
     private fun onLowEnergyDeviceDisconnected(intent: Intent) {
-        val device = intent.getParcelableExtra<BluetoothDevice>(BluetoothDevice.EXTRA_DEVICE)
+        val device = intent.getParcelableExtra<BluetoothDevice>(BluetoothDevice.EXTRA_DEVICE) ?: return
         dataFlow.offer(Event.DeviceDisconnected(device))
     }
 
