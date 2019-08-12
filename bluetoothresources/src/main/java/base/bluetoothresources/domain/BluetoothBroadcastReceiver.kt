@@ -5,7 +5,7 @@ import android.bluetooth.BluetoothDevice
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import base.corelibrary.domain.extensions.coroutines.PublishDataFlow
+import base.corelibrary.domain.extensions.coroutines.PublishSubjectFlow
 import kotlinx.coroutines.flow.Flow
 
 class BluetoothBroadcastReceiver : BroadcastReceiver() {
@@ -37,7 +37,7 @@ class BluetoothBroadcastReceiver : BroadcastReceiver() {
     }
 
     companion object {
-        private val dataFlow by lazy { PublishDataFlow<Event>() }
+        private val dataFlow by lazy { PublishSubjectFlow<Event>() }
         val eventFlow: Flow<Event> get() = dataFlow.flow()
     }
 
