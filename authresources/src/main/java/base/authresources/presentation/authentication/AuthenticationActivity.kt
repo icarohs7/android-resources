@@ -79,7 +79,7 @@ abstract class AuthenticationActivity(
      * Called when the user authentication is successful
      */
     open suspend fun onLoginSuccess(type: AuthenticationType) {
-        CoreNavigation.mainActivity()
+        CoreNavigation.splashActivity()
     }
 
     /**
