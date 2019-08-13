@@ -10,7 +10,7 @@
 
         <variable
             name="text"
-            type="androidx.lifecycle.MutableLiveData&lt;String&gt;" />
+            type="androidx.lifecycle.LiveData&lt;String&gt;" />
     </data>
 
     <LinearLayout
