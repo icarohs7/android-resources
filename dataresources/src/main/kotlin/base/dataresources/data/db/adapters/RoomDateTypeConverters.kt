@@ -9,12 +9,12 @@ import java.util.Date
  */
 class RoomDateTypeConverters {
     @TypeConverter
-    fun fromDate(value: Date): Long {
-        return value.time
+    fun fromDate(value: Date?): Long {
+        return value?.time ?: -1
     }
 
     @TypeConverter
-    fun toDate(value: Long): Date {
-        return Date(value)
+    fun toDate(value: Long): Date? {
+        return if (value < 0) null else Date(value)
     }
 }
