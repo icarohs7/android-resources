@@ -5,7 +5,6 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Update
-import kotlinx.coroutines.flow.Flow
 
 /** Base dao class with insert and delete methods */
 interface BaseDao<T> {
@@ -71,10 +70,4 @@ interface BaseDao<T> {
      * latest values from the given table
      */
     fun liveData(): LiveData<List<T>>
-
-    /**
-     * Get a flow emitting the
-     * latest values from the given table
-     */
-    fun flow(): Flow<List<T>>
 }
