@@ -1,5 +1,6 @@
 package base.drawerresources.domain.extensions
 
+import arrow.core.Try
 import base.corelibrary.R
 import base.corelibrary.databinding.NavHeaderBinding
 import co.zsmb.materialdrawerkt.builders.DrawerBuilderKt
@@ -28,6 +29,16 @@ fun Drawer.updateBadge(itemId: Int, badgeText: String?) {
 fun Drawer.updateIntBadgeNoZero(itemId: Int, number: Int) {
     if (number > 0) updateBadge(itemId, "$number")
     else updateBadge(itemId, null)
+}
+
+fun Drawer.updateIsEnabled(itemId: Int, isEnabled: Boolean): Try<Unit> {
+    return updateItem(itemId) { withEnabled(isEnabled) }
+}
+
+fun Drawer.updateItem(itemId: Int, block: IDrawerItem<*, *>.() -> Any): Try<Unit> {
+    return Try {
+        updateItem(this[itemId]!!.block() as IDrawerItem<*, *>)
+    }
 }
 
 fun DrawerBuilderKt.defaultHeader() {
