@@ -2,14 +2,11 @@ package base.bluetoothresources.domain
 
 import android.bluetooth.BluetoothDevice
 import arrow.core.Try
-import arrow.core.getOrElse
 import arrow.core.orNull
+import com.github.icarohs7.unoxcore.extensions.getOrElse
 import com.github.icarohs7.unoxcore.tryBg
 import com.sirvar.bluetoothkit.BluetoothKit
 import com.sirvar.bluetoothkit.BluetoothKitSocketInterface
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.withTimeout
 import java.io.Closeable
 import java.util.UUID
@@ -30,20 +27,7 @@ class BluetoothHelper : Closeable {
     /**
      * Whether there's a device connected or not
      */
-    var isConnected = false
-        private set
-
-    init {
-        BluetoothBroadcastReceiver
-                .eventFlow
-                .onEach { event ->
-                    when (event) {
-                        BluetoothBroadcastReceiver.Event.BluetoothOff -> isConnected = false
-                        BluetoothBroadcastReceiver.Event.BluetoothTurningOff -> isConnected = false
-                        is BluetoothBroadcastReceiver.Event.DeviceDisconnected -> isConnected = false
-                    }
-                }.launchIn(GlobalScope)
-    }
+    val isConnected get() = bluetoothKit.isConnected()
 
     /**
      * Connect to the given bluetooth device, changing the state
@@ -58,8 +42,7 @@ class BluetoothHelper : Closeable {
             timeoutMillis: Long = 5000L
     ): Try<Boolean> = tryBg {
         close()
-        isConnected = Try { withTimeout(timeoutMillis) { bluetoothKit.connect(device, uuid) } }.getOrElse { false }
-        isConnected
+        Try { withTimeout(timeoutMillis) { bluetoothKit.connect(device, uuid) } }.getOrElse(false)
     }
 
     /**
