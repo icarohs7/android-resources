@@ -1,4 +1,4 @@
-package base.bluetoothprinterresources.domain;
+package base.bluetoothprinterresources.domain.extensions;
 
 import android.graphics.Bitmap;
 

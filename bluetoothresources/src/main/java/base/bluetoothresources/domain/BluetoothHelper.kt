@@ -101,5 +101,6 @@ class BluetoothHelper : Closeable {
      */
     override fun close() {
         Try { bluetoothKit.disconnect() }
+        Try { connectedDeviceSocket?.close() }
     }
 }
