@@ -18,7 +18,7 @@ import java.util.UUID
  * Helper wrapping some utilities used to
  * interact with bluetooth devices
  */
-object BluetoothHelper : Closeable {
+class BluetoothHelper : Closeable {
     private val defaultUUID = UUID.fromString("00001101-0000-1000-8000-00805f9b34fb")
     private val bluetoothKit by lazy { BluetoothKit() }
     /**
