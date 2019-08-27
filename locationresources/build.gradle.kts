@@ -15,6 +15,8 @@ dependencies {
     api(project(":corelibrary"))
 
     implementation(AndroidDeps.smartLocation)
+    api(AndroidDeps.googlePlayServicesLocation)
+    api(AndroidDeps.coroutinesPlayServices)
 
     AndroidKaptDeps.core.forEach(::kapt)
 }

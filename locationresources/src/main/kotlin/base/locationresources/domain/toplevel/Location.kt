@@ -2,14 +2,18 @@ package base.locationresources.domain.toplevel
 
 import android.Manifest
 import android.location.Location
-import android.location.LocationListener
-import android.os.Bundle
 import androidx.annotation.RequiresPermission
 import arrow.core.Try
+import com.google.android.gms.location.LocationCallback
+import com.google.android.gms.location.LocationRequest
+import com.google.android.gms.location.LocationResult
+import com.google.android.gms.location.LocationServices
 import io.nlopez.smartlocation.SmartLocation
+import kotlinx.coroutines.channels.awaitClose
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.channelFlow
+import kotlinx.coroutines.tasks.await
 import splitties.init.appCtx
-import splitties.systemservices.locationManager
-import kotlin.coroutines.Continuation
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 
@@ -36,36 +40,29 @@ suspend fun getCurrentLocation(): Try<Location> {
 }
 
 /**
- * Request the location from the given provider
- * ### Requires either [android.Manifest.permission.ACCESS_COARSE_LOCATION] or [android.Manifest.permission.ACCESS_FINE_LOCATION]
+ * Flow from a stream of location emissions from
+ * the fused location API.
+ * [Source][https://gist.github.com/LouisCAD/0a648e2b49942acd2acbb693adfaa03a]
  */
-@RequiresPermission(anyOf = [Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION])
-suspend fun getLocationFromProvider(provider: String): Location? {
-    return suspendCoroutine { continuation ->
-        if (!locationManager.isProviderEnabled(provider)) {
-            continuation.resume(null)
-            return@suspendCoroutine
-        }
-
-        val listener = getLocationListener(continuation)
-        locationManager.requestSingleUpdate(provider, listener, null)
-    }
+inline fun fusedLocationFlow(configLocationRequest: LocationRequest.() -> Unit): Flow<Location> {
+    return fusedLocationFlow(LocationRequest.create().apply(configLocationRequest))
 }
 
 /**
- * Location listener using a coroutine continuation to return
- * the location
+ * Flow from a stream of location emissions from
+ * the fused location API.
+ * [Source][https://gist.github.com/LouisCAD/0a648e2b49942acd2acbb693adfaa03a]
  */
-private fun getLocationListener(continuation: Continuation<Location>): LocationListener {
-    return object : LocationListener {
-        override fun onLocationChanged(location: Location) {
-            continuation.resume(location)
+fun fusedLocationFlow(
+        locationRequest: LocationRequest
+): Flow<Location> = channelFlow {
+    val locationClient = LocationServices.getFusedLocationProviderClient(appCtx)
+    val locationCallback = object : LocationCallback() {
+        override fun onLocationResult(result: LocationResult) {
+            result.locations.forEach { runCatching { offer(it) } }
         }
-
-        override fun onStatusChanged(provider: String, status: Int, extras: Bundle) {}
-
-        override fun onProviderEnabled(provider: String) {}
-
-        override fun onProviderDisabled(provider: String) {}
     }
+    send(locationClient.lastLocation.await())
+    locationClient.requestLocationUpdates(locationRequest, locationCallback, null).await()
+    awaitClose { locationClient.removeLocationUpdates(locationCallback) }
 }
