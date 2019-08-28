@@ -11,6 +11,8 @@ import com.afollestad.materialdialogs.callbacks.onShow
 import com.afollestad.materialdialogs.customview.customView
 import com.github.icarohs7.unoxcore.extensions.coroutines.cancelCoroutineScope
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.flow.Flow
@@ -51,7 +53,7 @@ abstract class BaseMaterialDialog<T : ViewDataBinding>(
     abstract suspend fun onCreateBinding()
 
     fun show() {
-        dialog.show()
+        GlobalScope.launch(Dispatchers.Main) { dialog.show() }
     }
 
     open fun onShow() {
