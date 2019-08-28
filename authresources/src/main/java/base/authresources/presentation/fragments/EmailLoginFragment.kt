@@ -1,8 +1,5 @@
 package base.authresources.presentation.fragments
 
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import base.authresources.R
 import base.authresources.databinding.FragmentEmailLoginBinding
@@ -11,8 +8,8 @@ import base.authresources.domain.AuthenticationType
 class EmailLoginFragment : BaseLoginFragment<FragmentEmailLoginBinding>() {
     private val viewmodel: EmailLoginViewModel by viewModels()
 
-    override fun onBindingCreated(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) {
-        super.onBindingCreated(inflater, container, savedInstanceState)
+    override fun onBindingCreated() {
+        super.onBindingCreated()
         binding.email = viewmodel.email
         binding.setLoginHandler {
             val email = viewmodel.email.value ?: return@setLoginHandler
