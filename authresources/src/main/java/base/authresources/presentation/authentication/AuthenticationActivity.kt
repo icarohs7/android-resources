@@ -13,6 +13,7 @@ import base.authresources.domain.Suspend
 import base.authresources.presentation.fragments.EmailLoginFragment
 import base.authresources.presentation.fragments.PinLoginFragment
 import base.authresources.presentation.fragments.UserPassLoginFragment
+import base.corelibrary.Corelibrary
 import base.corelibrary.presentation.CoreNavigation
 import base.corelibrary.presentation._baseclasses.BaseBindingActivity
 import com.github.icarohs7.unoxandroidarch.toplevel.FlashBar
@@ -100,6 +101,7 @@ abstract class AuthenticationActivity(
                 """.trimMargin(),
                 duration = 3500
         )
+        exception?.let { Corelibrary.log("InvalidLogin", "$it") }
     }
 
     /**
