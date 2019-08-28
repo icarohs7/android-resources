@@ -2,6 +2,8 @@ package base.authresources.presentation.fragments
 
 import androidx.core.view.isGone
 import androidx.databinding.ViewDataBinding
+import arrow.core.Failure
+import arrow.core.Try
 import base.authresources.domain.AuthenticationType
 import base.authresources.presentation.authentication.AuthenticationActivity
 import base.authresources.presentation.authentication.loadFragment
@@ -21,7 +23,12 @@ abstract class BaseLoginFragment<DB : ViewDataBinding> : BaseBindingFragment<DB>
                     stateView.displayLoadingState()
                     stateView.hideKeyboard()
 
-                    handler(type)
+                    val result = Try { handler(type) }
+                    if (result is Failure) {
+                        stateView.hideStates()
+                        onLoginError(type, result.exception)
+                        return@with
+                    }
 
                     when (User.isLogged()) {
                         true -> with(binding) {

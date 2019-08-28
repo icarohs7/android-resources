@@ -85,17 +85,19 @@ abstract class AuthenticationActivity(
     /**
      * Called when an authentication error happens
      */
-    open suspend fun onLoginError(type: AuthenticationType) {
-        showDefaultAuthErrorMessage()
+    open suspend fun onLoginError(type: AuthenticationType, exception: Throwable? = null) {
+        showDefaultAuthErrorMessage(exception)
     }
 
     /**
      * Show the default message used to tell the user
      * the authentication process failed
      */
-    fun showDefaultAuthErrorMessage() {
+    fun showDefaultAuthErrorMessage(exception: Throwable? = null) {
         FlashBar.error(
-                "Ocorreu um erro ao tentar se autenticar, verifique suas credenciais e sua conexão.",
+                """Ocorreu um erro ao tentar se autenticar, verifique suas credenciais e sua conexão.
+                    |${if (exception != null) "Erro ${exception::class.simpleName}" else ""}
+                """.trimMargin(),
                 duration = 3500
         )
     }
