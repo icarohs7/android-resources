@@ -32,7 +32,7 @@ abstract class AuthenticationActivity(
         binding.txtVersion.text = appVersion
     }
 
-    override fun afterInitialSetup() {
+    override fun afterInitialSetup(savedInstanceState: Bundle?) {
         super.afterInitialSetup()
         binding.layoutButtonPanel.children.firstOrNull()?.performClick()
     }
