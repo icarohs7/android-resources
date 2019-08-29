@@ -33,7 +33,7 @@ abstract class AuthenticationActivity(
     }
 
     override fun afterInitialSetup(savedInstanceState: Bundle?) {
-        super.afterInitialSetup()
+        super.afterInitialSetup(savedInstanceState)
         binding.layoutButtonPanel.children.firstOrNull()?.performClick()
     }
 
