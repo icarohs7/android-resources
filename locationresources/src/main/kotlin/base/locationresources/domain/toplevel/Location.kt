@@ -20,11 +20,7 @@ import splitties.systemservices.locationManager
  * Get the current location of the user
  */
 suspend fun getCurrentLocation(): Try<Location> {
-    return Try {
-        getLocationFlow { }
-                .first()
-                ?: throw IllegalStateException("Couldn't get location")
-    }
+    return Try { getLocationFlow { }.first() }
 }
 
 /**
@@ -32,7 +28,7 @@ suspend fun getCurrentLocation(): Try<Location> {
  * the fused location API.
  * [Source][https://gist.github.com/LouisCAD/0a648e2b49942acd2acbb693adfaa03a]
  */
-inline fun getLocationFlow(configLocationRequest: LocationRequest.() -> Unit): Flow<Location?> {
+inline fun getLocationFlow(configLocationRequest: LocationRequest.() -> Unit): Flow<Location> {
     return getLocationFlow(LocationRequest.create().apply(configLocationRequest))
 }
 
@@ -41,12 +37,11 @@ inline fun getLocationFlow(configLocationRequest: LocationRequest.() -> Unit): F
  * the fused location API.
  * [Source][https://gist.github.com/LouisCAD/0a648e2b49942acd2acbb693adfaa03a]
  */
-fun getLocationFlow(locationRequest: LocationRequest): Flow<Location?> {
+fun getLocationFlow(locationRequest: LocationRequest): Flow<Location> {
     return callbackFlow {
         if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
                 && !locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
-            send(null)
-            return@callbackFlow
+            error("Location provider is disabled")
         }
 
         val locationClient = LocationServices.getFusedLocationProviderClient(appCtx)
