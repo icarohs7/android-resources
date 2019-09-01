@@ -13,5 +13,12 @@ unoxAndroid {
 dependencies {
     api(project(":corelibrary"))
 
+    api(AndroidDeps.lithoCore)
+    api(AndroidDeps.lithoWidget)
+    api(AndroidDeps.lithoSectionsCore)
+    api(AndroidDeps.lithoSectionsWidget)
+
     AndroidKaptDeps.core.forEach(::kapt)
+    kapt(AndroidKaptDeps.litho)
+    kapt(AndroidKaptDeps.lithoSections)
 }
