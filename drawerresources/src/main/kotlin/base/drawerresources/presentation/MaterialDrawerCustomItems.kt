@@ -7,6 +7,7 @@ import base.corelibrary.R
 import base.corelibrary.domain.extensions.coroutines.launch
 import base.drawerresources.domain.extensions.id
 import base.drawerresources.domain.extensions.updateIntBadgeNoZero
+import base.drawerresources.domain.extensions.updateIsEnabled
 import co.zsmb.materialdrawerkt.builders.Builder
 import co.zsmb.materialdrawerkt.draweritems.badge
 import co.zsmb.materialdrawerkt.draweritems.badgeable.PrimaryDrawerItemKt
@@ -51,7 +52,10 @@ fun Builder.synchronizeButton(
     }
 
     badgeTextFlow.onEach { number ->
-        drawer()?.updateIntBadgeNoZero(R.id.menu_sync, number)
+        drawer()?.apply {
+            updateIntBadgeNoZero(R.id.menu_sync, number)
+            updateIsEnabled(R.id.menu_sync, number > 0)
+        }
     }.launchIn(activity.lifecycleScope)
 
     return item
