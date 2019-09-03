@@ -4,7 +4,6 @@ import android.os.Build
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import base.dataresources.data.db.TestDatabase
-import base.dataresources.data.db.flowable
 import base.dataresources.data.entities.TestClass
 import base.dataresources.data.repository.TestRepository
 import com.github.icarohs7.unoxandroidarch.Injector
@@ -126,50 +125,6 @@ class DBAndRepositoryTest {
         val e2 = TestClass(2, "NANI!?")
         val e3 = TestClass(3, "ZA WARUDO!")
         all shouldEqual listOf(e1, e2, e3)
-    }
-
-    @Test
-    fun `should get flowable of repository`() {
-        val flowable = testRepository.liveData()
-        val subscriber = TestSubscriber.create<List<TestClass>>()
-        flowable.subscribe(subscriber)
-
-        assertStoredItemCount(0)
-        runBlocking { delay(400) }
-        subscriber.values() shouldContain emptyList()
-        subscriber.assertValueCount(1)
-
-        insertMockData()
-        assertStoredItemCount(3)
-        val e1 = TestClass(1, "Omai wa mou shindeiru!")
-        val e2 = TestClass(2, "NANI!?")
-        val e3 = TestClass(3, "ZA WARUDO!")
-        runBlocking { delay(400) }
-        subscriber.values() shouldContain listOf(e1, e2, e3)
-    }
-
-    @Test
-    fun `should get flowable with map of repository`() {
-        val flowable = testRepository.liveData { map { TestClass(it.id, "${it.id * 10}") } }
-        val subscriber = TestSubscriber.create<List<TestClass>>()
-        flowable.subscribe(subscriber)
-
-        assertStoredItemCount(0)
-        runBlocking { delay(400) }
-        subscriber.values() shouldContain emptyList()
-        subscriber.assertValueCount(1)
-
-        insertMockData()
-        assertStoredItemCount(3)
-        val e1 = TestClass(1, "Omai wa mou shindeiru!")
-        val e2 = TestClass(2, "NANI!?")
-        val e3 = TestClass(3, "ZA WARUDO!")
-
-        val m1 = TestClass(1, "10")
-        val m2 = TestClass(2, "20")
-        val m3 = TestClass(3, "30")
-        runBlocking { delay(400) }
-        subscriber.values() shouldContain listOf(m1, m2, m3)
     }
 
     private fun insertMockData() {
