@@ -1,3 +1,5 @@
+include(":corelibrary")
+
 include(
         ":animationresources",
         ":appupdateresources",
