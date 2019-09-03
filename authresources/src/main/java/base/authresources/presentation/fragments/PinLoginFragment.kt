@@ -1,5 +1,8 @@
 package base.authresources.presentation.fragments
 
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import base.authresources.R
 import base.authresources.databinding.FragmentPinLoginBinding
@@ -8,8 +11,8 @@ import base.authresources.domain.AuthenticationType
 class PinLoginFragment : BaseLoginFragment<FragmentPinLoginBinding>() {
     private val length by lazy { arguments?.getInt(LENGTH_ARG) ?: 5 }
 
-    override fun onBindingCreated() {
-        super.onBindingCreated()
+    override fun onBindingCreated(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) {
+        super.onBindingCreated(inflater, container, savedInstanceState)
         setupBinding()
     }
 
