@@ -11,11 +11,17 @@ import com.google.android.gms.vision.barcode.Barcode
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.Flow
 
+/**
+ * @param onBarcodeReaded: Callback invoked for each barcode read. Return true to stop reading
+ */
 fun Fragment.readBarcode(onBarcodeReaded: suspend (Tuple2<BarcodeReadingActivity, Barcode>) -> Boolean): Job {
     return launch {
         BarcodeReadingActivity.start(this@readBarcode)
         BarcodeReadingActivity.barcodeChannel.forEach {
-            if (onBarcodeReaded(it)) return@forEach
+            if (onBarcodeReaded(it)) {
+                it.a.finish()
+                return@forEach
+            }
         }
     }
 }
