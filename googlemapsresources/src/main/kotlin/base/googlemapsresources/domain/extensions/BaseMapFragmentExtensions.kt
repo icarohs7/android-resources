@@ -6,3 +6,7 @@ import com.google.android.gms.maps.GoogleMap
 suspend fun BaseMapFragment.awaitMap(): GoogleMap {
     return mapView.awaitMap()
 }
+
+fun BaseMapFragment.withMap(callback: GoogleMap.() -> Unit) {
+    mapView.getMapAsync(callback)
+}
