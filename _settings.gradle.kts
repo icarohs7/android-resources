@@ -1,0 +1,27 @@
+include(
+        ":animationresources",
+        ":appupdateresources",
+        ":authresources",
+        ":barcoderesources",
+        ":bluetoothprinterresources",
+        ":bluetoothresources",
+        ":bottomsheetresources",
+        ":currencyinputresources",
+        ":dataresources",
+        ":dialogresources",
+        ":domaindefinitionresources",
+        ":drawableresources",
+        ":drawerresources",
+        ":fabmenuresources",
+        ":facebookauthresources",
+        ":firebasecoreresources",
+        ":fluxarchresources",
+        ":formresources",
+        ":googlemapsresources",
+        ":imageloadingresources",
+        ":locationresources",
+        ":maskedittextresources",
+        ":swiperevealresources"
+)
+
+setKotlinPluginsVersion()
