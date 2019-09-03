@@ -19,3 +19,9 @@ dependencies {
     AndroidKaptDeps.core.forEach(::kapt)
     AndroidKaptDeps.core.forEach(::kaptTest)
 }
+
+setupJacoco {
+    sourceDirectories.setFrom(files(
+            "src/main/kotlin"
+    ))
+}

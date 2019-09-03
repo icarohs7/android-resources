@@ -22,3 +22,9 @@ dependencies {
     kapt(AndroidKaptDeps.litho)
     kapt(AndroidKaptDeps.lithoSections)
 }
+
+setupJacoco {
+    sourceDirectories.setFrom(files(
+            "src/main/kotlin"
+    ))
+}
