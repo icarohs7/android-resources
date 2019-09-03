@@ -11,7 +11,7 @@ unoxAndroid {
 }
 
 dependencies {
-    api(project(":resmodules:bluetoothresources"))
+    api(res(":bluetooth", project))
 
     AndroidKaptDeps.core.forEach(::kapt)
 }

@@ -11,7 +11,7 @@ unoxAndroid {
 }
 
 dependencies {
-    api(project(":resmodules:authresources"))
+    api(res(":auth", project))
 
     api(AndroidDeps.simpleAuthFacebook)
 

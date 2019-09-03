@@ -12,7 +12,7 @@ unoxAndroid {
 
 dependencies {
     api(project(":corelibrary"))
-    api(res("location"))
+    api(res("location", project))
 
     api(AndroidDeps.googlePlayServicesMaps)
 

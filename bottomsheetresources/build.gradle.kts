@@ -11,7 +11,7 @@ unoxAndroid {
 }
 
 dependencies {
-    api(project(":resmodules:dialogresources"))
+    api(res(":dialog", project))
 
     api(AndroidDeps.materialDialogsBottomSheets)
 
