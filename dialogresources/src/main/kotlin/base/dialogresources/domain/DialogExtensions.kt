@@ -20,6 +20,12 @@ inline fun <D : Dialog, T> D.showWhileRunning(operation: D.() -> T): T {
     }
 }
 
+inline fun <T : BaseMaterialDialog<*>> T.show(block: T.() -> Unit): T {
+    block()
+    show()
+    return this
+}
+
 suspend inline fun BaseMaterialDialog<*>.awaitDismiss(): Unit = dialog.awaitDismiss()
 suspend fun <D : Dialog> D.awaitDismiss() {
     suspendCoroutine<Unit> { cont ->
