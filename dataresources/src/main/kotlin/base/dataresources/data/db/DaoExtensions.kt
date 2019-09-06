@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.map
  * latest values from the given table
  */
 fun <T> BaseDao<T>.flow(): Flow<List<T>> {
-    return liveData().asFlow(null)
+    return liveData().asFlow()
 }
 
 /**
