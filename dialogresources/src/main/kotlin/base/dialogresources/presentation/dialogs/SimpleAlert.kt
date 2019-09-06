@@ -13,8 +13,8 @@ fun Context.showAlert(title: String? = null, message: String? = null): MaterialD
 
 fun Context.showAlert(titleRes: Int? = null, messageRes: Int? = null): MaterialDialog {
     return MaterialDialog(this).show {
-        title(titleRes)
-        message(messageRes)
+        titleRes?.let { title(it) }
+        messageRes?.let { message(it) }
         positiveButton { }
     }
 }
