@@ -42,4 +42,3 @@ def print_execution_report(successes: List[str], total_time: float):
     print(f"{len(successes)} modules compiled in {total_time:.1f}s")
 
     print()
-    system("pause")
