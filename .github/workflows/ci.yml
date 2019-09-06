@@ -11,13 +11,20 @@ jobs:
           java-version: 1.8
       - name: Install
         run: |
+          sudo wget https://www.python.org/ftp/python/3.7.3/Python-3.7.3.tgz
+          sudo tar xzf Python-3.7.3.tgz
+          cd Python-3.7.3
+          sudo ./configure --enable-optimizations
+          sudo make altinstall
+          cd ..
           chmod +x gradlew
+          export GRADLE_USER_HOME=$(pwd)/.gradle
           mv _build.gradle.kts build.gradle.kts
           mv _settings.gradle.kts settings.gradle.kts
           git clone https://github.com/icarohs7/unox-android-corelibrary corelibrary
           git clone https://github.com/icarohs7/unox-buildsrc buildSrc
       - name: Build
         run: |
-          ./gradlew -Pcoverage -PrelativeResMod clean build jacocoRootReport --stacktrace -x lint
+          python3.7 assembleDebug_each_ci.py
       - name: Send coverage to codecov
         run: bash <(curl -s https://codecov.io/bash)
