@@ -1,29 +1,27 @@
 include(":corelibrary")
 
-include(
-        ":animationresources",
-        ":appupdateresources",
-        ":authresources",
-        ":barcoderesources",
-        ":bluetoothprinterresources",
-        ":bluetoothresources",
-        ":bottomsheetresources",
-        ":currencyinputresources",
-        ":dataresources",
-        ":dialogresources",
-        ":domaindefinitionresources",
-        ":drawableresources",
-        ":drawerresources",
-        ":fabmenuresources",
-        ":facebookauthresources",
-        ":firebasecoreresources",
-        ":fluxarchresources",
-        ":formresources",
-        ":googlemapsresources",
-        ":imageloadingresources",
-        ":locationresources",
-        ":maskedittextresources",
-        ":swiperevealresources"
-)
+include(":animationresources")
+include(":appupdateresources")
+include(":authresources")
+include(":barcoderesources")
+include(":bluetoothprinterresources")
+include(":bluetoothresources")
+include(":bottomsheetresources")
+include(":currencyinputresources")
+include(":dataresources")
+include(":dialogresources")
+include(":domaindefinitionresources")
+include(":drawableresources")
+include(":drawerresources")
+include(":fabmenuresources")
+include(":facebookauthresources")
+include(":firebasecoreresources")
+include(":fluxarchresources")
+include(":formresources")
+include(":googlemapsresources")
+include(":imageloadingresources")
+include(":locationresources")
+include(":maskedittextresources")
+include(":swiperevealresources")
 
 setKotlinPluginsVersion()

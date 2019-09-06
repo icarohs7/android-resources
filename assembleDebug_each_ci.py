@@ -1,6 +1,5 @@
-from typing import List
 from utils import execute_module_command, print_execution_report, get_gradle_modules
-import re
+import sys
 
 result = 0
 successes = []
@@ -22,7 +21,8 @@ for (index, module) in enumerate(modules):
     (result, cmd_time) = execute_module_command(command, index, modules)
 
     if result != 0:
-        break
+        print_execution_report(successes, total_time)
+        sys.exit(result)
 
     total_time += cmd_time
     successes.append(f"{module} in {cmd_time:.1f}s")
