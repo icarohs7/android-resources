@@ -1,6 +1,5 @@
 package base.dataresources.data.db
 
-import androidx.lifecycle.LiveData
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -65,12 +64,6 @@ interface BaseDao<T> {
      * Remove all items from the given table
      */
     suspend fun eraseTable()
-
-    /**
-     * Get a liveData emitting the
-     * latest values from the given table
-     */
-    fun liveData(): LiveData<List<T>>
 
     /**
      * Get a liveData emitting the
