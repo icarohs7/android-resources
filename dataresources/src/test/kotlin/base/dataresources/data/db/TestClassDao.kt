@@ -18,8 +18,5 @@ interface TestClassDao : BaseDao<TestClass> {
     suspend fun getById(id: Int): TestClass?
 
     @Query("SELECT * FROM `TestClass`")
-    override fun liveData(): LiveData<List<TestClass>>
-
-    @Query("SELECT * FROM `TestClass`")
     override fun flow(): Flow<List<TestClass>>
 }
