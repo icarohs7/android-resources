@@ -8,9 +8,6 @@ plugins {
     defaults.`android-module`
 }
 
-unoxAndroid {
-}
-
 dependencies {
     api(res(":dialog", project))
 

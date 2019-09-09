@@ -8,8 +8,6 @@ plugins {
     defaults.`android-module`
 }
 
-unoxAndroid {
-}
 
 dependencies {
     api(project(":corelibrary"))
