@@ -21,7 +21,6 @@ jobs:
           export GRADLE_USER_HOME=$(pwd)/.gradle
           mv _build.gradle.kts build.gradle.kts
           mv _settings.gradle.kts settings.gradle.kts
-          git clone https://github.com/icarohs7/unox-android-corelibrary corelibrary
           git clone https://github.com/icarohs7/unox-buildsrc buildSrc
       - name: Build
         run: |
