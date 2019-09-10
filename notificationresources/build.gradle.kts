@@ -9,8 +9,7 @@ plugins {
 }
 
 dependencies {
-    compileOnly("javax.annotation:javax.annotation-api:1.3.2")
-    api(res("corext"))
+    api(res("corext", project))
 
     api(AndroidDeps.pugNotification)
 

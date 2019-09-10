@@ -9,8 +9,7 @@ plugins {
 }
 
 dependencies {
-    compileOnly("javax.annotation:javax.annotation-api:1.3.2") //TODO remove and see what happens
-    api(res("corext"))
+    api(res("corext", project))
 
     implementation(AndroidDeps.timber)
     implementation(AndroidDeps.splittiesAppctx)

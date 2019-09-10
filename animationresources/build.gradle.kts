@@ -9,7 +9,7 @@ plugins {
 }
 
 dependencies {
-    api(res("corext"))
+    api(res("corext", project))
 
     api(AndroidDeps.viewAnimator)
 
@@ -21,4 +21,3 @@ setupJacoco {
             "src/main/kotlin"
     ))
 }
-

@@ -9,7 +9,7 @@ plugins {
 }
 
 dependencies {
-    api(res("corext"))
+    api(res("corext", project))
     api(Deps.coroutinesCore)
 
     api(AndroidDeps.roomKtx)

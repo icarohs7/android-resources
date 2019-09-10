@@ -8,10 +8,10 @@ total_time = 0
 
 
 def build_module_command(module_name: str) -> str:
-    assemble_cmd = "build"
+    assemble_cmd = "assembleDebug"
     test_cmd = "testDebugUnitTest"
     flags = "-x lint -PrelativeResMod -Pci -Pcoverage --stacktrace"
-    return f"./gradlew {module_name}:clean {module_name}:{assemble_cmd} {flags}"
+    return f"gradle {module_name}:clean {module_name}:{assemble_cmd} {module_name}:{test_cmd} {flags}"
 
 
 modules = [m for m in get_gradle_modules()]
