@@ -23,8 +23,6 @@ https://codecov.io/gh/icarohs7/unox-android-resmodules)
 https://github.com/icarohs7/unox-android-resmodules/commits/master)
 [![GitHub issues](https://img.shields.io/github/issues/icarohs7/unox-android-resmodules.svg)](
 https://github.com/icarohs7/unox-android-resmodules/issues)
-[![GitHub tag](https://img.shields.io/github/tag/icarohs7/unox-android-resmodules.svg)](
-https://github.com/icarohs7/unox-android-resmodules/releases)
 [![GitHub forks](https://img.shields.io/github/forks/icarohs7/unox-android-resmodules.svg?style=social&label=Fork)](
 https://github.com/icarohs7/unox-android-resmodules/fork)
 [![GitHub stars](https://img.shields.io/github/stars/icarohs7/unox-android-resmodules.svg?style=social&label=Stars)](
