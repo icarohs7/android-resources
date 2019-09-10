@@ -9,7 +9,7 @@ plugins {
 }
 
 dependencies {
-    api(project(":corelibrary"))
+    api(res("corext"))
 
     api(AndroidDeps.quantum)
 //    implementation(AndroidDeps.quantumRx)

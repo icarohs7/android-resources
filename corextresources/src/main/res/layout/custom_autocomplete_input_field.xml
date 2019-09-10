@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="hint"
+            type="String" />
+
+        <variable
+            name="text"
+            type="androidx.lifecycle.MutableLiveData&lt;String&gt;" />
+
+        <variable
+            name="entries"
+            type="String[]" />
+
+        <variable
+            name="itemSelectedHandler"
+            type="android.widget.AdapterView.OnItemSelectedListener" />
+    </data>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layout_input"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@{ hint }">
+
+        <AutoCompleteTextView
+            android:id="@+id/edit_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:completionThreshold="@{ 999999 }"
+            android:text="@={ text }"
+            app:entries="@{ entries }"
+            app:onItemSelected="@{ itemSelectedHandler }" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+</layout>

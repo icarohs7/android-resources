@@ -9,7 +9,7 @@ plugins {
 }
 
 dependencies {
-    api(project(":corelibrary"))
+    api(res("corext"))
     api(res("location", project))
 
     api(AndroidDeps.googlePlayServicesMaps)

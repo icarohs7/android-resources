@@ -1,0 +1,57 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:colorBackground">@color/colorBackground</item>
+        <item name="colorOnBackground">@color/colorOnBackground</item>
+        <item name="colorSurface">@color/colorSurface</item>
+        <item name="colorOnSurface">@color/colorOnSurface</item>
+        <item name="colorError">@color/colorError</item>
+        <item name="colorOnError">@color/colorOnError</item>
+
+        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="colorOnPrimary">@color/colorOnPrimary</item>
+        <item name="colorOnSecondary">@color/colorOnSecondary</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryVariant</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryVariant</item>
+        <item name="colorSecondary">@color/colorSecondary</item>
+        <item name="colorSecondaryVariant">@color/colorSecondaryVariant</item>
+
+        <item name="actionOverflowButtonStyle">@style/Widget.App.ActionButton.Overflow</item>
+        <item name="bottomNavigationStyle">@style/Widget.App.BottomNavigationView</item>
+        <item name="textInputStyle">@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox</item>
+        <item name="materialCardViewStyle">@style/Widget.App.MaterialCardView</item>
+
+        <item name="android:fitsSystemWindows">true</item>
+    </style>
+
+    <style name="Widget.App.ActionButton.Overflow" parent="@style/Widget.AppCompat.ActionButton.Overflow">
+        <item name="android:tint">#fff</item>
+    </style>
+
+    <style name="Widget.App.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="itemIconTint">@color/bottom_bar_item</item>
+        <item name="itemTextColor">@color/bottom_bar_text</item>
+    </style>
+
+    <style name="Widget.App.MaterialCardView" parent="Widget.MaterialComponents.CardView">
+        <item name="cardBackgroundColor">@color/surface_button_color</item>
+    </style>
+
+    <style name="Widget.App.Toolbar" parent="Theme.MaterialComponents">
+        <item name="actionMenuTextColor">@color/colorOnPrimary</item>
+        <item name="android:elevation">0dp</item>
+        <item name="colorControlNormal">@color/colorOnPrimary</item>
+        <item name="titleTextColor">@color/colorOnPrimary</item>
+    </style>
+
+    <style name="FullscreenTheme" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="FullscreenTheme.Light" parent="AppTheme">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+</resources>
