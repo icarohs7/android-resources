@@ -1,5 +1,3 @@
-include(":corelibrary")
-
 include(":animationresources")
 include(":appupdateresources")
 include(":authresources")
@@ -7,6 +5,7 @@ include(":barcoderesources")
 include(":bluetoothprinterresources")
 include(":bluetoothresources")
 include(":bottomsheetresources")
+include(":coreresources")
 include(":corextresources")
 include(":currencyinputresources")
 include(":dataresources")
