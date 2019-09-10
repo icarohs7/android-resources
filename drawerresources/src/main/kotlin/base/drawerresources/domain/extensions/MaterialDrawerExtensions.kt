@@ -1,8 +1,8 @@
 package base.drawerresources.domain.extensions
 
 import arrow.core.Try
-import base.corelibrary.R
-import base.corelibrary.databinding.NavHeaderBinding
+import base.corextresources.R
+import base.corextresources.databinding.NavHeaderBinding
 import co.zsmb.materialdrawerkt.builders.DrawerBuilderKt
 import co.zsmb.materialdrawerkt.draweritems.badge
 import co.zsmb.materialdrawerkt.draweritems.badgeable.BadgeableKt

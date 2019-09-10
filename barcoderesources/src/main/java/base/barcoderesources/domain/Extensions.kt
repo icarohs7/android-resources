@@ -3,8 +3,8 @@ package base.barcoderesources.domain
 import androidx.fragment.app.Fragment
 import arrow.core.Tuple2
 import base.barcoderesources.presentation.BarcodeReadingActivity
-import base.corelibrary.domain.extensions.asFlow
-import base.corelibrary.domain.extensions.coroutines.launch
+import base.corextresources.domain.extensions.asFlow
+import base.corextresources.domain.extensions.coroutines.launch
 import com.bobekos.bobek.scanner.BarcodeView
 import com.github.icarohs7.unoxcore.extensions.coroutines.forEach
 import com.google.android.gms.vision.barcode.Barcode

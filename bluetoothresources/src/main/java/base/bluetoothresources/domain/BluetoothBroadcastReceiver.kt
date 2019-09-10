@@ -5,7 +5,7 @@ import android.bluetooth.BluetoothDevice
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import base.corelibrary.domain.extensions.coroutines.PublishSubjectFlow
+import base.corextresources.domain.extensions.coroutines.PublishSubjectFlow
 import kotlinx.coroutines.flow.Flow
 
 class BluetoothBroadcastReceiver : BroadcastReceiver() {

@@ -5,10 +5,10 @@ import android.text.InputType
 import arrow.core.None
 import arrow.core.Option
 import arrow.core.Some
-import base.corelibrary.databinding.CustomInputFieldBinding
-import base.corelibrary.domain.extensions.coroutines.launch
-import base.corelibrary.presentation.CoreNavigation
-import base.corelibrary.presentation._baseclasses.BaseBindingActivity
+import base.corextresources.databinding.CustomInputFieldBinding
+import base.corextresources.domain.extensions.coroutines.launch
+import base.corextresources.presentation.CoreNavigation
+import base.corextresources.presentation._baseclasses.BaseBindingActivity
 import base.domaindefinitionresources.R
 import base.domaindefinitionresources.data.entities.DomainHolder
 import base.domaindefinitionresources.databinding.ActivityDomainDefinitionBinding

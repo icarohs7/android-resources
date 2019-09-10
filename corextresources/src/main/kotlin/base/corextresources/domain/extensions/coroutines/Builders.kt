@@ -1,4 +1,4 @@
-package base.corelibrary.domain.extensions.coroutines
+package base.corextresources.domain.extensions.coroutines
 
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModel

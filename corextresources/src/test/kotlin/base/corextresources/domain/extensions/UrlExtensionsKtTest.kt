@@ -1,4 +1,4 @@
-package base.corelibrary.domain.extensions
+package base.corextresources.domain.extensions
 
 import arrow.core.Failure
 import com.github.icarohs7.unoxcore.extensions.orThrow

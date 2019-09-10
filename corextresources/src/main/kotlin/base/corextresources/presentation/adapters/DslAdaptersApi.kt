@@ -1,11 +1,11 @@
-package base.corelibrary.presentation.adapters
+package base.corextresources.presentation.adapters
 
 import android.widget.FrameLayout
 import androidx.annotation.MainThread
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
-import base.corelibrary.R
-import base.corelibrary.databinding.ItemEmptyBinding
+import base.corextresources.R
+import base.corextresources.databinding.ItemEmptyBinding
 
 /**
  * Builder used to create a multi purpose adapter

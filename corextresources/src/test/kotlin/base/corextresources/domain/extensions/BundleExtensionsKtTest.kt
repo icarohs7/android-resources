@@ -1,4 +1,4 @@
-package base.corelibrary.domain.extensions
+package base.corextresources.domain.extensions
 
 import android.os.Build
 import androidx.core.os.bundleOf

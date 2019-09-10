@@ -1,4 +1,4 @@
-package base.corelibrary.domain.extensions
+package base.corextresources.domain.extensions
 
 import com.google.android.material.chip.ChipGroup
 import kotlinx.coroutines.channels.awaitClose

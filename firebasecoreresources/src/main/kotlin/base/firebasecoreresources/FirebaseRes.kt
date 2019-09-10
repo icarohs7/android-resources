@@ -2,7 +2,7 @@ package base.firebasecoreresources
 
 import android.app.Activity
 import androidx.core.os.bundleOf
-import base.corelibrary.Corelibrary
+import base.corextresources.Corelibrary
 import com.github.icarohs7.unoxandroidarch.UnoxAndroidArch
 import com.github.icarohs7.unoxcore.UnoxCore
 import com.google.firebase.analytics.FirebaseAnalytics

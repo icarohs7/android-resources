@@ -1,11 +1,11 @@
-package base.corelibrary.domain.bindingadapters
+package base.corextresources.domain.bindingadapters
 
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import androidx.annotation.LayoutRes
 import androidx.databinding.BindingAdapter
-import base.corelibrary.domain.extensions.selectedItemIndex
+import base.corextresources.domain.extensions.selectedItemIndex
 
 @BindingAdapter("app:entries", "app:entryLayout", "app:includeEmpty", requireAll = false)
 fun AutoCompleteTextView.setItems(

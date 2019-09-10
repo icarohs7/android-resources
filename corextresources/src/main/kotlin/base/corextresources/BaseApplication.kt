@@ -1,11 +1,11 @@
-package base.corelibrary
+package base.corextresources
 
 import android.app.Activity
 import android.app.Application
 import android.content.pm.ActivityInfo
 import android.os.Bundle
 import androidx.annotation.CallSuper
-import base.corelibrary.domain.toplevel.kget
+import base.corextresources.domain.toplevel.kget
 import com.chuckerteam.chucker.api.ChuckerCollector
 import com.facebook.stetho.Stetho
 import com.github.icarohs7.unoxandroidarch.UnoxAndroidArch

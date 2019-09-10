@@ -13,9 +13,9 @@ import base.authresources.domain.Suspend
 import base.authresources.presentation.fragments.EmailLoginFragment
 import base.authresources.presentation.fragments.PinLoginFragment
 import base.authresources.presentation.fragments.UserPassLoginFragment
-import base.corelibrary.Corelibrary
-import base.corelibrary.presentation.CoreNavigation
-import base.corelibrary.presentation._baseclasses.BaseBindingActivity
+import base.corextresources.Corelibrary
+import base.corextresources.presentation.CoreNavigation
+import base.corextresources.presentation._baseclasses.BaseBindingActivity
 import com.github.icarohs7.unoxandroidarch.toplevel.FlashBar
 import splitties.views.onClick
 import splitties.views.textResource

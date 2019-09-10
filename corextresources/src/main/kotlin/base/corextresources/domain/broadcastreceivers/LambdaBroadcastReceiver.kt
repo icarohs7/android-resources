@@ -1,4 +1,4 @@
-package base.corelibrary.domain.broadcastreceivers
+package base.corextresources.domain.broadcastreceivers
 
 import android.content.BroadcastReceiver
 import android.content.Context

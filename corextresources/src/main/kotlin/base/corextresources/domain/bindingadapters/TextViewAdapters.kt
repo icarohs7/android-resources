@@ -1,4 +1,4 @@
-package base.corelibrary.domain.bindingadapters
+package base.corextresources.domain.bindingadapters
 
 import android.widget.TextView
 import androidx.core.view.isGone

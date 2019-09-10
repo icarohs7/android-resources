@@ -1,4 +1,4 @@
-package base.corelibrary.domain.extensions
+package base.corextresources.domain.extensions
 
 import android.text.InputType
 import android.widget.EditText

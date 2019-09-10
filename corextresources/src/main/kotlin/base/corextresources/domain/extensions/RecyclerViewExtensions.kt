@@ -1,8 +1,8 @@
-package base.corelibrary.domain.extensions
+package base.corextresources.domain.extensions
 
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
-import base.corelibrary.domain.callbacks.SimpleSwipeCallback
+import base.corextresources.domain.callbacks.SimpleSwipeCallback
 
 fun RecyclerView.onItemSwipe(onSwiped: (viewHolder: RecyclerView.ViewHolder, direction: Int) -> Unit) {
     val callback = object : SimpleSwipeCallback() {

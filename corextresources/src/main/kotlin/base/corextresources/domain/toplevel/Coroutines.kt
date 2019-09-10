@@ -1,4 +1,4 @@
-package base.corelibrary.domain.toplevel
+package base.corextresources.domain.toplevel
 
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow

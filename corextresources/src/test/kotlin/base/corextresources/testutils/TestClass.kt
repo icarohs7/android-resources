@@ -1,4 +1,4 @@
-package base.corelibrary.testutils
+package base.corextresources.testutils
 
 import kotlinx.serialization.Serializable
 

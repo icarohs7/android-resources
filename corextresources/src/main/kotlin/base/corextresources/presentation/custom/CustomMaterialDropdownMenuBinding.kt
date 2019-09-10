@@ -1,7 +1,7 @@
-package base.corelibrary.presentation.custom
+package base.corextresources.presentation.custom
 
-import base.corelibrary.databinding.CustomMaterialDropdownMenuBinding
-import base.corelibrary.domain.extensions.selectedItemIndex
+import base.corextresources.domain.extensions.selectedItemIndex
+import base.corextresources.databinding.CustomMaterialDropdownMenuBinding
 
 val CustomMaterialDropdownMenuBinding.selectedItem: String?
     get() = txtDropdown.text?.toString()

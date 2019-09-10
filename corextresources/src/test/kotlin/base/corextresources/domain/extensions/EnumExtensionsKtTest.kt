@@ -1,4 +1,4 @@
-package base.corelibrary.domain.extensions
+package base.corextresources.domain.extensions
 
 import org.junit.Test
 import se.lovef.assert.v1.shouldEqual

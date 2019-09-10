@@ -1,8 +1,7 @@
-package base.corelibrary.domain.extensions
+package base.corextresources.domain.extensions
 
-import base.corelibrary.testutils.TestClass
+import base.corextresources.testutils.TestClass
 import kotlinx.serialization.ImplicitReflectionSerializer
-import kotlinx.serialization.Serializable
 import org.junit.Test
 import se.lovef.assert.v1.shouldEqual
 

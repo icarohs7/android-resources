@@ -1,4 +1,4 @@
-package base.corelibrary
+package base.corextresources
 
 object Corelibrary {
     /**

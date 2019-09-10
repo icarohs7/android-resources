@@ -1,7 +1,7 @@
 package base.dialogresources.presentation.dialogs
 
 import android.content.Context
-import base.corelibrary.R
+import base.corextresources.R
 import splitties.resources.appColor
 import splitties.resources.appStr
 import splitties.views.backgroundColor

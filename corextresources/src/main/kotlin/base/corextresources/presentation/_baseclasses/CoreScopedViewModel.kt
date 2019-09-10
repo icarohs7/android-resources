@@ -1,4 +1,4 @@
-package base.corelibrary.presentation._baseclasses
+package base.corextresources.presentation._baseclasses
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

@@ -1,4 +1,4 @@
-package base.corelibrary.presentation._baseclasses
+package base.corextresources.presentation._baseclasses
 
 import androidx.lifecycle.viewModelScope
 import com.airbnb.mvrx.Async
@@ -10,7 +10,6 @@ import com.airbnb.mvrx.RealMvRxStateStore
 import com.airbnb.mvrx.Success
 import com.github.icarohs7.unoxandroidarch.UnoxAndroidArch
 import com.github.icarohs7.unoxcore.UnoxCore
-import com.github.icarohs7.unoxcore.extensions.coroutines.cancelCoroutineScope
 import io.reactivex.Flowable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
@@ -18,7 +17,6 @@ import io.reactivex.schedulers.Schedulers
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.Flow
@@ -29,7 +27,6 @@ import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.plus
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 

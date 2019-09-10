@@ -3,8 +3,8 @@ package base.drawerresources.presentation
 import android.graphics.Color
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.lifecycleScope
-import base.corelibrary.R
-import base.corelibrary.domain.extensions.coroutines.launch
+import base.corextresources.R
+import base.corextresources.domain.extensions.coroutines.launch
 import base.drawerresources.domain.extensions.id
 import base.drawerresources.domain.extensions.updateIntBadgeNoZero
 import base.drawerresources.domain.extensions.updateIsEnabled

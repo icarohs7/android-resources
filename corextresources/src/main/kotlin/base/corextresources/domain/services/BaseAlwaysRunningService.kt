@@ -1,11 +1,11 @@
-package base.corelibrary.domain.services
+package base.corextresources.domain.services
 
 import android.app.Service
 import android.content.Context
 import android.content.Intent
 import android.os.IBinder
 import arrow.core.Try
-import base.corelibrary.domain.broadcastreceivers.LambdaBroadcastReceiver
+import base.corextresources.domain.broadcastreceivers.LambdaBroadcastReceiver
 import splitties.init.appCtx
 
 abstract class BaseAlwaysRunningService : Service() {

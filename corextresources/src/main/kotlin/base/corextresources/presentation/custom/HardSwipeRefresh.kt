@@ -1,4 +1,4 @@
-package base.corelibrary.presentation.custom
+package base.corextresources.presentation.custom
 
 import android.content.Context
 import android.util.AttributeSet

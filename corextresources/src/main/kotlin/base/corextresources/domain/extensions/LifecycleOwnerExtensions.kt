@@ -1,8 +1,8 @@
-package base.corelibrary.domain.extensions
+package base.corextresources.domain.extensions
 
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.lifecycleScope
-import base.corelibrary.domain.extensions.coroutines.launchLoading
+import base.corextresources.domain.extensions.coroutines.launchLoading
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.Job

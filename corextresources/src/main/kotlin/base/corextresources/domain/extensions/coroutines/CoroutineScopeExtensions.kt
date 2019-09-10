@@ -1,4 +1,4 @@
-package base.corelibrary.domain.extensions.coroutines
+package base.corextresources.domain.extensions.coroutines
 
 import com.github.icarohs7.unoxandroidarch.toplevel.whileLoading
 import kotlinx.coroutines.CoroutineScope

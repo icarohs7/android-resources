@@ -1,6 +1,6 @@
-package base.corelibrary.presentation._bindingbuilders
+package base.corextresources.presentation._bindingbuilders
 
-import base.corelibrary.databinding.PartialNumberStepperBinding
+import base.corextresources.databinding.PartialNumberStepperBinding
 
 fun PartialNumberStepperBinding.build(initialValue: Int = 0, onUpdate: (Int) -> Unit) {
     number = initialValue

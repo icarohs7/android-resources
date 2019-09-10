@@ -1,6 +1,6 @@
-package base.corelibrary.data
+package base.corextresources.data
 
-import base.corelibrary.data.entities.User
+import base.corextresources.data.entities.User
 import com.github.icarohs7.unoxcore.extensions.coroutines.onBackground
 
 /**

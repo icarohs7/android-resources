@@ -6,9 +6,9 @@ import androidx.core.graphics.ColorUtils
 import androidx.navigation.ui.setupWithNavController
 import arrow.core.Try
 import arrow.core.Tuple2
-import base.corelibrary.R
-import base.corelibrary.data.entities.User
-import base.corelibrary.presentation.main.BaseMainActivity
+import base.corextresources.R
+import base.corextresources.data.entities.User
+import base.corextresources.presentation.main.BaseMainActivity
 import base.drawerresources.domain.extensions.defaultHeader
 import base.drawerresources.domain.extensions.picture
 import co.zsmb.materialdrawerkt.builders.DrawerBuilderKt

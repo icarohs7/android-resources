@@ -1,3 +1,3 @@
-package base.corelibrary.domain.types
+package base.corextresources.domain.types
 
 typealias Reducer<T> = T.() -> T

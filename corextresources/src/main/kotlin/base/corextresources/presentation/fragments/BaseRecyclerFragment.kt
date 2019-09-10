@@ -1,13 +1,13 @@
-package base.corelibrary.presentation.fragments
+package base.corextresources.presentation.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import base.corelibrary.R
-import base.corelibrary.databinding.FragmentBaseRecyclerBinding
-import base.corelibrary.presentation._baseclasses.BaseBindingFragment
+import base.corextresources.R
+import base.corextresources.databinding.FragmentBaseRecyclerBinding
+import base.corextresources.presentation._baseclasses.BaseBindingFragment
 import com.umutbey.stateviews.StateView
 
 /**

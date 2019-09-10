@@ -1,6 +1,6 @@
-package base.corelibrary.domain.extensions
+package base.corextresources.domain.extensions
 
-import base.corelibrary.domain.toplevel.kget
+import base.corextresources.domain.toplevel.kget
 import com.chuckerteam.chucker.api.ChuckerCollector
 import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory

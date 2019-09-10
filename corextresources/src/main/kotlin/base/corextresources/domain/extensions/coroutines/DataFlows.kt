@@ -1,6 +1,6 @@
 @file:Suppress("MemberVisibilityCanBePrivate", "unused")
 
-package base.corelibrary.domain.extensions.coroutines
+package base.corextresources.domain.extensions.coroutines
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job

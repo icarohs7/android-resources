@@ -1,4 +1,4 @@
-package base.corelibrary.presentation._baseclasses
+package base.corextresources.presentation._baseclasses
 
 import android.os.Bundle
 import android.view.LayoutInflater

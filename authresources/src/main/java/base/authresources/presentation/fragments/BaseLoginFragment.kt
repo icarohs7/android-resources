@@ -7,10 +7,10 @@ import arrow.core.Try
 import base.authresources.domain.AuthenticationType
 import base.authresources.presentation.authentication.AuthenticationActivity
 import base.authresources.presentation.authentication.loadFragment
-import base.corelibrary.data.entities.User
-import base.corelibrary.data.isLogged
-import base.corelibrary.domain.extensions.coroutines.launch
-import base.corelibrary.presentation._baseclasses.BaseBindingFragment
+import base.corextresources.data.entities.User
+import base.corextresources.data.isLogged
+import base.corextresources.domain.extensions.coroutines.launch
+import base.corextresources.presentation._baseclasses.BaseBindingFragment
 import com.github.icarohs7.unoxandroidarch.extensions.hideKeyboard
 import com.github.icarohs7.unoxandroidarch.toplevel.onActivity
 

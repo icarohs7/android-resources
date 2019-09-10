@@ -1,6 +1,6 @@
 @file:JvmName("TopLevel")
 
-package base.corelibrary.domain.toplevel
+package base.corextresources.domain.toplevel
 
 import android.app.Activity
 import android.app.Service
@@ -12,8 +12,8 @@ import androidx.navigation.NavDirections
 import androidx.navigation.NavOptions
 import androidx.navigation.Navigator
 import arrow.core.Try
-import base.corelibrary.R
-import base.corelibrary.presentation.main.BaseMainActivity
+import base.corextresources.R
+import base.corextresources.presentation.main.BaseMainActivity
 import com.andrognito.flashbar.Flashbar
 import com.github.icarohs7.unoxandroidarch.Injector
 import com.github.icarohs7.unoxandroidarch.toplevel.FlashBar

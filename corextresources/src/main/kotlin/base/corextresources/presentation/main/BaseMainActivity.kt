@@ -1,26 +1,25 @@
-package base.corelibrary.presentation.main
+package base.corextresources.presentation.main
 
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.widget.Toolbar
-import androidx.core.view.updateLayoutParams
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import arrow.core.Try
+import androidx.core.view.updateLayoutParams
 import arrow.core.getOrElse
-import base.corelibrary.R
-import base.corelibrary.databinding.ActivityBaseMainBinding
-import base.corelibrary.domain.extensions.coroutines.launch
-import base.corelibrary.domain.toplevel.navigate
-import base.corelibrary.presentation._baseclasses.BaseBindingActivity
+import base.corextresources.R
+import base.corextresources.databinding.ActivityBaseMainBinding
+import base.corextresources.domain.extensions.coroutines.launch
+import base.corextresources.domain.toplevel.navigate
+import base.corextresources.presentation._baseclasses.BaseBindingActivity
 import com.github.icarohs7.unoxandroidarch.state.addOnLoadingListener
 import com.github.icarohs7.unoxandroidarch.toplevel.onActivity
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import kotlinx.coroutines.launch
 
 @Suppress("MemberVisibilityCanBePrivate")
 abstract class BaseMainActivity(

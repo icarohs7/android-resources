@@ -1,4 +1,4 @@
-package base.corelibrary.domain.toplevel
+package base.corextresources.domain.toplevel
 
 import android.widget.Toast
 import kotlinx.coroutines.Dispatchers

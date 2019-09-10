@@ -1,4 +1,4 @@
-package base.corelibrary.presentation.adapters
+package base.corextresources.presentation.adapters
 
 import android.content.Context
 import androidx.annotation.LayoutRes

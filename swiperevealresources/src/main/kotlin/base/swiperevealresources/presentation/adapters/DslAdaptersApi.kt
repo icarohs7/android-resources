@@ -2,10 +2,10 @@ package base.swiperevealresources.presentation.adapters
 
 import android.widget.FrameLayout
 import androidx.recyclerview.widget.RecyclerView
-import base.corelibrary.domain.extensions.plusAssign
-import base.corelibrary.presentation.adapters.BaseBindingAdapter
-import base.corelibrary.presentation.adapters.UnoxAdapterBuilder
-import base.corelibrary.presentation.adapters.useUnoxAdapter
+import base.corextresources.domain.extensions.plusAssign
+import base.corextresources.presentation.adapters.BaseBindingAdapter
+import base.corextresources.presentation.adapters.UnoxAdapterBuilder
+import base.corextresources.presentation.adapters.useUnoxAdapter
 import base.swiperevealresources.R
 import base.swiperevealresources.databinding.LayoutSwipeMenuDeleteBinding
 import base.swiperevealresources.databinding.LayoutSwipeMenuEditDeleteBinding

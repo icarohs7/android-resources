@@ -1,8 +1,8 @@
-package base.corelibrary.presentation.activities
+package base.corextresources.presentation.activities
 
 import android.os.Bundle
 import androidx.databinding.ViewDataBinding
-import base.corelibrary.presentation._baseclasses.BaseBindingActivity
+import base.corextresources.presentation._baseclasses.BaseBindingActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay

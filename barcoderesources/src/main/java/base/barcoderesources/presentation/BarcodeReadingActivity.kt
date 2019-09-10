@@ -7,7 +7,7 @@ import arrow.core.Tuple2
 import base.barcoderesources.R
 import base.barcoderesources.databinding.ActivityBarcodeReadingBinding
 import base.barcoderesources.domain.getFlow
-import base.corelibrary.presentation._baseclasses.BaseBindingActivity
+import base.corextresources.presentation._baseclasses.BaseBindingActivity
 import com.github.icarohs7.unoxandroidarch.extensions.requestPermissions
 import com.github.icarohs7.unoxandroidarch.extensions.startActivity
 import com.github.icarohs7.unoxandroidarch.toplevel.FlashBar

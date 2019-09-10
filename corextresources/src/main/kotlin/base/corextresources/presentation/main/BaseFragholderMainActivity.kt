@@ -1,4 +1,4 @@
-package base.corelibrary.presentation.main
+package base.corextresources.presentation.main
 
 import android.os.Bundle
 import android.widget.ProgressBar
@@ -6,7 +6,7 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
-import base.corelibrary.R
+import base.corextresources.R
 import com.github.icarohs7.unoxandroidarch.presentation.activities.BaseArchActivity
 import com.github.icarohs7.unoxandroidarch.state.LoadingStore.toggleLoading
 import com.github.icarohs7.unoxandroidarch.state.addOnLoadingListener

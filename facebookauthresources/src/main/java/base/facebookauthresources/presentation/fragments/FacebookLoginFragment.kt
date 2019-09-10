@@ -7,14 +7,13 @@ import androidx.core.os.bundleOf
 import base.authresources.domain.AuthenticationType
 import base.authresources.presentation.authentication.AuthenticationActivity
 import base.authresources.presentation.fragments.BaseLoginFragment
-import base.corelibrary.domain.extensions.coroutines.launch
+import base.corextresources.domain.extensions.coroutines.launch
 import base.facebookauthresources.R
 import base.facebookauthresources.databinding.FragmentFacebookLoginBinding
 import com.github.icarohs7.unoxandroidarch.toplevel.onActivity
 import com.jaychang.sa.AuthCallback
 import com.jaychang.sa.SocialUser
 import com.jaychang.sa.facebook.SimpleAuth
-import kotlinx.coroutines.launch
 import splitties.views.onClick
 
 class FacebookLoginFragment : BaseLoginFragment<FragmentFacebookLoginBinding>() {

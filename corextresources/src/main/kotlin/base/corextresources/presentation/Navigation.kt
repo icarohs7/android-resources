@@ -1,4 +1,4 @@
-package base.corelibrary.presentation
+package base.corextresources.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import com.github.icarohs7.unoxandroidarch.extensions.startActivity

@@ -1,12 +1,11 @@
-package base.corelibrary.data.entities
+package base.corextresources.data.entities
 
 import androidx.core.content.edit
-import base.corelibrary.domain.extensions.deserialize
+import base.corextresources.domain.extensions.deserialize
 import com.chibatching.kotpref.KotprefModel
 import kotlinx.serialization.internal.StringSerializer
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.map
-import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
 
 object User : KotprefModel() {

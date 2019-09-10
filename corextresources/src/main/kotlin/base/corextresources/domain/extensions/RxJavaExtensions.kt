@@ -1,4 +1,4 @@
-package base.corelibrary.domain.extensions
+package base.corextresources.domain.extensions
 
 import io.reactivex.Flowable
 import io.reactivex.Observable

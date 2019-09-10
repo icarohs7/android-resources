@@ -1,11 +1,11 @@
-package base.corelibrary.presentation.fragments
+package base.corextresources.presentation.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import base.corelibrary.R
-import base.corelibrary.databinding.FragmentExtFabRecyclerBinding
-import base.corelibrary.presentation._baseclasses.BaseBindingFragment
+import base.corextresources.R
+import base.corextresources.databinding.FragmentExtFabRecyclerBinding
+import base.corextresources.presentation._baseclasses.BaseBindingFragment
 
 abstract class BaseExtFabRecyclerFragment : BaseBindingFragment<FragmentExtFabRecyclerBinding>() {
     override fun onBindingCreated(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) {

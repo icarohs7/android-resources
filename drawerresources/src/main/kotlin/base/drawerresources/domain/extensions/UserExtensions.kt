@@ -1,6 +1,6 @@
 package base.drawerresources.domain.extensions
 
-import base.corelibrary.data.entities.User
+import base.corextresources.data.entities.User
 
 /**
  * Property used to access and change

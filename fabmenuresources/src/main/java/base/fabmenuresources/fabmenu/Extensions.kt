@@ -3,7 +3,7 @@ package base.fabmenuresources.fabmenu
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.plusAssign
-import base.corelibrary.presentation.main.BaseMainActivity
+import base.corextresources.presentation.main.BaseMainActivity
 import base.fabmenuresources.R
 import base.fabmenuresources.databinding.PartialFabSpeeddialBinding
 import com.leinardi.android.speeddial.SpeedDialView

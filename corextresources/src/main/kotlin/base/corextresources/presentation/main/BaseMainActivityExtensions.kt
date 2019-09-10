@@ -1,4 +1,4 @@
-package base.corelibrary.presentation.main
+package base.corextresources.presentation.main
 
 import androidx.core.view.isGone
 import arrow.core.Try

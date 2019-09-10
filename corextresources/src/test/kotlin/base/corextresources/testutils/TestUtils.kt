@@ -1,4 +1,4 @@
-package base.corelibrary.testutils
+package base.corextresources.testutils
 
 import android.os.Looper
 import android.widget.FrameLayout

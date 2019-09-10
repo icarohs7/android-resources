@@ -1,4 +1,4 @@
-package base.corelibrary.domain.callbacks
+package base.corextresources.domain.callbacks
 
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView

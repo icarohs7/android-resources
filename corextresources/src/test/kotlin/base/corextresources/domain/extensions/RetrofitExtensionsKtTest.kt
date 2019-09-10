@@ -1,6 +1,6 @@
-package base.corelibrary.domain.extensions
+package base.corextresources.domain.extensions
 
-import base.corelibrary.testutils.TestClass
+import base.corextresources.testutils.TestClass
 import kotlinx.coroutines.runBlocking
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
