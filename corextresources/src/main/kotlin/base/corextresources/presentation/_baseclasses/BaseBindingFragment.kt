@@ -10,7 +10,7 @@ import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.lifecycleScope
 import com.airbnb.mvrx.BaseMvRxFragment
-import base.coreresources.extensions.asFlow
+import androidx.lifecycle.asFlow
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.launchIn
@@ -72,8 +72,8 @@ abstract class BaseBindingFragment<B : ViewDataBinding> : BaseMvRxFragment() {
      * add an onEach operator to it with the
      * given action and return the flow
      */
-    fun <T> LiveData<T>.asFlowOnEach(emissionIfNull: T? = null, action: suspend (T) -> Unit): Flow<T> {
-        return asFlow(emissionIfNull).onEach(action)
+    fun <T> LiveData<T>.asFlowOnEach(action: suspend (T) -> Unit): Flow<T> {
+        return asFlow().onEach(action)
     }
 
     /**

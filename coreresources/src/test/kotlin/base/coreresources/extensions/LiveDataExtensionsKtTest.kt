@@ -3,6 +3,7 @@ package base.coreresources.extensions
 import android.os.Build
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.asFlow
 import base.coreresources.testutils.TestActivity
 import base.coreresources.testutils.TestApplication
 import base.coreresources.testutils.mockActivity
@@ -38,38 +39,5 @@ class LiveDataExtensionsKtTest {
         onForeground { l3.value = null }
         l3.value shouldEqual null
         l3.valueOr("NANI!?") shouldEqual "NANI!?"
-    }
-
-    @Test
-    fun should_convert_live_data_to_flow() {
-        UnoxCore.foregroundDispatcher = Dispatchers.Main
-        val (controller, act) = mockActivity<TestActivity>()
-        controller.resume()
-        val ld1 = MutableLiveData<String>()
-
-        val f1 = ld1.asFlow("Ho, Mukatte Kuru no Ka?")
-        var last = ""
-        f1.onEach { last = it }.launchIn(act.lifecycleScope)
-
-        runBlocking {
-            ld1.value = "Omai wa mou shindeiru!"
-            runAllMainLooperMessages()
-            ld1.asFlow(null).first() shouldEqual "Omai wa mou shindeiru!"
-        }
-
-        runBlocking {
-            ld1.value = "Chikadzukanakya, teme o buchi nomesenainde na"
-            runAllMainLooperMessages()
-            ld1.asFlow(null).first() shouldEqual "Chikadzukanakya, teme o buchi nomesenainde na"
-        }
-
-        //Assert cancellation
-        controller.destroy()
-        runAllMainLooperMessages()
-
-        ld1.value = "NANI!?"
-        runAllMainLooperMessages()
-
-        last shouldEqual "Chikadzukanakya, teme o buchi nomesenainde na"
     }
 }
