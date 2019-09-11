@@ -1,8 +1,8 @@
 package base.corextresources.presentation
 
 import androidx.appcompat.app.AppCompatActivity
-import com.github.icarohs7.unoxandroidarch.extensions.startActivity
-import com.github.icarohs7.unoxandroidarch.toplevel.onActivity
+import base.coreresources.extensions.startActivity
+import base.coreresources.toplevel.onActivity
 import kotlin.reflect.KClass
 
 typealias ActivityClass = KClass<out AppCompatActivity>

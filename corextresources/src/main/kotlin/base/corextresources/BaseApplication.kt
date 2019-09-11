@@ -8,7 +8,7 @@ import androidx.annotation.CallSuper
 import base.corextresources.domain.toplevel.kget
 import com.chuckerteam.chucker.api.ChuckerCollector
 import com.facebook.stetho.Stetho
-import com.github.icarohs7.unoxandroidarch.UnoxAndroidArch
+import base.coreresources.UnoxAndroidArch
 import com.umutbey.stateviews.StateViewsBuilder
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin

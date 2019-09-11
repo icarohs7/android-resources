@@ -5,7 +5,7 @@ import android.app.PendingIntent
 import android.content.Context
 import br.com.goncalves.pugnotification.notification.Load
 import br.com.goncalves.pugnotification.notification.PugNotification
-import com.github.icarohs7.unoxandroidarch.R
+import base.notificationresources.R
 
 object Notifications {
     /** Build a notification using a fluent api */

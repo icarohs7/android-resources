@@ -8,9 +8,9 @@ import base.barcoderesources.R
 import base.barcoderesources.databinding.ActivityBarcodeReadingBinding
 import base.barcoderesources.domain.getFlow
 import base.corextresources.presentation._baseclasses.BaseBindingActivity
-import com.github.icarohs7.unoxandroidarch.extensions.requestPermissions
-import com.github.icarohs7.unoxandroidarch.extensions.startActivity
-import com.github.icarohs7.unoxandroidarch.toplevel.FlashBar
+import base.coreresources.extensions.requestPermissions
+import base.coreresources.extensions.startActivity
+import base.coreresources.toplevel.FlashBar
 import com.github.icarohs7.unoxcore.extensions.coroutines.job
 import com.google.android.gms.vision.barcode.Barcode
 import kotlinx.coroutines.CoroutineScope

@@ -16,7 +16,7 @@ import base.authresources.presentation.fragments.UserPassLoginFragment
 import base.corextresources.Corelibrary
 import base.corextresources.presentation.CoreNavigation
 import base.corextresources.presentation._baseclasses.BaseBindingActivity
-import com.github.icarohs7.unoxandroidarch.toplevel.FlashBar
+import base.coreresources.toplevel.FlashBar
 import splitties.views.onClick
 import splitties.views.textResource
 import kotlin.reflect.KClass

@@ -6,7 +6,7 @@ import androidx.test.core.app.ApplicationProvider
 import base.dataresources.data.db.TestDatabase
 import base.dataresources.data.entities.TestClass
 import base.dataresources.data.repository.TestRepository
-import com.github.icarohs7.unoxandroidarch.Injector
+import base.coreresources.Injector
 import io.reactivex.subscribers.TestSubscriber
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking

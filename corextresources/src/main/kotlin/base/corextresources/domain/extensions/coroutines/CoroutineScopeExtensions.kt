@@ -1,6 +1,6 @@
 package base.corextresources.domain.extensions.coroutines
 
-import com.github.icarohs7.unoxandroidarch.toplevel.whileLoading
+import base.coreresources.toplevel.whileLoading
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.Job

@@ -7,9 +7,9 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import base.corextresources.R
-import com.github.icarohs7.unoxandroidarch.presentation.activities.BaseArchActivity
-import com.github.icarohs7.unoxandroidarch.state.LoadingStore.toggleLoading
-import com.github.icarohs7.unoxandroidarch.state.addOnLoadingListener
+import base.coreresources.presentation.activities.BaseArchActivity
+import base.coreresources.state.LoadingStore.toggleLoading
+import base.coreresources.state.addOnLoadingListener
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.launchIn

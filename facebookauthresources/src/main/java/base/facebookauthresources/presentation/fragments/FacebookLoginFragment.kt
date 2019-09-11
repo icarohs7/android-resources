@@ -10,7 +10,7 @@ import base.authresources.presentation.fragments.BaseLoginFragment
 import base.corextresources.domain.extensions.coroutines.launch
 import base.facebookauthresources.R
 import base.facebookauthresources.databinding.FragmentFacebookLoginBinding
-import com.github.icarohs7.unoxandroidarch.toplevel.onActivity
+import base.coreresources.toplevel.onActivity
 import com.jaychang.sa.AuthCallback
 import com.jaychang.sa.SocialUser
 import com.jaychang.sa.facebook.SimpleAuth

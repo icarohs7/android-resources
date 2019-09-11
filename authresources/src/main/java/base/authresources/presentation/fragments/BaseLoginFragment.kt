@@ -11,8 +11,8 @@ import base.corextresources.data.entities.User
 import base.corextresources.data.isLogged
 import base.corextresources.domain.extensions.coroutines.launch
 import base.corextresources.presentation._baseclasses.BaseBindingFragment
-import com.github.icarohs7.unoxandroidarch.extensions.hideKeyboard
-import com.github.icarohs7.unoxandroidarch.toplevel.onActivity
+import base.coreresources.extensions.hideKeyboard
+import base.coreresources.toplevel.onActivity
 
 abstract class BaseLoginFragment<DB : ViewDataBinding> : BaseBindingFragment<DB>() {
     fun handleLogin(type: AuthenticationType) {

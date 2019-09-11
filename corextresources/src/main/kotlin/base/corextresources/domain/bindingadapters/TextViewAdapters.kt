@@ -3,9 +3,9 @@ package base.corextresources.domain.bindingadapters
 import android.widget.TextView
 import androidx.core.view.isGone
 import androidx.databinding.BindingAdapter
-import com.github.icarohs7.unoxandroidarch.extensions.asBrDate
-import com.github.icarohs7.unoxandroidarch.extensions.asDate
-import com.github.icarohs7.unoxandroidarch.extensions.asShortTime
+import base.coreresources.extensions.asBrDate
+import base.coreresources.extensions.asDate
+import base.coreresources.extensions.asShortTime
 import com.github.icarohs7.unoxcore.extensions.asCurrency
 import khronos.toString
 import java.text.NumberFormat

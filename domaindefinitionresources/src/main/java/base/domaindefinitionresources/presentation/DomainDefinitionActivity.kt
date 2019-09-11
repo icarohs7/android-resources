@@ -12,7 +12,7 @@ import base.corextresources.presentation._baseclasses.BaseBindingActivity
 import base.domaindefinitionresources.R
 import base.domaindefinitionresources.data.entities.DomainHolder
 import base.domaindefinitionresources.databinding.ActivityDomainDefinitionBinding
-import com.github.icarohs7.unoxandroidarch.toplevel.FlashBar
+import base.coreresources.toplevel.FlashBar
 import com.github.icarohs7.unoxcore.extensions.coroutines.onBackground
 
 open class DomainDefinitionActivity : BaseBindingActivity<ActivityDomainDefinitionBinding>() {

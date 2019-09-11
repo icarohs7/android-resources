@@ -8,7 +8,7 @@ import com.airbnb.mvrx.Loading
 import com.airbnb.mvrx.MvRxState
 import com.airbnb.mvrx.RealMvRxStateStore
 import com.airbnb.mvrx.Success
-import com.github.icarohs7.unoxandroidarch.UnoxAndroidArch
+import base.coreresources.UnoxAndroidArch
 import com.github.icarohs7.unoxcore.UnoxCore
 import io.reactivex.Flowable
 import io.reactivex.android.schedulers.AndroidSchedulers

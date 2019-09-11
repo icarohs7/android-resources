@@ -7,7 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import arrow.core.Tuple2
 import arrow.core.Tuple3
-import com.github.icarohs7.unoxandroidarch.R
+import base.coreresources.R
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
 import org.robolectric.Robolectric

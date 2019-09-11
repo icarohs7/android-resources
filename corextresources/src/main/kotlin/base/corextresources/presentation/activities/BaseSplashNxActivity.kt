@@ -6,8 +6,8 @@ import androidx.core.view.isInvisible
 import androidx.lifecycle.lifecycleScope
 import base.corextresources.R
 import base.corextresources.databinding.ActivityBaseNxSplashBinding
-import com.github.icarohs7.unoxandroidarch.extensions.animateFadeIn
-import com.github.icarohs7.unoxandroidarch.state.addOnLoadingListener
+import base.coreresources.extensions.animateFadeIn
+import base.coreresources.state.addOnLoadingListener
 
 abstract class BaseSplashNxActivity(
         private val version: String,

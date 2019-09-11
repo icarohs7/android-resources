@@ -3,7 +3,7 @@ package base.firebasecoreresources
 import android.app.Activity
 import androidx.core.os.bundleOf
 import base.corextresources.Corelibrary
-import com.github.icarohs7.unoxandroidarch.UnoxAndroidArch
+import base.coreresources.UnoxAndroidArch
 import com.github.icarohs7.unoxcore.UnoxCore
 import com.google.firebase.analytics.FirebaseAnalytics
 import timber.log.Timber

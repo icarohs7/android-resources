@@ -16,8 +16,8 @@ import base.corextresources.databinding.ActivityBaseMainBinding
 import base.corextresources.domain.extensions.coroutines.launch
 import base.corextresources.domain.toplevel.navigate
 import base.corextresources.presentation._baseclasses.BaseBindingActivity
-import com.github.icarohs7.unoxandroidarch.state.addOnLoadingListener
-import com.github.icarohs7.unoxandroidarch.toplevel.onActivity
+import base.coreresources.state.addOnLoadingListener
+import base.coreresources.toplevel.onActivity
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.bottomnavigation.BottomNavigationView
 

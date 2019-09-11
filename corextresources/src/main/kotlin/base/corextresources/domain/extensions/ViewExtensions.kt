@@ -3,7 +3,7 @@ package base.corextresources.domain.extensions
 import android.view.View
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
-import com.github.icarohs7.unoxandroidarch.extensions.doOnEnd
+import base.coreresources.extensions.doOnEnd
 
 fun View.animatedShow(duration: Long = 200L) {
     isVisible = true

@@ -15,10 +15,10 @@ import arrow.core.Try
 import base.corextresources.R
 import base.corextresources.presentation.main.BaseMainActivity
 import com.andrognito.flashbar.Flashbar
-import com.github.icarohs7.unoxandroidarch.Injector
-import com.github.icarohs7.unoxandroidarch.toplevel.FlashBar
-import com.github.icarohs7.unoxandroidarch.toplevel.Intent
-import com.github.icarohs7.unoxandroidarch.toplevel.onActivity
+import base.coreresources.Injector
+import base.coreresources.toplevel.FlashBar
+import base.coreresources.toplevel.Intent
+import base.coreresources.toplevel.onActivity
 import org.koin.core.get
 import splitties.init.appCtx
 import timber.log.Timber

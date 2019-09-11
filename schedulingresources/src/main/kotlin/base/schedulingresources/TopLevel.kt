@@ -3,7 +3,7 @@ package base.schedulingresources
 import androidx.work.ListenableWorker
 import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
-import com.github.icarohs7.unoxandroidarch.extensions.now
+import base.coreresources.extensions.now
 import splitties.init.appCtx
 import timber.log.Timber
 import java.util.Date

@@ -4,7 +4,7 @@ import android.graphics.Bitmap
 import arrow.core.Try
 import base.bluetoothresources.domain.BluetoothHelper
 import base.corextresources.domain.extensions.not
-import com.github.icarohs7.unoxandroidarch.extensions.splitIntoSequence
+import base.coreresources.extensions.splitIntoSequence
 import com.github.icarohs7.unoxcore.tryBg
 import kotlinx.coroutines.delay
 
