@@ -119,16 +119,14 @@ open class CoreMvRxViewModel<S : MvRxState>(initialState: S) : BaseMvRxViewModel
     }
 
     /**
-     * Subscribe to changes on the state emitting the
-     * result of invoking the given function on each
-     * new state
+     * Flow emmiting only the distinct emissions of
+     * the state transformed by the sleectFn function
      */
-    fun <A> selectStateFlow(selectFn: suspend (S) -> A, subscriber: suspend (A) -> Unit): Flow<A> {
+    fun <A> selectStateFlow(selectFn: suspend S.() -> A): Flow<A> {
         return stateFlow()
                 .map(selectFn)
-                .onEach(subscriber)
-                .distinctUntilChanged()
                 .flowOn(UnoxCore.backgroundDispatcher)
+                .distinctUntilChanged()
     }
 
     /**
