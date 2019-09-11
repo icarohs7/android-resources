@@ -1,17 +1,18 @@
 from utils import execute_module_command, print_execution_report, get_gradle_modules
 import sys
+import os
 
 result = 0
 successes = []
 failed_module = ""
 total_time = 0
 
+os.system("./gradlew clean")
 
 def build_module_command(module_name: str) -> str:
     assemble_cmd = "build"
-    test_cmd = "testDebugUnitTest"
     flags = "-x lint -PrelativeResMod -Pci -Pcoverage --stacktrace"
-    return f"./gradlew {module_name}:clean {module_name}:{assemble_cmd} {flags}"
+    return f"./gradlew {module_name}:{assemble_cmd} {flags}"
 
 
 modules = [m for m in get_gradle_modules()]
