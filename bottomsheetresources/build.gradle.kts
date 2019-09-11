@@ -9,7 +9,7 @@ plugins {
 }
 
 dependencies {
-    api(res(":dialog", project))
+    api(res(":dialog"))
 
     api(AndroidDeps.materialDialogsBottomSheets)
 

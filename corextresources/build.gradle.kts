@@ -9,6 +9,8 @@ plugins {
 }
 
 dependencies {
+    api(res("core"))
+
     api(Deps.arrowCoreData)
     api(Deps.coroutinesCore)
     api(Deps.khronos)
@@ -43,7 +45,6 @@ dependencies {
     api(AndroidDeps.stetho)
     api(AndroidDeps.swipeRefreshLayout)
     api(AndroidDeps.timber)
-    api(AndroidDeps.unoxAndroidArchCore)
 
     debugApi(AndroidDeps.chucker)
     releaseApi(AndroidDeps.chuckerNoOp)

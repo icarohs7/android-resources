@@ -9,7 +9,7 @@ plugins {
 }
 
 dependencies {
-    api(res("corext", project))
+    api(res("corext"))
 
     api(AndroidDeps.firebaseCore)
 

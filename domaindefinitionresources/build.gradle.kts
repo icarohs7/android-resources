@@ -9,7 +9,7 @@ plugins {
 }
 
 dependencies {
-    api(res("corext", project))
+    api(res("corext"))
 
     AndroidKaptDeps.core.forEach(::kapt)
 }

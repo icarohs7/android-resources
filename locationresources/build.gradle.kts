@@ -10,7 +10,7 @@ plugins {
 
 
 dependencies {
-    api(res("corext", project))
+    api(res("corext"))
 
     api(AndroidDeps.googlePlayServicesLocation)
     api(AndroidDeps.coroutinesPlayServices)

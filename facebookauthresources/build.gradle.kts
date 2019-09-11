@@ -9,7 +9,7 @@ plugins {
 }
 
 dependencies {
-    api(res(":auth", project))
+    api(res(":auth"))
 
     api(AndroidDeps.simpleAuthFacebook)
 

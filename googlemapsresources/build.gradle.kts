@@ -9,8 +9,8 @@ plugins {
 }
 
 dependencies {
-    api(res("corext", project))
-    api(res("location", project))
+    api(res("corext"))
+    api(res("location"))
 
     api(AndroidDeps.googlePlayServicesMaps)
 

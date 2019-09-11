@@ -9,7 +9,7 @@ plugins {
 }
 
 dependencies {
-    api(res("corext", project))
+    api(res("corext"))
 
     implementation(Deps.arrowCoreData)
     implementation(Deps.coroutinesCore)
