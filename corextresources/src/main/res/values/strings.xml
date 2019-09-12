@@ -431,6 +431,7 @@
     <string name="selecionar_data_de_fechamento">Selecionar Data de Fechamento</string>
     <string name="selecionar_destino">Selecionar Destino</string>
     <string name="selecionar_endereco">Selecionar endereço</string>
+    <string name="selecionar_equipamento">Selecionar endereço</string>
     <string name="selecionar_origem">Selecionar Origem</string>
     <string name="selecionar_problema">Selecionar Problema</string>
     <string name="selecionar_veiculo">Selecionar Veículo</string>
