@@ -205,6 +205,7 @@
     <string name="enviando_relatorio">Enviando relatório</string>
     <string name="enviar">Enviar</string>
     <string name="enviar_registros">Enviar registros</string>
+    <string name="equipamento_colon">Equipamento:</string>
     <string name="erro">Erro</string>
     <string name="erro_ao_carregar_recibo">Erro ao carregar recibo</string>
     <string name="erro_ao_finalizar_o_pedido">Erro ao finalizar o pedido</string>
@@ -306,6 +307,7 @@
     <string name="nenhum_dispositivo_conectado">Nenhum dispositivo conectado</string>
     <string name="nenhum_endereco_registrado">Nenhum endereço registrado</string>
     <string name="nenhum_endereco_selecionado">Nenhum endereço selecionado</string>
+    <string name="nenhum_equipamento_selecionado">Nenhum equipamento selecionado</string>
     <string name="nenhum_item_carregado">Nenhum Item Carregado</string>
     <string name="nenhum_pedido">Nenhum pedido</string>
     <string name="nenhum_pedido_encontrado">Nenhum pedido encontrado</string>
