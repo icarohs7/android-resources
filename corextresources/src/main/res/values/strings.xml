@@ -521,5 +521,6 @@
     <string name="verifique_a_grade_produtos_e_caixa_selecionado">Verifique a grade de produtos ou se há uma tabela de preços selecionada</string>
     <string name="verifique_sua_conexão_e_recarregue_a_lista_arrastando_para_baixo">Verifique sua conexão e recarregue a lista arrastando para baixo</string>
     <string name="voltar">Voltar</string>
+    <string name="website">Website</string>
     <string name="x">x</string>
 </resources>

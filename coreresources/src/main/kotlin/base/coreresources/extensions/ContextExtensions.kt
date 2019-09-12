@@ -89,3 +89,11 @@ fun Context.openDialer(phone: String) {
     intent.data = Uri.parse("tel:$phone")
     startActivity(intent)
 }
+
+/**
+ * Open the given website in the user's
+ * browser
+ */
+fun Context.openWebsite(destination: Uri) {
+    startActivity(Intent(Intent.ACTION_VIEW, destination))
+}
