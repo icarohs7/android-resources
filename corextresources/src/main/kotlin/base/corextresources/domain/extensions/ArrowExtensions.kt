@@ -23,3 +23,12 @@ operator fun <T> TryWrapper<T>.not(): T {
 }
 
 class TryWrapper<T>(val t: Try<T>)
+
+/**
+ * Unwrap all Try instances inside the list,
+ * returning a list with the contained values
+ * or throwing the first encountered exception
+ */
+fun <T> List<Try<T>>.unwrapAll(): List<T> {
+    return map { !!it }
+}
