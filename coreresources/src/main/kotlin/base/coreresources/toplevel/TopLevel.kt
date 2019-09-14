@@ -14,7 +14,7 @@ import androidx.fragment.app.FragmentActivity
 import arrow.core.Try
 import arrow.core.getOrElse
 import base.coreresources.AppEventBus
-import base.coreresources.UnoxAndroidArch
+import base.coreresources.CoreRes
 import com.github.icarohs7.unoxcore.extensions.coroutines.onBackground
 import com.github.icarohs7.unoxcore.extensions.toIntOr
 import com.github.icarohs7.unoxcore.extensions.valueOr
@@ -62,7 +62,7 @@ suspend fun appHasInternetConnection(): Boolean = onBackground {
             .also { adapterOn -> if (!adapterOn) return@onBackground false }
 
     val checkSequence = sequence {
-        val address = UnoxAndroidArch.connectionCheckAddress.split(":")
+        val address = CoreRes.connectionCheckAddress.split(":")
         val ip = address[0]
         val port = address.getOrElse(1) { "80" }
         val host = InetSocketAddress(ip, port.toIntOr(80))

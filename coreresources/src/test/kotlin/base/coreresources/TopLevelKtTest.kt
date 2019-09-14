@@ -48,7 +48,7 @@ class TopLevelKtTest {
 
     @Test
     fun should_run_operation_while_loading() {
-        UnoxAndroidArch.init()
+        CoreRes.init()
 
         val c1 = Channel<Int>()
         val c2 = Channel<Int>()

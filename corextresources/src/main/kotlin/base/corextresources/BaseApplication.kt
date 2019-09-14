@@ -8,7 +8,7 @@ import androidx.annotation.CallSuper
 import base.corextresources.domain.toplevel.kget
 import com.chuckerteam.chucker.api.ChuckerCollector
 import com.facebook.stetho.Stetho
-import base.coreresources.UnoxAndroidArch
+import base.coreresources.CoreRes
 import com.umutbey.stateviews.StateViewsBuilder
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
@@ -70,7 +70,7 @@ abstract class BaseApplication : Application() {
         }
     }
 
-    private fun setupUnoxAndroidArch(): Unit = UnoxAndroidArch.run {
+    private fun setupUnoxAndroidArch(): Unit = CoreRes.run {
         init()
     }
 

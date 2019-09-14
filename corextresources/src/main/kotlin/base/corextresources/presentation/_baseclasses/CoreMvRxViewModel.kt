@@ -8,7 +8,7 @@ import com.airbnb.mvrx.Loading
 import com.airbnb.mvrx.MvRxState
 import com.airbnb.mvrx.RealMvRxStateStore
 import com.airbnb.mvrx.Success
-import base.coreresources.UnoxAndroidArch
+import base.coreresources.CoreRes
 import com.github.icarohs7.unoxcore.UnoxCore
 import io.reactivex.Flowable
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -36,7 +36,7 @@ import kotlin.coroutines.suspendCoroutine
  */
 open class CoreMvRxViewModel<S : MvRxState>(initialState: S) : BaseMvRxViewModel<S>(
         initialState,
-        UnoxAndroidArch.isDebug,
+        CoreRes.isDebug,
         RealMvRxStateStore(initialState)
 ) {
     /**

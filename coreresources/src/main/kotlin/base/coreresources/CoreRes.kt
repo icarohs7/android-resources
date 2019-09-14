@@ -5,7 +5,7 @@ import com.github.icarohs7.unoxcore.delegates.mutableLazy
 import kotlinx.coroutines.Dispatchers
 import timber.log.Timber
 
-object UnoxAndroidArch {
+object CoreRes {
     /**
      * Initialize the library
      */

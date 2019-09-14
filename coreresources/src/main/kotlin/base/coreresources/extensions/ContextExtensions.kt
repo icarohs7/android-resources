@@ -9,7 +9,7 @@ import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
-import base.coreresources.UnoxAndroidArch
+import base.coreresources.CoreRes
 import splitties.systemservices.activityManager
 import java.util.Calendar
 import kotlin.reflect.KClass
@@ -31,14 +31,14 @@ fun <T : AppCompatActivity> Context.startActivity(
         destination: KClass<T>,
         extras: Bundle = bundleOf(),
         finishActivity: Boolean = false,
-        activityTransition: UnoxAndroidArch.ActivityTransitionAnimation = UnoxAndroidArch.defaultActivityTransition
+        activityTransition: CoreRes.ActivityTransitionAnimation = CoreRes.defaultActivityTransition
 ) {
     val intent = Intent(this, destination.java)
     intent.putExtras(extras)
     startActivity(intent)
     if (this is Activity) {
         overridePendingTransition(activityTransition.enterRes, activityTransition.exitRes)
-        if (UnoxAndroidArch.finishActivityOnNavigate || finishActivity) finish()
+        if (CoreRes.finishActivityOnNavigate || finishActivity) finish()
     }
 }
 
