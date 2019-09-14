@@ -25,7 +25,6 @@ abstract class BaseApplication : Application() {
         super.onCreate()
         Stetho.initializeWithDefaults(this)
         setupKoin()
-        setupThisLibrary()
         installUncaughtExceptionHandler()
         setupTimber()
         setupUnoxAndroidArch()
@@ -41,10 +40,6 @@ abstract class BaseApplication : Application() {
                 single { ChuckerCollector(appCtx) }
             }) + onCreateKoinModules())
         }
-    }
-
-    private fun setupThisLibrary() {
-        Corelibrary.log = { tag, msg -> Timber.tag(tag).i("$msg") }
     }
 
     private fun installUncaughtExceptionHandler() {

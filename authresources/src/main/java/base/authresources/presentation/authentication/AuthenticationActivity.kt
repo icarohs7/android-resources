@@ -101,7 +101,6 @@ abstract class AuthenticationActivity(
                 """.trimMargin(),
                 duration = 3500
         )
-        exception?.let { Corelibrary.log("InvalidLogin", "$it") }
     }
 
     /**
