@@ -11,6 +11,7 @@ plugins {
 dependencies {
     api(res("corext"))
 
+    api(AndroidDeps.fullscreenDialog)
     api(AndroidDeps.materialDialogs)
     api(AndroidDeps.spotsDialog)
 

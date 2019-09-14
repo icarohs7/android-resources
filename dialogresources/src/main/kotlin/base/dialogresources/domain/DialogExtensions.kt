@@ -1,6 +1,8 @@
 package base.dialogresources.domain
 
 import android.app.Dialog
+import base.coreresources.toplevel.FlashBar.show
+import base.dialogresources.presentation.dialogs.BaseFullscreenMaterialDialog
 import base.dialogresources.presentation.dialogs.BaseMaterialDialog
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.CoroutineStart
@@ -10,6 +12,35 @@ import kotlin.coroutines.CoroutineContext
 import kotlin.coroutines.EmptyCoroutineContext
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
+
+inline fun <T> BaseFullscreenMaterialDialog.showWhileRunning(operation: BaseFullscreenMaterialDialog.() -> T): T {
+    return try {
+        dialog.show()
+        operation()
+    } finally {
+        dialog.dismiss()
+    }
+}
+
+inline fun BaseFullscreenMaterialDialog.show(
+        block: BaseFullscreenMaterialDialog.() -> Unit
+): BaseFullscreenMaterialDialog {
+    block()
+    show()
+    return this
+}
+
+suspend fun BaseFullscreenMaterialDialog.awaitClose() {
+    suspendCoroutine<Unit> { cont ->
+        dialog.addOnClose { cont.resume(Unit) }
+    }
+}
+
+suspend fun BaseFullscreenMaterialDialog.awaitAction() {
+    suspendCoroutine<Unit> { cont ->
+        dialog.addOnAction { cont.resume(Unit) }
+    }
+}
 
 inline fun <D : Dialog, T> D.showWhileRunning(operation: D.() -> T): T {
     return try {
