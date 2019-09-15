@@ -13,7 +13,6 @@ import base.authresources.domain.Suspend
 import base.authresources.presentation.fragments.EmailLoginFragment
 import base.authresources.presentation.fragments.PinLoginFragment
 import base.authresources.presentation.fragments.UserPassLoginFragment
-import base.corextresources.Corelibrary
 import base.corextresources.presentation.CoreNavigation
 import base.corextresources.presentation._baseclasses.BaseBindingActivity
 import base.coreresources.toplevel.FlashBar
