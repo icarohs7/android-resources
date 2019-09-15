@@ -1,8 +1,23 @@
 package base.searchbarresources
 
 import com.mancj.materialsearchbar.MaterialSearchBar
+import splitties.resources.str
 
 class MaterialSearchBarBuilder(private val searchBar: MaterialSearchBar) {
+    var hint: String = ""
+    var hintRes: Int
+        @Deprecated(message = "Not implemented") get() = throw NotImplementedError()
+        set(value) {
+            hint = searchBar.str(value)
+        }
+
+    var placeholder: String = ""
+    var placeholderRes: Int
+        @Deprecated(message = "Not implemented") get() = throw NotImplementedError()
+        set(value) {
+            placeholder = searchBar.str(value)
+        }
+
     internal var onButtonClick: ((buttonCode: Int) -> Unit)? = null
     internal var onBackClick: (() -> Unit)? = null
     internal var onHamburguerMenuClick: (() -> Unit)? = null

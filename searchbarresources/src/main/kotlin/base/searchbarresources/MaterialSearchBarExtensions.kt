@@ -1,9 +1,14 @@
 package base.searchbarresources
 
+import android.util.Log
+import android.widget.ImageView
+import base.coreresources.extensions.hideKeyboard
 import com.mancj.materialsearchbar.MaterialSearchBar
 
 fun MaterialSearchBar.setup(block: MaterialSearchBarBuilder.() -> Unit): MaterialSearchBar {
     val builder = MaterialSearchBarBuilder(this).apply(block)
+    setHint(builder.hint)
+    setPlaceHolder(builder.placeholder)
     setOnSearchActionListener(object : MaterialSearchBar.OnSearchActionListener {
         override fun onButtonClicked(buttonCode: Int) {
             builder.onButtonClick?.invoke(buttonCode)
@@ -19,8 +24,40 @@ fun MaterialSearchBar.setup(block: MaterialSearchBarBuilder.() -> Unit): Materia
         }
 
         override fun onSearchConfirmed(text: CharSequence?) {
-            builder.onSearch?.invoke(text)
+            onSearch(builder, text)
         }
     })
+    clearIcon.setOnClickListener {
+        onClick(it)
+        onSearch(builder, null)
+    }
     return this
 }
+
+/**
+ * Search for the given text, hiding the keyboard, removing the
+ * focus of the component and changing the placeholder to the
+ * search term or the original placeholder if it's empty
+ */
+private fun MaterialSearchBar.onSearch(builder: MaterialSearchBarBuilder, text: CharSequence?) {
+    hideKeyboard()
+    clearFocus()
+    builder.onSearch?.invoke(text)
+    if (text.isNullOrBlank()) setPlaceHolder(builder.placeholder)
+    else setPlaceHolder(text)
+    disableSearch()
+}
+
+/**
+ * Use reflection to obtain access to the
+ * clear icon view on the search bar
+ */
+private val MaterialSearchBar.clearIcon: ImageView
+    get() {
+        return this::class
+                .java
+                .getDeclaredField("clearIcon")
+                .apply { isAccessible = true }
+                .get(this)
+                as ImageView
+    }
