@@ -5,7 +5,7 @@ import android.widget.ImageView
 import base.coreresources.extensions.hideKeyboard
 import com.mancj.materialsearchbar.MaterialSearchBar
 
-fun MaterialSearchBar.setup(block: MaterialSearchBarBuilder.() -> Unit): MaterialSearchBar {
+fun MaterialSearchBar.setup(block: MaterialSearchBarBuilder.() -> Unit) {
     val builder = MaterialSearchBarBuilder(this).apply(block)
     setHint(builder.hint)
     setPlaceHolder(builder.placeholder)
@@ -20,6 +20,11 @@ fun MaterialSearchBar.setup(block: MaterialSearchBarBuilder.() -> Unit): Materia
         }
 
         override fun onSearchStateChanged(enabled: Boolean) {
+            if (!enabled) {
+                val search = this@setup.text
+                if (search.isBlank()) setPlaceHolder(builder.placeholder)
+                else setPlaceHolder(text)
+            }
             builder.onSearchStateChanged?.invoke(enabled)
         }
 
@@ -31,7 +36,6 @@ fun MaterialSearchBar.setup(block: MaterialSearchBarBuilder.() -> Unit): Materia
         onClick(it)
         onSearch(builder, null)
     }
-    return this
 }
 
 /**
@@ -43,8 +47,6 @@ private fun MaterialSearchBar.onSearch(builder: MaterialSearchBarBuilder, text: 
     hideKeyboard()
     clearFocus()
     builder.onSearch?.invoke(text)
-    if (text.isNullOrBlank()) setPlaceHolder(builder.placeholder)
-    else setPlaceHolder(text)
     disableSearch()
 }
 

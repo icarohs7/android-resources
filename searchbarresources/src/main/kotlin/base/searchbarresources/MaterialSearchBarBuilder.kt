@@ -4,14 +4,14 @@ import com.mancj.materialsearchbar.MaterialSearchBar
 import splitties.resources.str
 
 class MaterialSearchBarBuilder(private val searchBar: MaterialSearchBar) {
-    var hint: String = ""
+    var hint: CharSequence = ""
     var hintRes: Int
         @Deprecated(message = "Not implemented") get() = throw NotImplementedError()
         set(value) {
             hint = searchBar.str(value)
         }
 
-    var placeholder: String = ""
+    var placeholder: CharSequence = ""
     var placeholderRes: Int
         @Deprecated(message = "Not implemented") get() = throw NotImplementedError()
         set(value) {
