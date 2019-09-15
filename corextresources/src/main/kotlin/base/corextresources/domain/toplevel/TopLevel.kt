@@ -6,8 +6,10 @@ import android.app.Activity
 import android.app.Service
 import android.os.Bundle
 import android.os.Process
+import android.util.Log
 import androidx.annotation.IdRes
 import androidx.core.os.bundleOf
+import androidx.navigation.NavController
 import androidx.navigation.NavDirections
 import androidx.navigation.NavOptions
 import androidx.navigation.Navigator
@@ -19,6 +21,7 @@ import base.coreresources.Injector
 import base.coreresources.toplevel.FlashBar
 import base.coreresources.toplevel.Intent
 import base.coreresources.toplevel.onActivity
+import base.corextresources.presentation.main.BaseFragholderMainActivity
 import org.koin.core.get
 import splitties.init.appCtx
 import timber.log.Timber
@@ -52,7 +55,7 @@ fun navigate(directions: NavDirections, navOptions: NavOptions? = null) {
             popExit = R.anim.exit_animation
         }
     }
-    onActivity<BaseMainActivity> {
+    navigateOnMain { navController ->
         Try { navController.navigate(directions, options) }
                 .fold(Timber.tag("Navigation")::e) { Timber.tag("Navigation").i("$it") }
     }
@@ -76,10 +79,20 @@ fun navigate(
             popExit = R.anim.exit_animation
         }
     }
-    onActivity<BaseMainActivity> {
+    navigateOnMain { navController ->
         Try { navController.navigate(dest, args, options, navigatorExtras) }
                 .fold(Timber.tag("Navigation")::e) { Timber.tag("Navigation").i("$it") }
     }
+}
+
+/**
+ * Block used to execute a navigation function
+ * on all available instances of Activities
+ * with a navController attached to
+ */
+private fun navigateOnMain(block: (controller: NavController) -> Unit) {
+    onActivity<BaseMainActivity> { block(navController) }
+    onActivity<BaseFragholderMainActivity> { block(navController) }
 }
 
 /**
