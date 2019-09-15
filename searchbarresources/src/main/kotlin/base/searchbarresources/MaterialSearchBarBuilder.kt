@@ -1,0 +1,40 @@
+package base.searchbarresources
+
+import com.mancj.materialsearchbar.MaterialSearchBar
+
+class MaterialSearchBarBuilder(private val searchBar: MaterialSearchBar) {
+    internal var onButtonClick: ((buttonCode: Int) -> Unit)? = null
+    internal var onBackClick: (() -> Unit)? = null
+    internal var onHamburguerMenuClick: (() -> Unit)? = null
+    internal var onSpeechClick: (() -> Unit)? = null
+    internal var onSearchStateChanged: ((isSearchEnabled: Boolean) -> Unit)? = null
+    internal var onSearch: ((text: CharSequence?) -> Unit)? = null
+
+    fun onButtonClick(block: (buttonCode: Int) -> Unit) {
+        onButtonClick = block
+    }
+
+    fun onBackClick(block: () -> Unit) {
+        onBackClick = block
+    }
+
+    fun onHamburguerMenuClick(block: () -> Unit) {
+        onHamburguerMenuClick = block
+    }
+
+    fun onSpeechClick(block: () -> Unit) {
+        onSpeechClick = block
+    }
+
+    fun onSearchStateChanged(block: (isSearchEnabled: Boolean) -> Unit) {
+        onSearchStateChanged = block
+    }
+
+    fun onSearch(block: (text: CharSequence?) -> Unit) {
+        onSearch = block
+    }
+
+    fun withSearchBar(block: MaterialSearchBar.() -> Unit) {
+        block(searchBar)
+    }
+}
