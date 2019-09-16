@@ -232,6 +232,7 @@
     <string name="finalizando_pedido">Finalizando pedido</string>
     <string name="finalizando_venda">Finalizando venda</string>
     <string name="finalizar">Finalizar</string>
+    <string name="finalizar_atendimento">Finalizar atendimento</string>
     <string name="finalizar_pedido">Finalizar Pedido</string>
     <string name="finalizar_venda">Finalizar Venda</string>
     <string name="forma_de_pagamento_colon">Forma de Pagamento:</string>
@@ -256,6 +257,7 @@
     <string name="informar_quantidade">Informar Quantidade</string>
     <string name="iniciando">Iniciando</string>
     <string name="iniciando_ellipsis">Iniciando…</string>
+    <string name="iniciar_atendimento">Iniciar atendimento</string>
     <string name="inicio">Início</string>
     <string name="item">Item</string>
     <string name="item_ja_esta_no_carrinho">Item já está no carrinho</string>
