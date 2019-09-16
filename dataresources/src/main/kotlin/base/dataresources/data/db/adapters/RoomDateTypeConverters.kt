@@ -15,6 +15,6 @@ class RoomDateTypeConverters {
 
     @TypeConverter
     fun toDate(value: Long): Date? {
-        return if (value < 0) null else Date(value)
+        return if (value >= 0) Date(value) else null
     }
 }
