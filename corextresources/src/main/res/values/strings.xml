@@ -146,6 +146,8 @@
     <string name="desconto_colon">Desconto:</string>
     <string name="descricao">Descrição</string>
     <string name="descricao_colon">Descrição:</string>
+    <string name="descricao_da_compra">Descrição da compra</string>
+    <string name="descricao_da_solucao">Descrição da solução</string>
     <string name="descricao_do_problema">Descrição do problema</string>
     <string name="deseja_aceitar_os_question">Deseja aceitar a OS?</string>
     <string name="deseja_confirmar_essa_venda">Deseja confirmar essa venda?</string>
@@ -179,6 +181,7 @@
     <string name="documento">Documento</string>
     <string name="dominio">Dominio</string>
     <string name="dominio_da_empresa">Dominio da empresa</string>
+    <string name="duracao_do_atendimento_colon">Duração do atendimento:</string>
     <string name="editar">Editar</string>
     <string name="editar_desconto">Editar Desconto</string>
     <string name="editar_despesa">Editar Despesa</string>
@@ -356,6 +359,7 @@
     <string name="particular">Particular</string>
     <string name="parto_cesariana">Cesariana</string>
     <string name="parto_normal">Normal</string>
+    <string name="pausar_atendimento">Pausar atendimento</string>
     <string name="pedido">Pedido</string>
     <string name="pedidos_abertos">Pedidos Abertos</string>
     <string name="pedidos_entregues">Pedidos Entregues</string>
@@ -368,6 +372,7 @@
     <string name="precisao_de_content_metros">Precisão de %s metros</string>
     <string name="precisao_indisponivel_no_momento">Precisão indisponível no momento</string>
     <string name="preco">Preço: </string>
+    <string name="preencher_checklist">Preencher checklist</string>
     <string name="preenchimento_exclusivo">(Preenchimento Exclusivo)</string>
     <string name="privado">Privado</string>
     <string name="problema_encontrado_colon">Problema encontrado:</string>
