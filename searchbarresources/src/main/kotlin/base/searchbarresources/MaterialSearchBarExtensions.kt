@@ -7,6 +7,8 @@ import com.mancj.materialsearchbar.MaterialSearchBar
 
 fun MaterialSearchBar.setup(block: MaterialSearchBarBuilder.() -> Unit) {
     val builder = MaterialSearchBarBuilder(this).apply(block)
+    builder.onBackClick = builder.onBackClick ?: { onSearch(builder, null) }
+    
     setHint(builder.hint)
     setPlaceHolder(builder.placeholder)
     setOnSearchActionListener(object : MaterialSearchBar.OnSearchActionListener {
