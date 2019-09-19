@@ -1,13 +1,15 @@
-package base.dialogresources.domain
+package base.dialogresources.domain.extensions
 
 import android.app.Dialog
-import base.coreresources.toplevel.FlashBar.show
 import base.dialogresources.presentation.dialogs.BaseFullscreenMaterialDialog
 import base.dialogresources.presentation.dialogs.BaseMaterialDialog
+import com.afollestad.materialdialogs.ModalDialog.onDismiss
+import com.afollestad.materialdialogs.callbacks.onDismiss
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlin.coroutines.CoroutineContext
 import kotlin.coroutines.EmptyCoroutineContext
 import kotlin.coroutines.resume
@@ -22,24 +24,11 @@ inline fun <T> BaseFullscreenMaterialDialog.showWhileRunning(operation: BaseFull
     }
 }
 
-inline fun BaseFullscreenMaterialDialog.show(
+suspend inline fun BaseFullscreenMaterialDialog.show(
         block: BaseFullscreenMaterialDialog.() -> Unit
-): BaseFullscreenMaterialDialog {
+) {
     block()
     show()
-    return this
-}
-
-suspend fun BaseFullscreenMaterialDialog.awaitClose() {
-    suspendCoroutine<Unit> { cont ->
-        dialog.addOnClose { cont.resume(Unit) }
-    }
-}
-
-suspend fun BaseFullscreenMaterialDialog.awaitAction() {
-    suspendCoroutine<Unit> { cont ->
-        dialog.addOnAction { cont.resume(Unit) }
-    }
 }
 
 inline fun <D : Dialog, T> D.showWhileRunning(operation: D.() -> T): T {
@@ -51,24 +40,16 @@ inline fun <D : Dialog, T> D.showWhileRunning(operation: D.() -> T): T {
     }
 }
 
-inline fun <T : BaseMaterialDialog<*>> T.show(block: T.() -> Unit): T {
+suspend fun <T : BaseMaterialDialog<*>> T.show(block: T.() -> Unit) {
     block()
     show()
-    return this
 }
 
-suspend inline fun BaseMaterialDialog<*>.awaitDismiss(): Unit = dialog.awaitDismiss()
-suspend fun <D : Dialog> D.awaitDismiss() {
-    suspendCoroutine<Unit> { cont ->
-        setOnDismissListener { cont.resume(Unit) }
-    }
-}
-
-suspend inline fun BaseMaterialDialog<*>.showAndAwaitDismiss(): Unit = dialog.showAndAwaitDismiss()
 suspend fun <D : Dialog> D.showAndAwaitDismiss() {
-    suspendCoroutine<Unit> { cont ->
-        setOnDismissListener { cont.resume(Unit) }
+    suspendCancellableCoroutine<Unit> { cont ->
         show()
+        setOnDismissListener { cont.resume(Unit) }
+        cont.invokeOnCancellation { dismiss() }
     }
 }
 

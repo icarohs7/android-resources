@@ -10,6 +10,8 @@ import com.afollestad.materialdialogs.callbacks.onDismiss
 import com.afollestad.materialdialogs.callbacks.onShow
 import com.afollestad.materialdialogs.customview.customView
 import com.github.icarohs7.unoxcore.extensions.coroutines.cancelCoroutineScope
+import com.github.icarohs7.unoxcore.extensions.coroutines.onForeground
+import com.nikialeksey.fullscreendialog.DismissOnCloseDialog
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -18,7 +20,9 @@ import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.suspendCancellableCoroutine
 import splitties.systemservices.layoutInflater
+import kotlin.coroutines.resume
 
 /**
  * Base class used to hold and handle
@@ -52,8 +56,18 @@ abstract class BaseMaterialDialog<T : ViewDataBinding>(
      */
     abstract suspend fun onCreateBinding()
 
-    fun show() {
-        GlobalScope.launch(Dispatchers.Main) { dialog.show() }
+    fun show(scope: CoroutineScope): Job {
+        return scope.launch { show() }
+    }
+
+    suspend fun show() {
+        onForeground {
+            suspendCancellableCoroutine<Unit> { cont ->
+                dialog.show()
+                dialog.onDismiss { cont.resume(Unit) }
+                cont.invokeOnCancellation { dialog.dismiss() }
+            }
+        }
     }
 
     open fun onShow() {

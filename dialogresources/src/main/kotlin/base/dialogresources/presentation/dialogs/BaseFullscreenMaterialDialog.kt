@@ -6,6 +6,7 @@ import android.view.View
 import base.dialogresources.R
 import base.dialogresources.domain.toolbar
 import com.github.icarohs7.unoxcore.extensions.coroutines.job
+import com.github.icarohs7.unoxcore.extensions.coroutines.onForeground
 import com.nikialeksey.fullscreendialog.Dialog
 import com.nikialeksey.fullscreendialog.DismissOnCloseDialog
 import com.nikialeksey.fullscreendialog.FsDialog
@@ -16,12 +17,15 @@ import com.nikialeksey.fullscreendialog.buttons.SimpleButton
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.cancelChildren
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.suspendCancellableCoroutine
 import splitties.resources.appColor
 import splitties.resources.appDrawable
 import splitties.views.backgroundColor
+import kotlin.coroutines.resume
 
 abstract class BaseFullscreenMaterialDialog(protected val context: Context, protected val title: String) {
     val lifecycleScope: CoroutineScope = MainScope()
@@ -59,8 +63,19 @@ abstract class BaseFullscreenMaterialDialog(protected val context: Context, prot
         }
     }
 
-    fun show() {
-        GlobalScope.launch(Dispatchers.Main) { dialog.show() }
+    fun show(scope: CoroutineScope): Job {
+        return scope.launch { show() }
+    }
+
+    suspend fun show() {
+        onForeground {
+            suspendCancellableCoroutine<Unit> { cont ->
+                dialog.show()
+                if (this is DismissOnCloseDialog) dialog.addOnClose { cont.resume(Unit) }
+                else dialog.addOnAction { cont.resume(Unit) }
+                cont.invokeOnCancellation { dialog.dismiss() }
+            }
+        }
     }
 
     fun dismiss() {
