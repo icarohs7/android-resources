@@ -4,7 +4,6 @@ import android.graphics.Color
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.lifecycleScope
 import base.corextresources.R
-import base.corextresources.domain.extensions.coroutines.launch
 import base.drawerresources.domain.extensions.id
 import base.drawerresources.domain.extensions.updateIntBadgeNoZero
 import base.drawerresources.domain.extensions.updateIsEnabled
@@ -19,6 +18,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.launch
 
 fun Builder.disconnectButton(extraBuilder: PrimaryDrawerItemKt.() -> Unit = {}): PrimaryDrawerItem {
     return primaryItem(R.string.desconectar) {
@@ -45,7 +45,7 @@ fun Builder.synchronizeButton(
             textColor = Color.WHITE.toLong()
         }
         onClick { _ ->
-            activity.launch(block = onClick)
+            activity.lifecycleScope.launch(block = onClick)
             true
         }
         extraBuilder()

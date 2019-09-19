@@ -2,11 +2,11 @@ package base.domaindefinitionresources.presentation
 
 import android.os.Bundle
 import android.text.InputType
+import androidx.lifecycle.lifecycleScope
 import arrow.core.None
 import arrow.core.Option
 import arrow.core.Some
 import base.corextresources.databinding.CustomInputFieldBinding
-import base.corextresources.domain.extensions.coroutines.launch
 import base.corextresources.presentation.CoreNavigation
 import base.corextresources.presentation._baseclasses.BaseBindingActivity
 import base.domaindefinitionresources.R
@@ -14,6 +14,7 @@ import base.domaindefinitionresources.data.entities.DomainHolder
 import base.domaindefinitionresources.databinding.ActivityDomainDefinitionBinding
 import base.coreresources.toplevel.FlashBar
 import com.github.icarohs7.unoxcore.extensions.coroutines.onBackground
+import kotlinx.coroutines.launch
 
 open class DomainDefinitionActivity : BaseBindingActivity<ActivityDomainDefinitionBinding>() {
     private val layoutEditDomainBinding by lazy {
@@ -42,7 +43,7 @@ open class DomainDefinitionActivity : BaseBindingActivity<ActivityDomainDefiniti
     private fun setDomain() {
         when (val domain = getDomain()) {
             None -> onInvalidDomain()
-            is Some -> launch {
+            is Some -> lifecycleScope.launch {
                 onBackground { DomainHolder.domain = domain.t }
                 onDomainDefined()
             }
@@ -62,7 +63,7 @@ open class DomainDefinitionActivity : BaseBindingActivity<ActivityDomainDefiniti
     }
 
     open fun onDomainDefinedBeforeCreate() {
-        launch {
+        lifecycleScope.launch {
             domainDefinitionListener(onBackground { DomainHolder.domain })
             when {
                 DomainHolder.domain.isBlank() -> Unit
@@ -72,7 +73,7 @@ open class DomainDefinitionActivity : BaseBindingActivity<ActivityDomainDefiniti
     }
 
     open fun onDomainDefined() {
-        launch {
+        lifecycleScope.launch {
             domainDefinitionListener(onBackground { DomainHolder.domain })
             CoreNavigation.splashActivity()
         }

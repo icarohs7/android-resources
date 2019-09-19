@@ -13,13 +13,13 @@ import androidx.core.view.updateLayoutParams
 import arrow.core.getOrElse
 import base.corextresources.R
 import base.corextresources.databinding.ActivityBaseMainBinding
-import base.corextresources.domain.extensions.coroutines.launch
 import base.corextresources.domain.toplevel.navigate
 import base.corextresources.presentation._baseclasses.BaseBindingActivity
 import base.coreresources.state.addOnLoadingListener
 import base.coreresources.toplevel.onActivity
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlinx.coroutines.launch
 
 @Suppress("MemberVisibilityCanBePrivate")
 abstract class BaseMainActivity(
@@ -40,7 +40,7 @@ abstract class BaseMainActivity(
     }
 
     private fun setupNavigation(): Unit = with(binding) {
-        launch {
+        lifecycleScope.launch {
             setupToolbar(layoutToolbar.toolbar)
             setupBottomNav(bottomNav)
         }
