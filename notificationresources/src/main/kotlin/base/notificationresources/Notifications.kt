@@ -9,6 +9,7 @@ import base.notificationresources.R
 
 object Notifications {
     /** Build a notification using a fluent api */
+    @Suppress("FunctionName")
     fun Builder(context: Context): Load {
         return PugNotification.with(context).load()
     }
