@@ -7,8 +7,6 @@ import base.dialogresources.R
 import base.dialogresources.domain.toolbar
 import com.github.icarohs7.unoxcore.extensions.coroutines.job
 import com.github.icarohs7.unoxcore.extensions.coroutines.onForeground
-import com.nikialeksey.fullscreendialog.Dialog
-import com.nikialeksey.fullscreendialog.DismissOnCloseDialog
 import com.nikialeksey.fullscreendialog.FsDialog
 import com.nikialeksey.fullscreendialog.FsDialogToolbar
 import com.nikialeksey.fullscreendialog.buttons.FsActionButton
@@ -29,26 +27,30 @@ import kotlin.coroutines.resume
 
 abstract class BaseFullscreenMaterialDialog(protected val context: Context, protected val title: String) {
     val lifecycleScope: CoroutineScope = MainScope()
-    val dialog by lazy {
+
+    val dialog: FsDialog by lazy {
         val toolbar = createToolbar()
         val content = createDialogContent()
         createDialog(toolbar, content).apply {
-            if (this is DismissOnCloseDialog) addOnClose { lifecycleScope.job.cancelChildren() }
-            else addOnAction { lifecycleScope.job.cancelChildren() }
-            onCreateView(toolbar, content)
+            setOnCancelListener { lifecycleScope.job.cancelChildren() }
+            addOnClose {
+                lifecycleScope.job.cancelChildren()
+                dismiss()
+            }
+            onCreateView(toolbar, content, this)
         }
     }
 
-    open fun onCreateView(toolbar: FsDialogToolbar, view: View) {
+    open fun onCreateView(toolbar: FsDialogToolbar, view: View, dialog: FsDialog) {
     }
 
-    open fun createDialog(toolbar: FsDialogToolbar, content: View): Dialog {
-        return DismissOnCloseDialog(FsDialog(
+    open fun createDialog(toolbar: FsDialogToolbar, content: View): FsDialog {
+        return FsDialog(
                 context,
                 R.style.AppTheme,
                 toolbar,
                 content
-        ))
+        )
     }
 
     open fun createToolbar(): FsDialogToolbar {
@@ -71,8 +73,7 @@ abstract class BaseFullscreenMaterialDialog(protected val context: Context, prot
         onForeground {
             suspendCancellableCoroutine<Unit> { cont ->
                 dialog.show()
-                if (this is DismissOnCloseDialog) dialog.addOnClose { cont.resume(Unit) }
-                else dialog.addOnAction { cont.resume(Unit) }
+                onDismiss { cont.resume(Unit) }
                 cont.invokeOnCancellation { dialog.dismiss() }
             }
         }
@@ -80,6 +81,11 @@ abstract class BaseFullscreenMaterialDialog(protected val context: Context, prot
 
     fun dismiss() {
         GlobalScope.launch(Dispatchers.Main) { dialog.dismiss() }
+    }
+
+    fun onDismiss(block: () -> Unit) {
+        dialog.addOnClose(block)
+        dialog.setOnCancelListener { block() }
     }
 
     abstract fun createDialogContent(): View

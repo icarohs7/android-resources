@@ -2,8 +2,11 @@ package base.dialogresources.presentation.dialogs
 
 import android.content.Context
 import android.view.View
+import arrow.core.Tuple2
 import base.dialogresources.R
 import com.nikialeksey.fullscreendialog.Dialog
+import com.nikialeksey.fullscreendialog.DismissOnCloseDialog
+import com.nikialeksey.fullscreendialog.FsDialog
 import com.nikialeksey.fullscreendialog.FsDialogToolbar
 import com.nikialeksey.fullscreendialog.buttons.FsActionButton
 import com.nikialeksey.fullscreendialog.buttons.FsCloseButton
@@ -17,7 +20,7 @@ class SimpleFullscreenWithActionDialog(
         content: View,
         private val onAction: () -> Unit
 ) : SimpleFullscreenDialog(ctx, title, content) {
-    override fun createDialog(toolbar: FsDialogToolbar, content: View): Dialog {
+    override fun createDialog(toolbar: FsDialogToolbar, content: View): FsDialog {
         return super.createDialog(toolbar, content).apply {
             addOnAction { onAction() }
         }

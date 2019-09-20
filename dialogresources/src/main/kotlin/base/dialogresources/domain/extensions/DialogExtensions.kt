@@ -3,8 +3,6 @@ package base.dialogresources.domain.extensions
 import android.app.Dialog
 import base.dialogresources.presentation.dialogs.BaseFullscreenMaterialDialog
 import base.dialogresources.presentation.dialogs.BaseMaterialDialog
-import com.afollestad.materialdialogs.ModalDialog.onDismiss
-import com.afollestad.materialdialogs.callbacks.onDismiss
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.Job
@@ -13,7 +11,6 @@ import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlin.coroutines.CoroutineContext
 import kotlin.coroutines.EmptyCoroutineContext
 import kotlin.coroutines.resume
-import kotlin.coroutines.suspendCoroutine
 
 inline fun <T> BaseFullscreenMaterialDialog.showWhileRunning(operation: BaseFullscreenMaterialDialog.() -> T): T {
     return try {
