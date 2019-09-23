@@ -1,8 +1,13 @@
 package base.dialogresources.presentation.dialogs
 
 import android.content.Context
+import android.graphics.Color
 import android.util.Log
 import android.view.View
+import android.widget.TextView
+import androidx.core.view.forEach
+import arrow.core.Try
+import base.coreresources.toplevel.safeRun
 import base.dialogresources.R
 import base.dialogresources.domain.toolbar
 import com.github.icarohs7.unoxcore.extensions.coroutines.job
@@ -57,13 +62,19 @@ abstract class BaseFullscreenMaterialDialog(protected val context: Context, prot
         return FsDialogToolbar(
                 context,
                 title,
-                FsCloseButton(SimpleButton(), appDrawable(R.drawable.fs_close_icon)!!),
-                FsActionButton(SimpleButton(), "")
+                createCloseButton(),
+                createActionButton()
         ).apply {
             backgroundColor = appColor(R.color.colorPrimaryVariant)
-            toolbar.setTitleTextColor(appColor(R.color.colorOnPrimary))
+            toolbar.apply {
+                setTitleTextColor(appColor(R.color.colorOnPrimary))
+                menu.forEach { Try { findViewById<TextView>(it.itemId).setTextColor(Color.WHITE) } }
+            }
         }
     }
+
+    open fun createCloseButton() = FsCloseButton(SimpleButton(), appDrawable(R.drawable.fs_close_icon)!!)
+    open fun createActionButton() = FsActionButton(SimpleButton(), "")
 
     fun show(scope: CoroutineScope): Job {
         return scope.launch { show() }
