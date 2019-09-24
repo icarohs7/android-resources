@@ -105,7 +105,10 @@ abstract class BaseFullscreenMaterialDialog(
     }
 
     fun dismiss() {
-        GlobalScope.launch(Dispatchers.Main) { dialog.dismiss() }
+        GlobalScope.launch(Dispatchers.Main.immediate) {
+            dialog.dismiss()
+            lifecycleRegistry.currentState = Lifecycle.State.DESTROYED
+        }
     }
 
     fun onDismiss(block: () -> Unit) {
