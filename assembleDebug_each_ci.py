@@ -5,6 +5,7 @@ from os import system
 import re
 import time
 
+gradle_command_flags = "-x lint -PrelativeResMod -Pci -Pcoverage --stacktrace"
 
 def get_gradle_modules() -> List[str]:
     with open("settings.gradle.kts") as f:
@@ -16,8 +17,7 @@ def get_gradle_modules() -> List[str]:
 
 def build_module_command(module_name: str) -> str:
     assemble_cmd = "build"
-    flags = "-x lint -PrelativeResMod -Pci -Pcoverage --stacktrace"
-    return f"./gradlew {module_name}:{assemble_cmd} {flags}"
+    return f"./gradlew {module_name}:{assemble_cmd} {gradle_command_flags}"
 
 
 def execute_module_command(command: str, index: int, modules: List[str]) -> Tuple[int, float]:
@@ -71,5 +71,7 @@ for (index, module) in enumerate(modules):
 
     total_time += cmd_time
     successes.append(f"{module} in {cmd_time:.1f}s")
+
+os.system("./gradlew jacocoRootReport")
 
 print_execution_report(successes, total_time)
