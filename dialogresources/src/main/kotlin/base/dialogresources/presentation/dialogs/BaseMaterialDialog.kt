@@ -4,6 +4,10 @@ import android.content.Context
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.LifecycleRegistry
+import androidx.lifecycle.lifecycleScope
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.callbacks.onCancel
 import com.afollestad.materialdialogs.callbacks.onDismiss
@@ -30,10 +34,10 @@ import kotlin.coroutines.resume
  */
 abstract class BaseMaterialDialog<T : ViewDataBinding>(
         protected val context: Context
-) {
-    val lifecycleScope: CoroutineScope = MainScope()
+) : LifecycleOwner {
+    private val lifecycleRegistry by lazy { LifecycleRegistry(this) }
     val binding: T by lazy { createBinding() }
-    val dialog: MaterialDialog by lazy { createDialog() }
+    protected val dialog: MaterialDialog by lazy { createDialog() }
 
     private fun createBinding(): T {
         val inflater = context.layoutInflater
@@ -71,21 +75,18 @@ abstract class BaseMaterialDialog<T : ViewDataBinding>(
     }
 
     open fun onShow() {
+        lifecycleRegistry.currentState = Lifecycle.State.RESUMED
     }
 
     open fun onCancel() {
+        lifecycleRegistry.currentState = Lifecycle.State.DESTROYED
     }
 
     open fun onDismiss() {
-        lifecycleScope.cancelCoroutineScope()
+        lifecycleRegistry.currentState = Lifecycle.State.DESTROYED
     }
 
-    open fun getMaterialDialog(): MaterialDialog {
-        return MaterialDialog(context)
-    }
-
-    fun Flow<*>.launchInScope(): Job = launchIn(lifecycleScope)
-
-    @LayoutRes
-    abstract fun getLayout(): Int
+    open fun getMaterialDialog(): MaterialDialog = MaterialDialog(context)
+    @LayoutRes abstract fun getLayout(): Int
+    override fun getLifecycle(): Lifecycle = lifecycleRegistry
 }

@@ -1,6 +1,7 @@
 package base.dialogresources.domain.extensions
 
 import android.app.Dialog
+import androidx.lifecycle.lifecycleScope
 import base.dialogresources.presentation.dialogs.BaseFullscreenMaterialDialog
 import base.dialogresources.presentation.dialogs.BaseMaterialDialog
 import kotlinx.coroutines.CoroutineScope
@@ -40,13 +41,3 @@ suspend fun <D : Dialog> D.showAndAwaitDismiss() {
         cont.invokeOnCancellation { dismiss() }
     }
 }
-
-/**
- * Launch a coroutine tied to the lifecycle
- * of the given dialog
- */
-fun BaseMaterialDialog<*>.launch(
-        context: CoroutineContext = EmptyCoroutineContext,
-        start: CoroutineStart = CoroutineStart.DEFAULT,
-        block: suspend CoroutineScope.() -> Unit
-): Job = lifecycleScope.launch(context, start, block)
