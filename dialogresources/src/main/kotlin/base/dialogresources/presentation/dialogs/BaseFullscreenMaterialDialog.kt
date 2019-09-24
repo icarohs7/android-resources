@@ -6,7 +6,17 @@ import android.util.Log
 import android.view.View
 import android.widget.TextView
 import androidx.core.view.forEach
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.LifecycleRegistry
+import androidx.lifecycle.lifecycleScope
 import arrow.core.Try
+import base.coreresources.extensions.addOnCreateObserver
+import base.coreresources.extensions.addOnDestroyObserver
+import base.coreresources.extensions.addOnPauseObserver
+import base.coreresources.extensions.addOnResumeObserver
+import base.coreresources.extensions.addOnStartObserver
+import base.coreresources.extensions.addOnStopObserver
 import base.coreresources.toplevel.safeRun
 import base.dialogresources.R
 import base.dialogresources.domain.toolbar
@@ -30,16 +40,20 @@ import splitties.resources.appDrawable
 import splitties.views.backgroundColor
 import kotlin.coroutines.resume
 
-abstract class BaseFullscreenMaterialDialog(protected val context: Context, protected val title: String) {
-    val lifecycleScope: CoroutineScope = MainScope()
+abstract class BaseFullscreenMaterialDialog(
+        protected val context: Context,
+        protected val title: String
+) : LifecycleOwner {
+    private val lifecycleRegistry by lazy { LifecycleRegistry(this) }
 
-    val dialog: FsDialog by lazy {
+    protected val dialog: FsDialog by lazy {
         val toolbar = createToolbar()
         val content = createDialogContent()
         createDialog(toolbar, content).apply {
-            setOnCancelListener { lifecycleScope.job.cancelChildren() }
+            setOnCancelListener { lifecycleRegistry.currentState = Lifecycle.State.DESTROYED }
+            setOnShowListener { lifecycleRegistry.currentState = Lifecycle.State.RESUMED }
             addOnClose {
-                lifecycleScope.job.cancelChildren()
+                lifecycleRegistry.currentState = Lifecycle.State.DESTROYED
                 dismiss()
             }
             onCreateView(toolbar, content, this)
@@ -95,9 +109,16 @@ abstract class BaseFullscreenMaterialDialog(protected val context: Context, prot
     }
 
     fun onDismiss(block: () -> Unit) {
-        dialog.addOnClose(block)
-        dialog.setOnCancelListener { block() }
+        dialog.addOnClose {
+            lifecycleRegistry.currentState = Lifecycle.State.DESTROYED
+            block()
+        }
+        dialog.setOnCancelListener {
+            lifecycleRegistry.currentState = Lifecycle.State.DESTROYED
+            block()
+        }
     }
 
     abstract fun createDialogContent(): View
+    override fun getLifecycle(): Lifecycle = lifecycleRegistry
 }

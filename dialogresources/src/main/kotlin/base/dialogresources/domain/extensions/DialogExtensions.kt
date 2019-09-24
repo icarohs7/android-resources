@@ -12,15 +12,6 @@ import kotlin.coroutines.CoroutineContext
 import kotlin.coroutines.EmptyCoroutineContext
 import kotlin.coroutines.resume
 
-inline fun <T> BaseFullscreenMaterialDialog.showWhileRunning(operation: BaseFullscreenMaterialDialog.() -> T): T {
-    return try {
-        dialog.show()
-        operation()
-    } finally {
-        dialog.dismiss()
-    }
-}
-
 suspend inline fun BaseFullscreenMaterialDialog.show(
         block: BaseFullscreenMaterialDialog.() -> Unit
 ) {
