@@ -52,6 +52,7 @@
     <string name="apagar_registro">Apagar Registro</string>
     <string name="atendimento">Atendimento</string>
     <string name="atendimento_finalizado">Atendimento finalizado</string>
+    <string name="atendimentos_colon">Atendimentos:</string>
     <string name="ativado">Ativado</string>
     <string name="ativar">Ativar</string>
     <string name="ativar_sincronização">Ativar Sincronização</string>
