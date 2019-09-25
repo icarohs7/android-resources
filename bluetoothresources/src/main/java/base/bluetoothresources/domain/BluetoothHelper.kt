@@ -4,7 +4,7 @@ import android.bluetooth.BluetoothDevice
 import arrow.core.Try
 import arrow.core.orNull
 import com.github.icarohs7.unoxcore.extensions.getOrElse
-import com.github.icarohs7.unoxcore.tryBg
+import com.github.icarohs7.unoxcore.toplevel.tryBg
 import com.sirvar.bluetoothkit.BluetoothKit
 import com.sirvar.bluetoothkit.BluetoothKitSocketInterface
 import kotlinx.coroutines.withTimeout

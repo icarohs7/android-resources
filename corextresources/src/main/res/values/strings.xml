@@ -153,6 +153,7 @@
     <string name="descricao_da_compra">Descrição da compra</string>
     <string name="descricao_da_solucao">Descrição da solução</string>
     <string name="descricao_do_problema">Descrição do problema</string>
+    <string name="descricao_do_problema_colon">Descrição do problema:</string>
     <string name="deseja_aceitar_os_question">Deseja aceitar a OS?</string>
     <string name="deseja_confirmar_essa_venda">Deseja confirmar essa venda?</string>
     <string name="deseja_confirmar_essa_venda_no_crediario">Deseja confirmar essa venda no crediário?</string>
@@ -264,6 +265,7 @@
     <string name="informar_quantidade">Informar Quantidade</string>
     <string name="iniciando">Iniciando</string>
     <string name="iniciando_ellipsis">Iniciando…</string>
+    <string name="iniciar">Iniciar</string>
     <string name="iniciar_atendimento">Iniciar atendimento</string>
     <string name="inicio">Início</string>
     <string name="item">Item</string>
@@ -312,6 +314,7 @@
     <string name="nao_informada">Não informado(a)</string>
     <string name="nao_se_esqueca_de_efetuar_o_registro">Não se esqueça de efetuar o registro</string>
     <string name="nao_sincronizado">Não Sincronizado</string>
+    <string name="natureza_do_problema_colon">Natureza do problema:</string>
     <string name="nenhum_cliente_selecionado">Nenhum cliente selecionado</string>
     <string name="nenhum_dispositivo_conectado">Nenhum dispositivo conectado</string>
     <string name="nenhum_endereco_registrado">Nenhum endereço registrado</string>
@@ -476,6 +479,7 @@
     <string name="telefone_de_contato">Telefone de contato</string>
     <string name="telefone_sem_ddd">Telefone (sem DDD)</string>
     <string name="tem_ou_teve_alguma_vez">(Tem ou Teve alguma vez?)</string>
+    <string name="tempo_de_atendimento_colon">Tempo de atendimento:</string>
     <string name="termos_da_pesquisa">Termos da pesquisa</string>
     <string name="tipo">Tipo</string>
     <string name="tipo_da_viagem_colon">Tipo da viagem:</string>

@@ -3,7 +3,7 @@ package base.corextresources.domain.extensions
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import arrow.core.Try
-import com.github.icarohs7.unoxcore.tryBg
+import com.github.icarohs7.unoxcore.toplevel.tryBg
 import java.net.URL
 
 /**
