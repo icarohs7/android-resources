@@ -1,6 +1,7 @@
 package base.corextresources.presentation._baseclasses
 
 import androidx.lifecycle.viewModelScope
+import base.coreresources.CoreRes
 import com.airbnb.mvrx.Async
 import com.airbnb.mvrx.BaseMvRxViewModel
 import com.airbnb.mvrx.Fail
@@ -8,7 +9,6 @@ import com.airbnb.mvrx.Loading
 import com.airbnb.mvrx.MvRxState
 import com.airbnb.mvrx.RealMvRxStateStore
 import com.airbnb.mvrx.Success
-import base.coreresources.CoreRes
 import com.github.icarohs7.unoxcore.UnoxCore
 import io.reactivex.Flowable
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -106,7 +106,7 @@ open class CoreMvRxViewModel<S : MvRxState>(initialState: S) : BaseMvRxViewModel
         return map<T, Async<V>> { value -> Success(mapper(value)) }
                 .catch { emit(Fail(it)) }
                 .onEach { asyncData -> setState { stateReducer(asyncData) } }
-                .launchInScope()
+                .launchIn(viewModelScope)
     }
 
     /**
@@ -128,10 +128,4 @@ open class CoreMvRxViewModel<S : MvRxState>(initialState: S) : BaseMvRxViewModel
                 .flowOn(UnoxCore.backgroundDispatcher)
                 .distinctUntilChanged()
     }
-
-    /**
-     * Launch the collection of the given Flow
-     * on the coroutine scope of this component
-     */
-    fun Flow<*>.launchInScope(): Job = launchIn(viewModelScope)
 }

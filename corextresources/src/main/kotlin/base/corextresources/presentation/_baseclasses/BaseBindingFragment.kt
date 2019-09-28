@@ -55,19 +55,6 @@ abstract class BaseBindingFragment<B : ViewDataBinding> : BaseMvRxFragment() {
     }
 
     /**
-     * Launch the collection of the given Flow
-     * on the coroutine scope of this component's
-     * view
-     */
-    fun Flow<*>.launchInViewScope(): Job = launchIn(viewLifecycleOwner.lifecycleScope)
-
-    /**
-     * Launch the collection of the given Flow
-     * on the coroutine scope of this component
-     */
-    fun Flow<*>.launchInScope(): Job = launchIn(lifecycleScope)
-
-    /**
      * Convert the given live data to flow,
      * add an onEach operator to it with the
      * given action and return the flow

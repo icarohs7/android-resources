@@ -8,11 +8,7 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import base.corextresources.R
 import base.coreresources.presentation.activities.BaseArchActivity
-import base.coreresources.state.LoadingStore.toggleLoading
 import base.coreresources.state.addOnLoadingListener
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.launchIn
 
 abstract class BaseFragholderMainActivity : BaseArchActivity() {
     private val progressBar by lazy { findViewById<ProgressBar>(R.id.progress_bar) }
@@ -24,10 +20,4 @@ abstract class BaseFragholderMainActivity : BaseArchActivity() {
         lifecycleScope.addOnLoadingListener { isLoading -> progressBar.isVisible = isLoading }
 
     }
-
-    /**
-     * Launch the collection of the given Flow
-     * on the coroutine scope of this component
-     */
-    fun Flow<*>.launchInScope(): Job = launchIn(lifecycleScope)
 }
