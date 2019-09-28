@@ -22,7 +22,7 @@
         <item name="textInputStyle">@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox</item>
         <item name="materialCardViewStyle">@style/Widget.App.MaterialCardView</item>
 
-        <item name="android:fitsSystemWindows">true</item>
+        <!--        <item name="android:fitsSystemWindows">true</item>-->
     </style>
 
     <style name="Widget.App.ActionButton.Overflow" parent="@style/Widget.AppCompat.ActionButton.Overflow">
