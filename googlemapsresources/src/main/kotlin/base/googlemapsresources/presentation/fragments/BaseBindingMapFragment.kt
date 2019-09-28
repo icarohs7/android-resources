@@ -38,7 +38,6 @@ abstract class BaseBindingMapFragment<DB : ViewDataBinding> : BaseMapFragment() 
      * event
      */
     open fun onBindingCreated(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) {
-        mapView.onCreate(savedInstanceState)
     }
 
     /**
