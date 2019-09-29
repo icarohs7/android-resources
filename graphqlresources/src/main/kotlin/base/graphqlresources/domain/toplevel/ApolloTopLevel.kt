@@ -1,6 +1,6 @@
 package base.graphqlresources.domain.toplevel
 
-import base.corextresources.domain.extensions.RetrofitExtensions
+import base.okhttpresources.OkHttpRes
 import com.apollographql.apollo.ApolloClient
 
 /**
@@ -9,7 +9,7 @@ import com.apollographql.apollo.ApolloClient
  */
 fun createApolloClient(serverUrl: String): ApolloClient? {
     return ApolloClient.builder()
-            .okHttpClient(RetrofitExtensions.getHttpClient())
+            .okHttpClient(OkHttpRes.getDefaultHttpClient())
             .serverUrl(serverUrl)
             .build()
 }

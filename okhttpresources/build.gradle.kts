@@ -11,7 +11,11 @@ plugins {
 dependencies {
     api(res("corext"))
 
-    api(AndroidDeps.materialSearchBar)
+    api(Deps.okHttp)
+    api(Deps.okHttpLoggingInterceptor)
+
+    debugApi(AndroidDeps.chucker)
+    releaseApi(AndroidDeps.chuckerNoOp)
 
     AndroidKaptDeps.core.forEach(::kapt)
 }

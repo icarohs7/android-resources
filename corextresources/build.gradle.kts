@@ -12,8 +12,6 @@ dependencies {
     api(res("core"))
 
     api(Deps.kotlinxSerialization)
-    api(Deps.okHttp)
-    api(Deps.okHttpLoggingInterceptor)
 
     api(AndroidDeps.kotpref)
     api(AndroidDeps.kotprefInitializer)
@@ -21,9 +19,6 @@ dependencies {
     api(AndroidDeps.navigationFragmentKtx)
     api(AndroidDeps.navigationUiKtx)
     api(AndroidDeps.stetho)
-
-    debugApi(AndroidDeps.chucker)
-    releaseApi(AndroidDeps.chuckerNoOp)
 }
 
 setupJacoco {

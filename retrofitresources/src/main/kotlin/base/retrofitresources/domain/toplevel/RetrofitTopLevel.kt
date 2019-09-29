@@ -1,20 +1,13 @@
 package base.retrofitresources.domain.toplevel
 
-import base.corextresources.domain.toplevel.kget
-import com.chuckerteam.chucker.api.ChuckerCollector
-import com.chuckerteam.chucker.api.ChuckerInterceptor
+import base.okhttpresources.OkHttpRes
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import kotlinx.serialization.json.Json
-import okhttp3.Interceptor
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Converter
 import retrofit2.Retrofit
 import retrofit2.create
-import splitties.init.appCtx
-import timber.log.Timber
-import java.util.concurrent.TimeUnit
 
 /**
  * Short hand version to create a retrofit instance
@@ -59,7 +52,7 @@ inline fun <reified T> createRetrofitService(
             .Builder()
             .baseUrl(baseUrl)
             .addConverterFactory(RetrofitExtensions.getKotlinxSerializationConverter())
-            .client(RetrofitExtensions.getHttpClient(clientExtraConfig))
+            .client(OkHttpRes.getDefaultHttpClient(clientExtraConfig))
             .apply(builderExtraConfig)
             .build()
             .create()
@@ -71,29 +64,5 @@ object RetrofitExtensions {
         return Json
                 .nonstrict
                 .asConverterFactory(contentType)
-    }
-
-    fun getHttpClient(clientExtraConfig: OkHttpClient.Builder.() -> Unit = {}): OkHttpClient {
-        return OkHttpClient
-                .Builder()
-                .readTimeout(60, TimeUnit.SECONDS)
-                .connectTimeout(60, TimeUnit.SECONDS)
-                .addInterceptor(getLoggingInterceptor())
-                .addInterceptor(getHttpInspectorInterceptor())
-                .apply(clientExtraConfig)
-                .build()
-    }
-
-    private fun getLoggingInterceptor(): Interceptor {
-        return HttpLoggingInterceptor(object : HttpLoggingInterceptor.Logger {
-            override fun log(message: String) {
-                Timber.tag("Retrofit").d(message)
-            }
-        }).apply { level = HttpLoggingInterceptor.Level.BODY }
-    }
-
-    private fun getHttpInspectorInterceptor(): Interceptor {
-        val collector: ChuckerCollector = kget()
-        return ChuckerInterceptor(appCtx, collector)
     }
 }

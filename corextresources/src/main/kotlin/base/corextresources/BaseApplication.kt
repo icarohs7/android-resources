@@ -5,16 +5,13 @@ import android.app.Application
 import android.content.pm.ActivityInfo
 import android.os.Bundle
 import androidx.annotation.CallSuper
-import base.corextresources.domain.toplevel.kget
-import com.chuckerteam.chucker.api.ChuckerCollector
-import com.facebook.stetho.Stetho
 import base.coreresources.CoreRes
+import com.facebook.stetho.Stetho
 import com.umutbey.stateviews.StateViewsBuilder
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 import org.koin.core.module.Module
 import org.koin.dsl.module
-import splitties.init.appCtx
 import splitties.resources.drawable
 import splitties.resources.str
 import timber.log.Timber
@@ -25,33 +22,17 @@ abstract class BaseApplication : Application() {
         super.onCreate()
         Stetho.initializeWithDefaults(this)
         setupKoin()
-        installUncaughtExceptionHandler()
         setupTimber()
         setupUnoxAndroidArch()
         lockOrientation()
         setupStateViews(getStateViewsBuilder())
     }
 
-
     private fun setupKoin() {
         startKoin {
             androidContext(this@BaseApplication)
             modules(listOf(module {
-                single { ChuckerCollector(appCtx) }
             }) + onCreateKoinModules())
-        }
-    }
-
-    private fun installUncaughtExceptionHandler() {
-        val defaultHandler = Thread.getDefaultUncaughtExceptionHandler()
-        Thread.setDefaultUncaughtExceptionHandler { thread, throwable ->
-            Timber.tag("UncaughtException").e("""
-                    Uncaught exception on thread ${thread.name}:
-                    $throwable
-                    ${throwable.stackTrace.joinToString(separator = "\n")}
-                """.trimIndent())
-            kget<ChuckerCollector>().onError("UncaughtException", throwable)
-            defaultHandler?.uncaughtException(thread, throwable)
         }
     }
 
