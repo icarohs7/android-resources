@@ -1,5 +1,5 @@
-// File created at 09/28/2019 20:08
-// 31 modules found
+// File created at 09/29/2019 13:39
+// 32 modules found
 
 include(":animationresources")
 include(":appupdateresources")
@@ -28,6 +28,7 @@ include(":imageloadingresources")
 include(":locationresources")
 include(":maskedittextresources")
 include(":notificationresources")
+include(":retrofitresources")
 include(":schedulingresources")
 include(":searchbarresources")
 include(":spinnerresources")

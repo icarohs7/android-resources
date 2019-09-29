@@ -1,4 +1,4 @@
-package base.corextresources.domain.extensions
+package base.retrofitresources.domain.toplevel
 
 import base.corextresources.domain.toplevel.kget
 import com.chuckerteam.chucker.api.ChuckerCollector
@@ -15,7 +15,6 @@ import retrofit2.create
 import splitties.init.appCtx
 import timber.log.Timber
 import java.util.concurrent.TimeUnit
-
 
 /**
  * Short hand version to create a retrofit instance

@@ -14,8 +14,6 @@ dependencies {
     api(Deps.kotlinxSerialization)
     api(Deps.okHttp)
     api(Deps.okHttpLoggingInterceptor)
-    api(Deps.retrofit)
-    api(Deps.retrofitKotlinxSerializationConverter)
 
     api(AndroidDeps.kotpref)
     api(AndroidDeps.kotprefInitializer)
