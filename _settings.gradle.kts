@@ -1,5 +1,5 @@
-// File created at 09/15/2019 16:11
-// 30 modules found
+// File created at 09/28/2019 20:08
+// 31 modules found
 
 include(":animationresources")
 include(":appupdateresources")
@@ -23,6 +23,7 @@ include(":firebasecoreresources")
 include(":fluxarchresources")
 include(":formresources")
 include(":googlemapsresources")
+include(":graphqlresources")
 include(":imageloadingresources")
 include(":locationresources")
 include(":maskedittextresources")

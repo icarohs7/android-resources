@@ -75,8 +75,6 @@ object RetrofitExtensions {
     }
 
     fun getHttpClient(clientExtraConfig: OkHttpClient.Builder.() -> Unit = {}): OkHttpClient {
-
-
         return OkHttpClient
                 .Builder()
                 .readTimeout(60, TimeUnit.SECONDS)
