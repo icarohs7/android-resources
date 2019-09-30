@@ -2,25 +2,15 @@ package base.dialogresources.presentation.dialogs
 
 import android.content.Context
 import android.graphics.Color
-import android.util.Log
 import android.view.View
 import android.widget.TextView
 import androidx.core.view.forEach
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LifecycleRegistry
-import androidx.lifecycle.lifecycleScope
 import arrow.core.Try
-import base.coreresources.extensions.addOnCreateObserver
-import base.coreresources.extensions.addOnDestroyObserver
-import base.coreresources.extensions.addOnPauseObserver
-import base.coreresources.extensions.addOnResumeObserver
-import base.coreresources.extensions.addOnStartObserver
-import base.coreresources.extensions.addOnStopObserver
-import base.coreresources.toplevel.safeRun
 import base.dialogresources.R
-import base.dialogresources.domain.toolbar
-import com.github.icarohs7.unoxcore.extensions.coroutines.job
+import base.dialogresources.domain.extensions.toolbar
 import com.github.icarohs7.unoxcore.extensions.coroutines.onForeground
 import com.nikialeksey.fullscreendialog.FsDialog
 import com.nikialeksey.fullscreendialog.FsDialogToolbar
@@ -31,8 +21,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.MainScope
-import kotlinx.coroutines.cancelChildren
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.suspendCancellableCoroutine
 import splitties.resources.appColor

@@ -1,4 +1,4 @@
-package base.dialogresources.domain
+package base.dialogresources.domain.extensions
 
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.children
