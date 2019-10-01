@@ -1,14 +1,28 @@
-package base.searchbarresources
+package base.searchbarresources.domain.extensions
 
-import android.util.Log
 import android.widget.ImageView
 import base.coreresources.extensions.hideKeyboard
+import base.searchbarresources.MaterialSearchBarBuilder
 import com.mancj.materialsearchbar.MaterialSearchBar
+
+fun MaterialSearchBar.setup(
+        hintRes: Int,
+        placeholderRes: Int,
+        onHamburguerMenuClick: () -> Unit,
+        onSearch: (CharSequence?) -> Unit
+) {
+    setup {
+        this.hintRes = hintRes
+        this.placeholderRes = placeholderRes
+        this.onHamburguerMenuClick = onHamburguerMenuClick
+        this.onSearch = onSearch
+    }
+}
 
 fun MaterialSearchBar.setup(block: MaterialSearchBarBuilder.() -> Unit) {
     val builder = MaterialSearchBarBuilder(this).apply(block)
     builder.onBackClick = builder.onBackClick ?: { onSearch(builder, null) }
-    
+
     setHint(builder.hint)
     setPlaceHolder(builder.placeholder)
     setOnSearchActionListener(object : MaterialSearchBar.OnSearchActionListener {
