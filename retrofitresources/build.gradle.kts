@@ -4,8 +4,8 @@ plugins {
     id("kotlin-kapt")
     id("kotlinx-serialization")
     id("androidx.navigation.safeargs.kotlin")
-    id("jacoco")
     defaults.`android-module`
+    defaults.`setup-jacoco`
 }
 
 dependencies {
@@ -16,11 +16,4 @@ dependencies {
     api(Deps.retrofitKotlinxSerializationConverter)
 
     AndroidKaptDeps.core.forEach(::kapt)
-}
-
-setupJacoco {
-    sourceDirectories.setFrom(files(
-            android.sourceSets["main"].java.srcDirs,
-            "src/main/kotlin"
-    ))
 }

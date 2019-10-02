@@ -4,18 +4,12 @@ plugins {
     id("kotlin-kapt")
     id("kotlinx-serialization")
     id("androidx.navigation.safeargs.kotlin")
-    id("jacoco")
     defaults.`android-module`
+    defaults.`setup-jacoco`
 }
 
 dependencies {
     api(res("corext"))
 
     AndroidKaptDeps.core.forEach(::kapt)
-}
-
-setupJacoco {
-    sourceDirectories.setFrom(files(
-            "src/main/kotlin"
-    ))
 }
