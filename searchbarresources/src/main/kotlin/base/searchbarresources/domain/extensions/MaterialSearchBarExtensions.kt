@@ -3,19 +3,20 @@ package base.searchbarresources.domain.extensions
 import android.widget.ImageView
 import base.coreresources.extensions.hideKeyboard
 import base.searchbarresources.MaterialSearchBarBuilder
+import base.searchbarresources.R
 import com.mancj.materialsearchbar.MaterialSearchBar
 
 fun MaterialSearchBar.setup(
-        hintRes: Int,
         placeholderRes: Int,
-        onHamburguerMenuClick: () -> Unit,
-        onSearch: (CharSequence?) -> Unit
+        onSearch: (CharSequence?) -> Unit,
+        onHamburguerMenuClick: (() -> Unit)? = null
 ) {
     setup {
-        this.hintRes = hintRes
+        this.hintRes = R.string.pesquisar
         this.placeholderRes = placeholderRes
         this.onHamburguerMenuClick = onHamburguerMenuClick
         this.onSearch = onSearch
+        withSearchBar { setNavButtonEnabled(onHamburguerMenuClick != null) }
     }
 }
 
