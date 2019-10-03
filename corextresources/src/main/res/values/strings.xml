@@ -467,6 +467,8 @@
     <string name="senha">Senha</string>
     <string name="seu_pedido_foi_enviado_e_sera_entregue_em_breve">Seu pedido foi enviado e será entregue em breve</string>
     <string name="sim">Sim</string>
+    <string name="sincronizacao_executada_com_sucesso">Sincronização executada com sucesso</string>
+    <string name="sincronizacao_executada_com_value_erros">Sincronização executada com %s erros</string>
     <string name="sincronizando">Sincronizando</string>
     <string name="sincronizando_pedidos">Sincronizando Pedidos</string>
     <string name="sincronizando_registros">Sincronizando registros</string>

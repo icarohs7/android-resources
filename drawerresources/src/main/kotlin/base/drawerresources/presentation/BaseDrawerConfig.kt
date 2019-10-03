@@ -28,8 +28,8 @@ open class BaseDrawerConfig<T : BaseMainActivity>(
         drawer = with(activity) {
             val navDrawer = drawer {
                 defaultSettings(this)
-                builder(this, activity)
-                setupDrawer(this)
+                builder(activity)
+                setupDrawer(activity)
             }
 
             navController.addOnDestinationChangedListener { _, destination, _ ->
@@ -74,5 +74,5 @@ open class BaseDrawerConfig<T : BaseMainActivity>(
         }
     }
 
-    open fun BaseMainActivity.setupDrawer(builder: DrawerBuilderKt) {}
+    open fun DrawerBuilderKt.setupDrawer(activity: T) {}
 }
