@@ -13,9 +13,9 @@ import base.authresources.domain.Suspend
 import base.authresources.presentation.fragments.EmailLoginFragment
 import base.authresources.presentation.fragments.PinLoginFragment
 import base.authresources.presentation.fragments.UserPassLoginFragment
+import base.coreresources.toplevel.FlashBar
 import base.corextresources.presentation.CoreNavigation
 import base.corextresources.presentation._baseclasses.BaseBindingActivity
-import base.coreresources.toplevel.FlashBar
 import splitties.views.onClick
 import splitties.views.textResource
 import kotlin.reflect.KClass
@@ -95,9 +95,7 @@ abstract class AuthenticationActivity(
      */
     fun showDefaultAuthErrorMessage(exception: Throwable? = null) {
         FlashBar.error(
-                """Ocorreu um erro ao tentar se autenticar, verifique suas credenciais e sua conexão.
-                    |${if (exception != null) "Erro ${exception::class.simpleName}" else ""}
-                """.trimMargin(),
+                "Ocorreu um erro ao tentar se autenticar, verifique suas credenciais e sua conexão.",
                 duration = 3500
         )
     }

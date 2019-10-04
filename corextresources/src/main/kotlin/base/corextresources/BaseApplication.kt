@@ -9,6 +9,7 @@ import base.coreresources.CoreRes
 import com.facebook.stetho.Stetho
 import com.umutbey.stateviews.StateViewsBuilder
 import org.koin.android.ext.koin.androidContext
+import org.koin.core.KoinApplication
 import org.koin.core.context.startKoin
 import org.koin.core.module.Module
 import org.koin.dsl.module
@@ -29,11 +30,12 @@ abstract class BaseApplication : Application() {
     }
 
     private fun setupKoin() {
-        startKoin {
-            androidContext(this@BaseApplication)
-            modules(listOf(module {
-            }) + onCreateKoinModules())
-        }
+        startKoin { onSetupKoin(this) }
+    }
+
+    open fun onSetupKoin(koinApplication: KoinApplication): Unit = with(koinApplication) {
+        androidContext(this@BaseApplication)
+        modules(onCreateKoinModules())
     }
 
     open fun onCreateKoinModules(): List<Module> {
