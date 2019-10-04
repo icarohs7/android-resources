@@ -2,28 +2,6 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-
-        <import type="android.view.View" />
-
-        <variable
-            name="title"
-            type="String" />
-
-        <variable
-            name="message"
-            type="String" />
-
-        <variable
-            name="confirmHandler"
-            type="android.view.View.OnClickListener" />
-
-        <variable
-            name="cancelHandler"
-            type="android.view.View.OnClickListener" />
-
-    </data>
-
     <LinearLayout
         android:id="@+id/root_container"
         android:layout_width="match_parent"
@@ -36,7 +14,6 @@
             android:layout_height="50dp"
             android:background="@color/colorPrimary"
             android:gravity="center"
-            android:text="@{ title }"
             android:textColor="@android:color/white"
             android:textSize="24sp"
             tools:background="@color/colorPrimary"
@@ -48,7 +25,6 @@
             android:layout_height="wrap_content"
             android:layout_margin="6dp"
             android:gravity="center"
-            android:text="@{ message }"
             android:textSize="18sp"
             tools:text="Lorem ipsum sit dolor amet..." />
 
@@ -65,7 +41,6 @@
                 android:layout_margin="4dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/colorError"
-                android:onClick="@{ cancelHandler::onClick }"
                 android:text="@android:string/no"
                 android:textAlignment="center"
                 android:textColor="@android:color/white" />
@@ -77,7 +52,6 @@
                 android:layout_margin="4dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/colorSuccess"
-                android:onClick="@{ confirmHandler::onClick }"
                 android:text="@android:string/yes"
                 android:textAlignment="center"
                 android:textColor="@android:color/white" />

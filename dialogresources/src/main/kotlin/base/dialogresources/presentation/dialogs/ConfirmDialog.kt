@@ -1,9 +1,9 @@
 package base.dialogresources.presentation.dialogs
 
 import android.content.Context
-import android.view.View
 import base.dialogresources.R
 import base.dialogresources.databinding.DialogConfirmBinding
+import splitties.views.onClick
 
 class ConfirmDialog(
         ctx: Context,
@@ -13,14 +13,14 @@ class ConfirmDialog(
         val confirmHandler: (() -> Unit)? = null
 ) : BaseMaterialDialog<DialogConfirmBinding>(ctx) {
     override suspend fun onCreateBinding(): Unit = with(binding) {
-        title = this@ConfirmDialog.title
-        message = this@ConfirmDialog.message
-        cancelHandler = View.OnClickListener {
-            this@ConfirmDialog.cancelHandler?.invoke()
+        txtTitle.text = title
+        txtMessage.text = message
+        btnCancel.onClick {
+            cancelHandler?.invoke()
             dialog.dismiss()
         }
-        confirmHandler = View.OnClickListener {
-            this@ConfirmDialog.confirmHandler?.invoke()
+        btnConfirm.onClick {
+            confirmHandler?.invoke()
             dialog.dismiss()
         }
     }

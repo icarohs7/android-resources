@@ -35,7 +35,7 @@ abstract class BaseMaterialDialog<T : ViewDataBinding>(
     private fun createBinding(): T {
         val inflater = context.layoutInflater
         return DataBindingUtil.inflate<T>(inflater, getLayout(), null, false)
-                .also { lifecycleScope.launch { onCreateBinding() } }
+                .also { lifecycleScope.launchWhenCreated { onCreateBinding() } }
     }
 
     private fun createDialog(): MaterialDialog {
