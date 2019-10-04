@@ -8,6 +8,7 @@ interface BaseDataAdapterHolder {
     fun int(s: String): Int = s.toIntOrNull().orZero()
     fun int(b: Boolean): Int = if (b) 1 else 0
     fun double(s: String): Double = s.toDoubleOrNull().orZero()
+    fun boolean(i: Int): Boolean = i != 0
     fun dateStr(s: String, format: String = "dd/MM/yyyy HH:mm"): String = s.asDate(format).asRemoteDate
 
     /**
