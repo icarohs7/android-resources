@@ -1,16 +1,11 @@
 package base.dialogresources.domain.extensions
 
 import android.app.Dialog
-import androidx.lifecycle.lifecycleScope
 import base.dialogresources.presentation.dialogs.BaseFullscreenMaterialDialog
 import base.dialogresources.presentation.dialogs.BaseMaterialDialog
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.CoroutineStart
-import kotlinx.coroutines.Job
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.suspendCancellableCoroutine
-import kotlin.coroutines.CoroutineContext
-import kotlin.coroutines.EmptyCoroutineContext
 import kotlin.coroutines.resume
 
 suspend inline fun BaseFullscreenMaterialDialog.show(
@@ -18,6 +13,15 @@ suspend inline fun BaseFullscreenMaterialDialog.show(
 ) {
     block()
     show()
+}
+
+suspend fun <T> BaseFullscreenMaterialDialog.showWhileRunning(block: suspend () -> T): T {
+    return coroutineScope {
+        val showJob = launch { show() }
+        val result = block()
+        showJob.cancel()
+        result
+    }
 }
 
 inline fun <D : Dialog, T> D.showWhileRunning(operation: D.() -> T): T {
