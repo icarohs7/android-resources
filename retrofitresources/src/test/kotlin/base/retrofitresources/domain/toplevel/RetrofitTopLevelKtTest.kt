@@ -1,6 +1,5 @@
-package base.corextresources.domain.extensions
+package base.retrofitresources.domain.toplevel
 
-import base.corextresources.testutils.TestClass
 import kotlinx.coroutines.runBlocking
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
@@ -10,7 +9,7 @@ import retrofit2.create
 import retrofit2.http.GET
 import se.lovef.assert.v1.shouldEqual
 
-class RetrofitExtensionsKtTest {
+class RetrofitTopLevelKtTest {
     interface TestApiService {
         @GET("/message")
         suspend fun getMessage(): TestClass
