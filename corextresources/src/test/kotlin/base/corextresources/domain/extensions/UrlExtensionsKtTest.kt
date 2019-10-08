@@ -12,7 +12,7 @@ import java.net.URL
 
 class UrlExtensionsKtTest {
     @Test
-    fun `should get body of request from http url`() { //TODO cover error on request
+    fun `should get body of request from http url`() {
         val server = MockWebServer()
         server.enqueue(MockResponse().setBody("Omai wa mou shindeiru!"))
         server.start()

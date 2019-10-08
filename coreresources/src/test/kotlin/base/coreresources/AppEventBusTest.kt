@@ -12,7 +12,6 @@ import base.coreresources.toplevel.onActivity
 import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
-import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
@@ -70,8 +69,8 @@ class AppEventBusTest {
         runAllMainLooperMessages()
 
         number1 shouldEqual 0
-        runBlockingTest {
-            suspendCoroutine { cont ->
+        runBlocking {
+            suspendCoroutine<Unit> { cont ->
                 onActivity {
                     number2 = 1532
                     cont.resume(Unit)

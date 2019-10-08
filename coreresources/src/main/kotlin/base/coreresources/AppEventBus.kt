@@ -3,8 +3,7 @@ package base.coreresources
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.lifecycleScope
 import arrow.core.Try
-import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.channels.broadcast
+import kotlinx.coroutines.channels.BroadcastChannel
 import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -15,8 +14,8 @@ import timber.log.Timber
  * or fragment anywhere on the application
  */
 object AppEventBus {
-    private val activityOpStream = Channel<FragmentActivity.() -> Unit>()
-    private val activityOpFlow = activityOpStream.broadcast().asFlow()
+    private val activityOpStream = BroadcastChannel<FragmentActivity.() -> Unit>(1)
+    private val activityOpFlow get() = activityOpStream.asFlow()
 
     /**
      * Object aggregating event emmiters
