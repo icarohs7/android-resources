@@ -11,8 +11,5 @@ plugins {
 dependencies {
     api(res("corext"))
 
-    api(AndroidDeps.quantum)
-//    implementation(AndroidDeps.quantumRx)
-
     AndroidKaptDeps.core.forEach(::kapt)
 }
