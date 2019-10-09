@@ -4,19 +4,19 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.widget.Toolbar
+import androidx.core.view.updateLayoutParams
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import arrow.core.Try
-import androidx.core.view.updateLayoutParams
 import arrow.core.getOrElse
+import base.coreresources.state.addOnLoadingListener
+import base.coreresources.toplevel.onActivity
 import base.corextresources.R
 import base.corextresources.databinding.ActivityBaseMainBinding
 import base.corextresources.domain.toplevel.navigate
 import base.corextresources.presentation._baseclasses.BaseBindingActivity
-import base.coreresources.state.addOnLoadingListener
-import base.coreresources.toplevel.onActivity
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.launch
@@ -76,21 +76,11 @@ abstract class BaseMainActivity(
         return super.onCreateOptionsMenu(menu)
     }
 
-    override fun getLayout(): Int {
-        return R.layout.activity_base_main
-    }
+    override fun getLayout(): Int = R.layout.activity_base_main
 
     companion object {
-        operator fun invoke(block: BaseMainActivity.() -> Unit) {
-            onActivity(block)
-        }
-
-        fun setupToolbar(toolbar: Toolbar) {
-            onActivity<BaseMainActivity> { this.setupToolbar(toolbar) }
-        }
-
-        fun setupBottomNav(nav: BottomNavigationView) {
-            onActivity<BaseMainActivity> { this.setupBottomNav(nav) }
-        }
+        operator fun invoke(block: BaseMainActivity.() -> Unit): Unit = onActivity(block)
+        fun setupToolbar(toolbar: Toolbar): Unit = invoke { this.setupToolbar(toolbar) }
+        fun setupBottomNav(nav: BottomNavigationView): Unit = invoke { this.setupBottomNav(nav) }
     }
 }

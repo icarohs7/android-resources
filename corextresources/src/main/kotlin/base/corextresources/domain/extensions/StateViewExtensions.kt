@@ -17,10 +17,18 @@ import kotlinx.coroutines.flow.onEach
  * flow emits an empty list
  */
 fun StateView.displayStateWhenFlowListIsEmpty(scope: CoroutineScope, flow: Flow<List<*>>, stateTag: String): Job {
-    return flow.map { it.isNotEmpty() }
+    return displayStateWhenTrue(scope, flow.map { it.isEmpty() }, stateTag)
+}
+
+/**
+ * @param stateTag Tag of the state to be shown when the given
+ * flow emits true
+ */
+fun StateView.displayStateWhenTrue(scope: CoroutineScope, flow: Flow<Boolean>, stateTag: String): Job {
+    return flow
             .distinctUntilChanged()
             .flowOnBackground()
-            .onEach { showContent -> if (showContent) hideStates() else displayState(stateTag) }
+            .onEach { showState -> if (showState) displayState(stateTag) else hideStates() }
             .flowOn(UnoxCore.foregroundDispatcher)
             .launchIn(scope)
 }
