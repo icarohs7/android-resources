@@ -1,10 +1,12 @@
 package base.coreresources.extensions
 
 import android.content.res.ColorStateList
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.view.ViewPropertyAnimator
 import android.view.inputmethod.InputMethodManager
+import android.widget.PopupMenu
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import splitties.systemservices.inputMethodManager
@@ -151,3 +153,15 @@ val View.location: Pair<Int, Int>
         getLocationOnScreen(array)
         return array[0] to array[1]
     }
+
+/**
+ * Show a popup menu anchored to the given view
+ */
+fun View.showPopupMenu(menuRes: Int, gravity: Int? = null, onItemSelected: (MenuItem) -> Unit) {
+    val popup = gravity?.let { PopupMenu(context, this, it) } ?: PopupMenu(context, this)
+    popup.apply {
+        inflate(menuRes)
+        setOnMenuItemClickListener { onItemSelected(it).let { true } }
+        show()
+    }
+}
