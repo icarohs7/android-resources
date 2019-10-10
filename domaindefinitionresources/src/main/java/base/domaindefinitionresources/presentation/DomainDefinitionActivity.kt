@@ -6,20 +6,19 @@ import androidx.lifecycle.lifecycleScope
 import arrow.core.None
 import arrow.core.Option
 import arrow.core.Some
+import base.coreresources.toplevel.FlashBar
 import base.corextresources.databinding.CustomInputFieldBinding
 import base.corextresources.presentation.CoreNavigation
 import base.corextresources.presentation._baseclasses.BaseBindingActivity
 import base.domaindefinitionresources.R
 import base.domaindefinitionresources.data.entities.DomainHolder
 import base.domaindefinitionresources.databinding.ActivityDomainDefinitionBinding
-import base.coreresources.toplevel.FlashBar
+import base.domaindefinitionresources.domain.escapeDomainString
 import com.github.icarohs7.unoxcore.extensions.coroutines.onBackground
 import kotlinx.coroutines.launch
 
 open class DomainDefinitionActivity : BaseBindingActivity<ActivityDomainDefinitionBinding>() {
-    private val layoutEditDomainBinding by lazy {
-        binding.layoutEditDomain as CustomInputFieldBinding
-    }
+    private val layoutEditDomainBinding by lazy { binding.layoutEditDomain as CustomInputFieldBinding }
 
     open fun onInvalidDomain() {
         FlashBar.error("Domínio inválido")
@@ -53,7 +52,7 @@ open class DomainDefinitionActivity : BaseBindingActivity<ActivityDomainDefiniti
     private fun getDomain(): Option<String> {
         val value = "${layoutEditDomainBinding.editText.text ?: ""}"
         return when (isValid(value)) {
-            true -> Option.just("https://$value.sige.pro/webservices/app/")
+            true -> Option.just("https://${escapeDomainString(value)}.sige.pro/webservices/app/")
             false -> None
         }
     }
@@ -79,9 +78,7 @@ open class DomainDefinitionActivity : BaseBindingActivity<ActivityDomainDefiniti
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.activity_domain_definition
-    }
+    override fun getLayout(): Int = R.layout.activity_domain_definition
 
     companion object {
         private var domainDefinitionListener: DomainDefinitionActivity.(String) -> Unit = {}
