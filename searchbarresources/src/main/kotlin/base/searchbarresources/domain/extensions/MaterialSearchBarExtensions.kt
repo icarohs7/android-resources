@@ -9,14 +9,14 @@ import com.mancj.materialsearchbar.MaterialSearchBar
 fun MaterialSearchBar.setup(
         placeholderRes: Int,
         onSearch: (CharSequence?) -> Unit,
-        onHamburguerMenuClick: (() -> Unit)? = null
+        onNavigationClick: (() -> Unit)? = null
 ) {
     setup {
         this.hintRes = R.string.pesquisar
         this.placeholderRes = placeholderRes
-        this.onHamburguerMenuClick = onHamburguerMenuClick
+        this.onHamburguerMenuClick = onNavigationClick
         this.onSearch = onSearch
-        withSearchBar { setNavButtonEnabled(onHamburguerMenuClick != null) }
+        withSearchBar { setNavButtonEnabled(onNavigationClick != null) }
     }
 }
 
