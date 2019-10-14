@@ -1,11 +1,14 @@
 package base.domaindefinitionresources.presentation
 
+import android.content.Context
 import android.os.Bundle
 import android.text.InputType
+import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.lifecycleScope
 import arrow.core.None
 import arrow.core.Option
 import arrow.core.Some
+import base.coreresources.extensions.startActivity
 import base.coreresources.toplevel.FlashBar
 import base.corextresources.databinding.CustomInputFieldBinding
 import base.corextresources.presentation.CoreNavigation
@@ -84,6 +87,15 @@ open class DomainDefinitionActivity : BaseBindingActivity<ActivityDomainDefiniti
         private var domainDefinitionListener: DomainDefinitionActivity.(String) -> Unit = {}
         fun onDomainDefined(listener: DomainDefinitionActivity.(String) -> Unit) {
             domainDefinitionListener = listener
+        }
+
+        /**
+         * Erase the defined domain and start the
+         * DomainDefinition activity
+         */
+        fun redefineDomain(ctx: Context) {
+            DomainHolder.domain = ""
+            ctx.startActivity<DomainDefinitionActivity>(finishActivity = true)
         }
     }
 }
