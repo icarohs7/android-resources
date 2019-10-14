@@ -8,6 +8,7 @@ import okhttp3.OkHttpClient
 import retrofit2.Converter
 import retrofit2.Retrofit
 import retrofit2.create
+import java.net.MalformedURLException
 
 /**
  * Short hand version to create a retrofit instance
@@ -48,14 +49,22 @@ inline fun <reified T> createRetrofitService(
         noinline clientExtraConfig: OkHttpClient.Builder.() -> Unit = {},
         builderExtraConfig: Retrofit.Builder.() -> Unit = {}
 ): T {
-    return Retrofit
-            .Builder()
-            .baseUrl(baseUrl)
-            .addConverterFactory(RetrofitExtensions.getKotlinxSerializationConverter())
-            .client(OkHttpRes.getDefaultHttpClient(clientExtraConfig))
-            .apply(builderExtraConfig)
-            .build()
-            .create()
+    return try {
+        Retrofit
+                .Builder()
+                .baseUrl(baseUrl)
+                .addConverterFactory(RetrofitExtensions.getKotlinxSerializationConverter())
+                .client(OkHttpRes.getDefaultHttpClient(clientExtraConfig))
+                .apply(builderExtraConfig)
+                .build()
+                .create()
+    } catch (e: Exception) {
+        if (e is IllegalArgumentException && e.message?.startsWith("Invalid URL") == true) {
+            throw MalformedURLException(e.message)
+        } else {
+            throw e
+        }
+    }
 }
 
 object RetrofitExtensions {
