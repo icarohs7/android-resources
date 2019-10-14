@@ -9,7 +9,6 @@ import java.util.Calendar
  * @param onTimeSelected Handler called when a time is selected, passing
  *      the selected hour and minute, respectively
  */
-@Suppress("FunctionName")
 fun TimePickerDialog(ctx: Context, onTimeSelected: (hour: Int, minute: Int) -> Unit): TimePickerDialog {
     val c = Calendar.getInstance()
     val hour = c.get(Calendar.HOUR_OF_DAY)

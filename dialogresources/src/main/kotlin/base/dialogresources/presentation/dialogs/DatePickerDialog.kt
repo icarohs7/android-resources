@@ -8,7 +8,6 @@ import java.util.Calendar
  * @param onDateSelected Handler called when a date is selected, passing
  *      the selected year, month (from 1 to 12) and day, respectively
  */
-@Suppress("FunctionName")
 fun DatePickerDialog(ctx: Context, onDateSelected: (year: Int, month: Int, day: Int) -> Unit): DatePickerDialog {
     val c = Calendar.getInstance()
     val year = c.get(Calendar.YEAR)

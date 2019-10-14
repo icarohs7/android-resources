@@ -6,7 +6,6 @@ import splitties.resources.appColor
 import splitties.resources.appStr
 import splitties.views.backgroundColor
 
-@Suppress("FunctionName")
 fun ConfirmDisconnectDialog(ctx: Context, confirmHandler: () -> Unit): ConfirmDialog {
     val dialog = ConfirmDialog(
             ctx,

@@ -105,7 +105,6 @@ fun buildSpannedString(vararg parts: CharSequence): Spanned {
 /**
  * @see [Intent]
  */
-@Suppress("FunctionName")
 inline fun <reified T> Intent(packageContext: Context): Intent {
     return Intent(packageContext, T::class.java)
 }
@@ -113,7 +112,6 @@ inline fun <reified T> Intent(packageContext: Context): Intent {
 /**
  * @see [Intent]
  */
-@Suppress("FunctionName")
 inline fun <reified T> Intent(action: String, uri: Uri, packageContext: Context): Intent {
     return Intent(action, uri, packageContext, T::class.java)
 }

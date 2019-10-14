@@ -5,7 +5,6 @@ import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.list.SingleChoiceListener
 import com.afollestad.materialdialogs.list.listItemsSingleChoice
 
-@Suppress("FunctionName")
 fun SelectListItemDialog(
         ctx: Context,
         title: String = "",
