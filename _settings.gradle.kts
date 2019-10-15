@@ -1,5 +1,5 @@
-// File created at 09/29/2019 14:11
-// 33 modules found
+// File created at 10/15/2019 17:03
+// 32 modules found
 
 include(":animationresources")
 include(":appupdateresources")
@@ -18,7 +18,6 @@ include(":domaindefinitionresources")
 include(":drawableresources")
 include(":drawerresources")
 include(":fabmenuresources")
-include(":facebookauthresources")
 include(":firebasecoreresources")
 include(":fluxarchresources")
 include(":formresources")
