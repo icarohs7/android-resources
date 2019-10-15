@@ -3,6 +3,7 @@ package base.coreresources.toplevel
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.content.pm.ApplicationInfo
 import android.content.res.Configuration
 import android.graphics.Color
 import android.net.Uri
@@ -124,3 +125,10 @@ fun randomColor(): Int {
     val nextInt = { (0..255).random() }
     return Color.rgb(nextInt(), nextInt(), nextInt())
 }
+
+/**
+ * Whether the current app is in
+ * Debug mode or not
+ */
+val appIsDebug: Boolean
+    get() = (appCtx.applicationInfo.flags and ApplicationInfo.FLAG_DEBUGGABLE) != 0

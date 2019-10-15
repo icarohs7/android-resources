@@ -1,7 +1,7 @@
 package base.corextresources.presentation._baseclasses
 
 import androidx.lifecycle.viewModelScope
-import base.coreresources.CoreRes
+import base.coreresources.toplevel.appIsDebug
 import com.airbnb.mvrx.Async
 import com.airbnb.mvrx.BaseMvRxViewModel
 import com.airbnb.mvrx.Fail
@@ -36,7 +36,7 @@ import kotlin.coroutines.suspendCoroutine
  */
 open class CoreMvRxViewModel<S : MvRxState>(initialState: S) : BaseMvRxViewModel<S>(
         initialState,
-        CoreRes.isDebug,
+        appIsDebug,
         RealMvRxStateStore(initialState)
 ) {
     /**

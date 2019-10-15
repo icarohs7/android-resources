@@ -17,12 +17,6 @@ object CoreRes {
     }
 
     /**
-     * Whether the app is built on debug mode or not,
-     * mainly used for MvRx support
-     */
-    var isDebug: Boolean by mutableLazy { BuildConfig.DEBUG }
-
-    /**
      * Animation used at the transition between activities
      */
     var defaultActivityTransition: ActivityTransitionAnimation by mutableLazy { ActivityTransitionAnimation() }

@@ -8,11 +8,11 @@ import arrow.core.Try
 import base.authresources.domain.AuthenticationType
 import base.authresources.presentation.authentication.AuthenticationActivity
 import base.authresources.presentation.authentication.loadFragment
+import base.coreresources.extensions.hideKeyboard
+import base.coreresources.toplevel.onActivity
 import base.corextresources.data.entities.User
 import base.corextresources.data.isLogged
 import base.corextresources.presentation._baseclasses.BaseBindingFragment
-import base.coreresources.extensions.hideKeyboard
-import base.coreresources.toplevel.onActivity
 import kotlinx.coroutines.launch
 
 abstract class BaseLoginFragment<DB : ViewDataBinding> : BaseBindingFragment<DB>() {
