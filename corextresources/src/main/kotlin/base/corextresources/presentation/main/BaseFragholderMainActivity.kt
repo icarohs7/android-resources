@@ -6,9 +6,9 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
-import base.corextresources.R
 import base.coreresources.presentation.activities.BaseArchActivity
 import base.coreresources.state.addOnLoadingListener
+import base.corextresources.R
 
 abstract class BaseFragholderMainActivity : BaseArchActivity() {
     private val progressBar by lazy { findViewById<ProgressBar>(R.id.progress_bar) }
@@ -18,6 +18,5 @@ abstract class BaseFragholderMainActivity : BaseArchActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fragholder_main)
         lifecycleScope.addOnLoadingListener { isLoading -> progressBar.isVisible = isLoading }
-
     }
 }

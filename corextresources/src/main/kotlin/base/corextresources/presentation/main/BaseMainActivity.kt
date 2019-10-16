@@ -3,7 +3,6 @@ package base.corextresources.presentation.main
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import androidx.appcompat.widget.Toolbar
 import androidx.core.view.updateLayoutParams
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
@@ -46,10 +45,6 @@ abstract class BaseMainActivity(
         }
     }
 
-    open fun setupToolbar(toolbar: Toolbar) {
-        setSupportActionBar(toolbar)
-    }
-
     open fun setupBottomNav(bottomNav: BottomNavigationView): Unit = with(bottomNav) {
         setupWithNavController(navController)
         setOnNavigationItemSelectedListener(::onOptionsItemSelected)
@@ -80,7 +75,6 @@ abstract class BaseMainActivity(
 
     companion object {
         operator fun invoke(block: BaseMainActivity.() -> Unit): Unit = onActivity(block)
-        fun setupToolbar(toolbar: Toolbar): Unit = invoke { this.setupToolbar(toolbar) }
         fun setupBottomNav(nav: BottomNavigationView): Unit = invoke { this.setupBottomNav(nav) }
     }
 }
