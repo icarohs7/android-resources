@@ -45,6 +45,12 @@
         <item name="titleTextColor">@color/colorOnPrimary</item>
     </style>
 
+    <style name="Widget.App.Toolbar.DarkText" parent="Widget.App.Toolbar">
+        <item name="actionMenuTextColor">#000</item>
+        <item name="colorControlNormal">#000</item>
+        <item name="titleTextColor">#000</item>
+    </style>
+
     <style name="FullscreenTheme" parent="Theme.MaterialComponents.NoActionBar">
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowNoTitle">true</item>

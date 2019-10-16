@@ -24,6 +24,7 @@ fun ImageView.load(
         load(url) {
             placeholderRes?.let(::placeholder)
             onErrorRes?.let(::error)
+            crossfade(true)
             additionalSetup()
         }
     } catch (e: Exception) {
