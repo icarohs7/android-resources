@@ -1,8 +1,8 @@
 package base.coreresources.extensions
 
 import android.content.Context
-import android.content.Intent
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.net.Uri
 import androidx.core.content.FileProvider
 import arrow.core.Try
@@ -79,13 +79,7 @@ fun Bitmap.resizeKeepingAspectRatio(newWidth: Int): Bitmap {
 suspend fun Bitmap.share(context: Context, providerUri: String, shareSheetTitle: String): Try<Unit> {
     return tryBg {
         val uri = saveToContentProvider(context, providerUri, "shared_image.png").orThrow()
-        val intent = Intent().apply {
-            action = Intent.ACTION_SEND
-            putExtra(Intent.EXTRA_STREAM, uri)
-            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-            type = "image/*"
-        }
-        context.startActivity(Intent.createChooser(intent, shareSheetTitle))
+        context.shareUsingUri(uri, "image/*", shareSheetTitle)
     }
 }
 
@@ -129,5 +123,16 @@ suspend fun Bitmap.saveToContentProvider(context: Context, providerUri: String, 
             close()
         }
         FileProvider.getUriForFile(context, providerUri, file)
+    }
+}
+
+/**
+ * Open a bitmap referenced by the given uri
+ */
+suspend fun openBitmap(context: Context, uri: Uri): Try<Bitmap> {
+    return tryBg {
+        context.contentResolver.openInputStream(uri)?.use { stream ->
+            BitmapFactory.decodeStream(stream)
+        } ?: error("Could not open file $uri")
     }
 }

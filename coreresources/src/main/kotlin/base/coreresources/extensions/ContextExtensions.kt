@@ -97,3 +97,17 @@ fun Context.openDialer(phone: String) {
 fun Context.openWebsite(destination: Uri) {
     startActivity(Intent(Intent.ACTION_VIEW, destination))
 }
+
+/**
+ * Open the share dialog for the content resolved
+ * by the given uri
+ */
+fun Context.shareUsingUri(uri: Uri, contentType: String, shareSheetTitle: String) {
+    val intent = Intent().apply {
+        action = Intent.ACTION_SEND
+        putExtra(Intent.EXTRA_STREAM, uri)
+        addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+        type = contentType
+    }
+    startActivity(Intent.createChooser(intent, shareSheetTitle))
+}
