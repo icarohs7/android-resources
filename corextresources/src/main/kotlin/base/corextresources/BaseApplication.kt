@@ -24,7 +24,7 @@ abstract class BaseApplication : Application() {
         Stetho.initializeWithDefaults(this)
         setupKoin()
         setupTimber()
-        setupUnoxAndroidArch()
+        CoreRes.init()
         lockOrientation()
         setupStateViews(getStateViewsBuilder())
     }
@@ -46,10 +46,6 @@ abstract class BaseApplication : Application() {
         if (BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
         }
-    }
-
-    private fun setupUnoxAndroidArch(): Unit = CoreRes.run {
-        init()
     }
 
     /**

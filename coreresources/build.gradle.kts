@@ -15,6 +15,7 @@ dependencies {
     api(Deps.kotlinStdLib)
     api(Deps.unoxCoreJvm)
 
+    api(AndroidDeps.coroutinesAndroid)
     api(AndroidDeps.flashbar)
     api(AndroidDeps.flexboxLayout)
     api(AndroidDeps.fragmentKtx)
