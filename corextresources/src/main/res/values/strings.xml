@@ -179,6 +179,7 @@
     <string name="detalhes">Detalhes</string>
     <string name="detalhes_da_diaria">Detalhes da Diária</string>
     <string name="detalhes_da_os">Detalhes da OS</string>
+    <string name="detalhes_da_venda">Detalhes da Venda</string>
     <string name="detalhes_do_pedido">Detalhes do Pedido</string>
     <string name="detalhes_transacao">Detalhes</string>
     <string name="dia_da_semana">Dia da semana</string>
@@ -390,6 +391,7 @@
     <string name="produto">Produto</string>
     <string name="produto_adicionado_sucesso">Produto adicionado com sucesso.</string>
     <string name="produto_colon">Produto:</string>
+    <string name="produto_invalido">Produto</string>
     <string name="produto_nao_encontrado">Produto não encontrado</string>
     <string name="produto_removido_sucesso">Produto Removido com Sucesso</string>
     <string name="produtos">Produtos</string>
@@ -524,6 +526,7 @@
     <string name="valor_a_pagar">Valor a pagar</string>
     <string name="valor_a_ser_transferido">Valor a ser transferido</string>
     <string name="valor_colon">Valor: </string>
+    <string name="valor_da_venda_colon">Valor da venda:</string>
     <string name="valor_desconto_upper_colon">VALOR DESCONTO:</string>
     <string name="valor_do_pedido">Valor seu pedido</string>
     <string name="valor_do_seu_pedido">Valor do seu pedido</string>
