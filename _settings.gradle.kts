@@ -34,4 +34,4 @@ include(":searchbarresources")
 include(":spinnerresources")
 include(":swiperevealresources")
 
-setKotlinPluginsVersion()
+setupKotlinSettings()
