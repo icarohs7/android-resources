@@ -23,15 +23,14 @@
                 android:src="@drawable/img_logo"
                 tools:src="@tools:sample/avatars" />
 
-            <com.github.ybq.android.spinkit.SpinKitView
+            <ProgressBar
                 android:id="@+id/progress_bar"
-                style="@style/SpinKitView.Large.Pulse"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:indeterminate="true"
                 android:visibility="invisible"
-                app:SpinKit_Color="@color/colorAccent"
-                app:layout_wrapBefore="true" />
+                app:layout_wrapBefore="true"
+                tools:visibility="visible" />
 
             <TextView
                 android:id="@+id/txt_loading_feedback"
