@@ -2,17 +2,17 @@ package base.coreresources.presentation.activities
 
 import android.os.Bundle
 import android.view.WindowManager
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import base.coreresources.AppEventBus
 import base.coreresources.toplevel.onActivity
-import com.airbnb.mvrx.BaseMvRxActivity
 
 /**
  * Activity containing a coroutine scope,
  * cancelling it and all children coroutines
  * when destroyed
  */
-abstract class BaseArchActivity : BaseMvRxActivity() {
+abstract class BaseArchActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window.setSoftInputMode(onSetSoftInputMode())
