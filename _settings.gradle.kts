@@ -1,5 +1,5 @@
-// File created at 10/15/2019 17:03
-// 32 modules found
+// File created at 10/24/2019 11:39
+// 33 modules found
 
 include(":animationresources")
 include(":appupdateresources")
@@ -9,6 +9,7 @@ include(":benchmarkresources")
 include(":bluetoothprinterresources")
 include(":bluetoothresources")
 include(":bottomsheetresources")
+include(":composeresources")
 include(":coreresources")
 include(":corextresources")
 include(":currencyinputresources")
@@ -34,4 +35,4 @@ include(":searchbarresources")
 include(":spinnerresources")
 include(":swiperevealresources")
 
-setupKotlinSettings()
+setKotlinPluginsVersion()
