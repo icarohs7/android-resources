@@ -14,11 +14,11 @@ import coil.request.LoadRequestBuilder
  *          otherwise any exception will be rethrown
  */
 fun ImageView.load(
-        url: String,
-        @DrawableRes placeholderRes: Int? = R.drawable.img_placeholder_img_loading,
-        @DrawableRes onErrorRes: Int? = R.drawable.img_error_img_not_found,
-        rethrowExceptions: Boolean = false,
-        additionalSetup: LoadRequestBuilder.() -> Unit = { }
+    url: String,
+    @DrawableRes placeholderRes: Int? = R.drawable.img_placeholder_img_loading,
+    @DrawableRes onErrorRes: Int? = R.drawable.img_error_img_not_found,
+    rethrowExceptions: Boolean = false,
+    additionalSetup: LoadRequestBuilder.() -> Unit = { }
 ) {
     try {
         load(url) {

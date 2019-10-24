@@ -13,8 +13,8 @@ import java.net.URL
 suspend fun URL.httpGetBody(): Try<String> {
     return tryBg {
         openStream()
-                .bufferedReader()
-                .useLines { lines -> lines.joinToString("") }
+            .bufferedReader()
+            .useLines { lines -> lines.joinToString("") }
     }
 }
 

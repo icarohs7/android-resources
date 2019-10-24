@@ -25,7 +25,7 @@ fun FragmentActivity.onFragmentAttached(observer: (fm: FragmentManager, f: Fragm
 suspend fun FragmentActivity.requestPermissions(vararg permissions: String): Boolean {
     return permissions.all { permission ->
         hasPermissions(permission) ||
-                requestPermissionsInternal(supportFragmentManager,
-                        lifecycle, permission)
+            requestPermissionsInternal(supportFragmentManager,
+                lifecycle, permission)
     }
 }

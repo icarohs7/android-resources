@@ -30,8 +30,8 @@ val AppUpdateData.isUpdateAvailable: Boolean
  * update flow
  */
 fun Activity.startImmediateUpdateFlowIfAvailable(
-        requestCode: Int,
-        updateData: AppUpdateData
+    requestCode: Int,
+    updateData: AppUpdateData
 ) {
     val (manager, info) = updateData
     val hasUpdate = updateData.isUpdateAvailable
@@ -46,8 +46,8 @@ fun Activity.startImmediateUpdateFlowIfAvailable(
  * flexible update flow
  */
 fun Activity.startFlexibleUpdateFlowIfAvailable(
-        requestCode: Int,
-        updateData: AppUpdateData
+    requestCode: Int,
+    updateData: AppUpdateData
 ) {
     val (manager, info) = updateData
     val hasUpdate = updateData.isUpdateAvailable

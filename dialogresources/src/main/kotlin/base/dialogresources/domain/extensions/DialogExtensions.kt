@@ -9,7 +9,7 @@ import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlin.coroutines.resume
 
 suspend inline fun BaseFullscreenMaterialDialog.show(
-        block: BaseFullscreenMaterialDialog.() -> Unit
+    block: BaseFullscreenMaterialDialog.() -> Unit
 ) {
     block()
     show()

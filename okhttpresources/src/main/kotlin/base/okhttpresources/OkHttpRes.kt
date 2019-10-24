@@ -35,13 +35,13 @@ object OkHttpRes {
 
     fun getDefaultHttpClient(clientExtraConfig: OkHttpClient.Builder.() -> Unit = {}): OkHttpClient {
         return OkHttpClient
-                .Builder()
-                .readTimeout(60, TimeUnit.SECONDS)
-                .connectTimeout(60, TimeUnit.SECONDS)
-                .addInterceptor(getLoggingInterceptor())
-                .addInterceptor(getHttpInspectorInterceptor())
-                .apply(clientExtraConfig)
-                .build()
+            .Builder()
+            .readTimeout(60, TimeUnit.SECONDS)
+            .connectTimeout(60, TimeUnit.SECONDS)
+            .addInterceptor(getLoggingInterceptor())
+            .addInterceptor(getHttpInspectorInterceptor())
+            .apply(clientExtraConfig)
+            .build()
     }
 
     fun uncaughtExceptionsFlow(): Flow<UncaughtExceptionWrapper> = uncaughtExceptionsDataFlow.flow()

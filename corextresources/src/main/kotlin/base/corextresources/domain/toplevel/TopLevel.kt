@@ -57,7 +57,7 @@ fun navigate(directions: NavDirections, navOptions: NavOptions? = null) {
     }
     navigateOnMain { navController ->
         Try { navController.navigate(directions, options) }
-                .fold(Timber.tag("Navigation")::e) { Timber.tag("Navigation").i("$it") }
+            .fold(Timber.tag("Navigation")::e) { Timber.tag("Navigation").i("$it") }
     }
 }
 
@@ -66,10 +66,10 @@ fun navigate(directions: NavDirections, navOptions: NavOptions? = null) {
  * navigation destination or action
  */
 fun navigate(
-        dest: Int,
-        args: Bundle? = null,
-        navOptions: NavOptions? = null,
-        navigatorExtras: Navigator.Extras? = null
+    dest: Int,
+    args: Bundle? = null,
+    navOptions: NavOptions? = null,
+    navigatorExtras: Navigator.Extras? = null
 ) {
     val options = navOptions ?: androidx.navigation.navOptions {
         anim {
@@ -81,7 +81,7 @@ fun navigate(
     }
     navigateOnMain { navController ->
         Try { navController.navigate(dest, args, options, navigatorExtras) }
-                .fold(Timber.tag("Navigation")::e) { Timber.tag("Navigation").i("$it") }
+            .fold(Timber.tag("Navigation")::e) { Timber.tag("Navigation").i("$it") }
     }
 }
 
@@ -101,18 +101,18 @@ private fun navigateOnMain(block: (controller: NavController) -> Unit) {
  */
 fun navigatePopping(@IdRes destination: Int, args: Bundle? = null) {
     val navOptions = NavOptions
-            .Builder()
-            .setPopUpTo(destination, true)
-            .build()
+        .Builder()
+        .setPopUpTo(destination, true)
+        .build()
     navigate(destination, args, navOptions)
 }
 
 /** Show a flashbar snackbar with a yellow gradient background */
 fun showWarningFlashBar(
-        message: String = "",
-        duration: Int = 1500,
-        gravity: Flashbar.Gravity = Flashbar.Gravity.TOP,
-        context: Activity? = null
+    message: String = "",
+    duration: Int = 1500,
+    gravity: Flashbar.Gravity = Flashbar.Gravity.TOP,
+    context: Activity? = null
 ) {
     fun messageBuilder(act: Activity) {
         FlashBar.show(act, message, duration, gravity) { backgroundDrawable(R.drawable.bg_gradient_yellow) }

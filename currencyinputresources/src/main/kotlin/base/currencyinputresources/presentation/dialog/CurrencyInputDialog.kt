@@ -6,10 +6,10 @@ import base.currencyinputresources.databinding.DialogCurrencyInputBinding
 import base.dialogresources.presentation.dialogs.BaseMaterialDialog
 
 class CurrencyInputDialog(
-        ctx: Context,
-        private val title: String = "",
-        private val hint: String = "",
-        private val confirmHandler: CurrencyInputDialog.(currencyValue: Long) -> Unit
+    ctx: Context,
+    private val title: String = "",
+    private val hint: String = "",
+    private val confirmHandler: CurrencyInputDialog.(currencyValue: Long) -> Unit
 ) : BaseMaterialDialog<DialogCurrencyInputBinding>(ctx) {
     override suspend fun onCreateBinding() {
         setupBinding()

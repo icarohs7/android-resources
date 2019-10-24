@@ -30,11 +30,11 @@ fun Builder.disconnectButton(extraBuilder: PrimaryDrawerItemKt.() -> Unit = {}):
 }
 
 fun Builder.synchronizeButton(
-        activity: FragmentActivity,
-        drawer: () -> Drawer?,
-        badgeTextFlow: Flow<Int>,
-        onClick: suspend CoroutineScope.() -> Unit,
-        extraBuilder: PrimaryDrawerItemKt.() -> Unit = {}
+    activity: FragmentActivity,
+    drawer: () -> Drawer?,
+    badgeTextFlow: Flow<Int>,
+    onClick: suspend CoroutineScope.() -> Unit,
+    extraBuilder: PrimaryDrawerItemKt.() -> Unit = {}
 ): PrimaryDrawerItem {
     val item = primaryItem(R.string.sincronizar) {
         id = R.id.menu_sync

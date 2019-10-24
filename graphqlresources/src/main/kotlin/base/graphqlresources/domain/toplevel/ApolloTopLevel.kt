@@ -9,7 +9,7 @@ import com.apollographql.apollo.ApolloClient
  */
 fun createApolloClient(serverUrl: String): ApolloClient? {
     return ApolloClient.builder()
-            .okHttpClient(OkHttpRes.getDefaultHttpClient())
-            .serverUrl(serverUrl)
-            .build()
+        .okHttpClient(OkHttpRes.getDefaultHttpClient())
+        .serverUrl(serverUrl)
+        .build()
 }

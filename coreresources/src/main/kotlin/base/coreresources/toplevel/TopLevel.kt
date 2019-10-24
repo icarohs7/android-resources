@@ -47,20 +47,20 @@ val isOnLandscapeOrientation: Boolean
 
 /** [AppEventBus.In.enqueueActivityOperation] */
 fun onActivity(action: FragmentActivity.() -> Unit): Unit =
-        AppEventBus.In.enqueueActivityOperation(action)
+    AppEventBus.In.enqueueActivityOperation(action)
 
 /** [AppEventBus.In.enqueueActivityOperation] */
 @JvmName("onActivityT")
 inline fun <reified T : Activity> onActivity(noinline action: T.() -> Unit): Unit =
-        AppEventBus.In.enqueueActivityOperation { if (this is T) action() }
+    AppEventBus.In.enqueueActivityOperation { if (this is T) action() }
 
 
 /** Check whether the application has connectivity to the internet */
 suspend fun appHasInternetConnection(): Boolean = onBackground {
     connectivityManager.activeNetworkInfo
-            ?.isConnectedOrConnecting
-            .valueOr(false)
-            .also { adapterOn -> if (!adapterOn) return@onBackground false }
+        ?.isConnectedOrConnecting
+        .valueOr(false)
+        .also { adapterOn -> if (!adapterOn) return@onBackground false }
 
     val checkSequence = sequence {
         val address = CoreRes.connectionCheckAddress.split(":")

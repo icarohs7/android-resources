@@ -15,10 +15,10 @@ fun DatePickerDialog(ctx: Context, onDateSelected: (year: Int, month: Int, day: 
     val day = c.get(Calendar.DAY_OF_MONTH)
 
     return DatePickerDialog(
-            ctx,
-            { _, y, m, d -> onDateSelected(y, m + 1, d) },
-            year,
-            month,
-            day
+        ctx,
+        { _, y, m, d -> onDateSelected(y, m + 1, d) },
+        year,
+        month,
+        day
     )
 }

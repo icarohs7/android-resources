@@ -20,7 +20,7 @@ import com.mikepenz.materialdrawer.Drawer
 import splitties.resources.color
 
 open class BaseDrawerConfig<T : BaseMainActivity>(
-        private val builder: DrawerBuilderKt.(T) -> Unit = {}
+    private val builder: DrawerBuilderKt.(T) -> Unit = {}
 ) {
     var drawer: Drawer? = null
 

@@ -7,9 +7,9 @@ import base.searchbarresources.R
 import com.mancj.materialsearchbar.MaterialSearchBar
 
 fun MaterialSearchBar.setup(
-        placeholderRes: Int,
-        onSearch: (CharSequence?) -> Unit,
-        onNavigationClick: (() -> Unit)? = null
+    placeholderRes: Int,
+    onSearch: (CharSequence?) -> Unit,
+    onNavigationClick: (() -> Unit)? = null
 ) {
     setup {
         this.hintRes = R.string.pesquisar
@@ -74,9 +74,9 @@ private fun MaterialSearchBar.onSearch(builder: MaterialSearchBarBuilder, text: 
 private val MaterialSearchBar.clearIcon: ImageView
     get() {
         return this::class
-                .java
-                .getDeclaredField("clearIcon")
-                .apply { isAccessible = true }
-                .get(this)
-                as ImageView
+            .java
+            .getDeclaredField("clearIcon")
+            .apply { isAccessible = true }
+            .get(this)
+            as ImageView
     }

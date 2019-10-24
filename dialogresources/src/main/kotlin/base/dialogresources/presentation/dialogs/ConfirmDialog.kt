@@ -6,11 +6,11 @@ import base.dialogresources.databinding.DialogConfirmBinding
 import splitties.views.onClick
 
 class ConfirmDialog(
-        ctx: Context,
-        val title: String = "",
-        val message: String = "",
-        val cancelHandler: (() -> Unit)? = null,
-        val confirmHandler: (() -> Unit)? = null
+    ctx: Context,
+    val title: String = "",
+    val message: String = "",
+    val cancelHandler: (() -> Unit)? = null,
+    val confirmHandler: (() -> Unit)? = null
 ) : BaseMaterialDialog<DialogConfirmBinding>(ctx) {
     override suspend fun onCreateBinding(): Unit = with(binding) {
         txtTitle.text = title

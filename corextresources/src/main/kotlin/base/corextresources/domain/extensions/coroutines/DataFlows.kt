@@ -46,8 +46,8 @@ class PublishSubjectFlow<T> : SubjectFlow<T> {
  */
 class BehaviorSubjectFlow<T>(initialValue: T? = null) : SubjectFlow<T> {
     private val channel: ConflatedBroadcastChannel<T> = initialValue
-            ?.let(::ConflatedBroadcastChannel)
-            ?: ConflatedBroadcastChannel()
+        ?.let(::ConflatedBroadcastChannel)
+        ?: ConflatedBroadcastChannel()
 
     var value: T
         get() = channel.value

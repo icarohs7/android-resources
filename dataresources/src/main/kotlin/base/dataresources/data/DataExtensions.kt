@@ -14,8 +14,8 @@ import kotlinx.coroutines.flow.Flow
  * the flowables of 2 repositories
  */
 fun <A, B> combineDaoFlows(
-        r1: BaseDao<A>,
-        r2: BaseDao<B>
+    r1: BaseDao<A>,
+    r2: BaseDao<B>
 ): Flow<Tuple2<List<A>, List<B>>> {
     return f(r1) + f(r2)
 }
@@ -25,9 +25,9 @@ fun <A, B> combineDaoFlows(
  * the flowables of 3 repositories
  */
 fun <A, B, C> combineDaoFlows(
-        r1: BaseDao<A>,
-        r2: BaseDao<B>,
-        r3: BaseDao<C>
+    r1: BaseDao<A>,
+    r2: BaseDao<B>,
+    r3: BaseDao<C>
 ): Flow<Tuple3<List<A>, List<B>, List<C>>> {
     return f(r1) + f(r2) + f(r3)
 }
@@ -37,10 +37,10 @@ fun <A, B, C> combineDaoFlows(
  * the flowables of 4 repositories
  */
 fun <A, B, C, D> combineDaoFlows(
-        r1: BaseDao<A>,
-        r2: BaseDao<B>,
-        r3: BaseDao<C>,
-        r4: BaseDao<D>
+    r1: BaseDao<A>,
+    r2: BaseDao<B>,
+    r3: BaseDao<C>,
+    r4: BaseDao<D>
 ): Flow<Tuple4<List<A>, List<B>, List<C>, List<D>>> {
     return f(r1) + f(r2) + f(r3) + f(r4)
 }
@@ -50,11 +50,11 @@ fun <A, B, C, D> combineDaoFlows(
  * the flowables of 5 repositories
  */
 fun <A, B, C, D, E> combineDaoFlows(
-        r1: BaseDao<A>,
-        r2: BaseDao<B>,
-        r3: BaseDao<C>,
-        r4: BaseDao<D>,
-        r5: BaseDao<E>
+    r1: BaseDao<A>,
+    r2: BaseDao<B>,
+    r3: BaseDao<C>,
+    r4: BaseDao<D>,
+    r5: BaseDao<E>
 ): Flow<Tuple5<List<A>, List<B>, List<C>, List<D>, List<E>>> {
     return f(r1) + f(r2) + f(r3) + f(r4) + f(r5)
 }
@@ -64,12 +64,12 @@ fun <A, B, C, D, E> combineDaoFlows(
  * the flowables of 6 repositories
  */
 fun <A, B, C, D, E, F> combineDaoFlows(
-        r1: BaseDao<A>,
-        r2: BaseDao<B>,
-        r3: BaseDao<C>,
-        r4: BaseDao<D>,
-        r5: BaseDao<E>,
-        r6: BaseDao<F>
+    r1: BaseDao<A>,
+    r2: BaseDao<B>,
+    r3: BaseDao<C>,
+    r4: BaseDao<D>,
+    r5: BaseDao<E>,
+    r6: BaseDao<F>
 ): Flow<Tuple6<List<A>, List<B>, List<C>, List<D>, List<E>, List<F>>> {
     return f(r1) + f(r2) + f(r3) + f(r4) + f(r5) + f(r6)
 }

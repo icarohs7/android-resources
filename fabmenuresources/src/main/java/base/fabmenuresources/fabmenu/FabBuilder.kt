@@ -18,8 +18,8 @@ class FabBuilder internal constructor(private val fab: SpeedDialView) {
     }
 
     fun menuItem(
-            @IdRes id: Int,
-            block: FabItemBuilder.() -> Unit
+        @IdRes id: Int,
+        block: FabItemBuilder.() -> Unit
     ) {
         val builder = FabItemBuilder(fab.context, id)
         block(builder)

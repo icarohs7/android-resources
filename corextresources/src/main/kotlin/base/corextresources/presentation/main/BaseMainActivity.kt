@@ -22,7 +22,7 @@ import kotlinx.coroutines.launch
 
 @Suppress("MemberVisibilityCanBePrivate")
 abstract class BaseMainActivity(
-        private val enableToolbarScroll: Boolean = false
+    private val enableToolbarScroll: Boolean = false
 ) : BaseBindingActivity<ActivityBaseMainBinding>() {
     val navController: NavController by lazy { findNavController(R.id.nav_host_fragment) }
 

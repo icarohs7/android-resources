@@ -26,7 +26,7 @@ import kotlin.coroutines.resume
  * bottom sheets
  */
 abstract class BaseMaterialDialog<T : ViewDataBinding>(
-        protected val context: Context
+    protected val context: Context
 ) : LifecycleOwner {
     private val lifecycleRegistry by lazy { LifecycleRegistry(this) }
     val binding: T by lazy { createBinding() }
@@ -35,15 +35,15 @@ abstract class BaseMaterialDialog<T : ViewDataBinding>(
     private fun createBinding(): T {
         val inflater = context.layoutInflater
         return DataBindingUtil.inflate<T>(inflater, getLayout(), null, false)
-                .also { lifecycleScope.launchWhenCreated { onCreateBinding() } }
+            .also { lifecycleScope.launchWhenCreated { onCreateBinding() } }
     }
 
     private fun createDialog(): MaterialDialog {
         return getMaterialDialog()
-                .customView(view = binding.root, noVerticalPadding = true)
-                .onCancel { onCancel() }
-                .onDismiss { onDismiss() }
-                .onShow { onShow() }
+            .customView(view = binding.root, noVerticalPadding = true)
+            .onCancel { onCancel() }
+            .onDismiss { onDismiss() }
+            .onShow { onShow() }
     }
 
     /**

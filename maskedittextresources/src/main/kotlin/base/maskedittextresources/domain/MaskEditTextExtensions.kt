@@ -13,9 +13,9 @@ import com.santalu.maskedittext.MaskEditText
  * desired [LifecycleOwner]
  */
 fun MaskEditText.twoWayMaskedBinding(
-        owner: LifecycleOwner,
-        liveData: MutableLiveData<String>,
-        unmaskFn: (edit: MaskEditText, text: String) -> String = { _, s -> s.replace(Regex("[^\\d]"), "") }
+    owner: LifecycleOwner,
+    liveData: MutableLiveData<String>,
+    unmaskFn: (edit: MaskEditText, text: String) -> String = { _, s -> s.replace(Regex("[^\\d]"), "") }
 ) {
     val edit = this
 

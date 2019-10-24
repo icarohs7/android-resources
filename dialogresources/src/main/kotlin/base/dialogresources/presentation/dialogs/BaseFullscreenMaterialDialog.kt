@@ -29,8 +29,8 @@ import splitties.views.backgroundColor
 import kotlin.coroutines.resume
 
 abstract class BaseFullscreenMaterialDialog(
-        protected val context: Context,
-        protected val title: String
+    protected val context: Context,
+    protected val title: String
 ) : LifecycleOwner {
     private val lifecycleRegistry by lazy { LifecycleRegistry(this) }
 
@@ -53,19 +53,19 @@ abstract class BaseFullscreenMaterialDialog(
 
     open fun createDialog(toolbar: FsDialogToolbar, content: View): FsDialog {
         return FsDialog(
-                context,
-                R.style.AppTheme,
-                toolbar,
-                content
+            context,
+            R.style.AppTheme,
+            toolbar,
+            content
         )
     }
 
     open fun createToolbar(): FsDialogToolbar {
         return FsDialogToolbar(
-                context,
-                title,
-                createCloseButton(),
-                createActionButton()
+            context,
+            title,
+            createCloseButton(),
+            createActionButton()
         ).apply {
             backgroundColor = appColor(R.color.colorPrimaryVariant)
             toolbar.apply {

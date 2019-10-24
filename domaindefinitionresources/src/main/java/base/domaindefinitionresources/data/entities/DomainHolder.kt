@@ -6,7 +6,7 @@ object DomainHolder : KotprefModel() {
     var domain: String by stringPref("")
     val domainBase: String
         get() = domain
-                .replace("https://", "")
-                .replace(".sige.pro", "")
-                .replace("/webservices/app/", "")
+            .replace("https://", "")
+            .replace(".sige.pro", "")
+            .replace("/webservices/app/", "")
 }

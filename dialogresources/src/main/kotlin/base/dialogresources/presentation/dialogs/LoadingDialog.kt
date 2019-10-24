@@ -5,8 +5,8 @@ import dmax.dialog.SpotsDialog
 
 fun LoadingDialog(ctx: Context, message: String): SpotsDialog {
     return SpotsDialog
-            .Builder()
-            .setContext(ctx)
-            .setMessage(message)
-            .build() as SpotsDialog
+        .Builder()
+        .setContext(ctx)
+        .setMessage(message)
+        .build() as SpotsDialog
 }

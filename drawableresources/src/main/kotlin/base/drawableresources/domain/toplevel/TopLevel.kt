@@ -9,6 +9,6 @@ import top.defaults.drawabletoolbox.DrawableBuilder
  */
 fun rippleBackgroundDrawable(@ColorInt color: Int): DrawableBuilder {
     return DrawableBuilder()
-            .ripple()
-            .rippleColor(color)
+        .ripple()
+        .rippleColor(color)
 }

@@ -15,47 +15,47 @@ object Notifications {
 
     /** Emit a progress push notification */
     fun progress(
-            context: Context,
-            title: String,
-            message: String,
-            progress: Int,
-            maxProgress: Int,
-            identifier: Int = 9
+        context: Context,
+        title: String,
+        message: String,
+        progress: Int,
+        maxProgress: Int,
+        identifier: Int = 9
     ) {
         Builder(context)
-                .title(title)
-                .message(message)
-                .identifier(identifier)
-                .smallIcon(R.drawable.logo_sm)
-                .largeIcon(R.drawable.logo_sm)
-                .progress()
-                .value(progress, maxProgress, false)
-                .build()
+            .title(title)
+            .message(message)
+            .identifier(identifier)
+            .smallIcon(R.drawable.logo_sm)
+            .largeIcon(R.drawable.logo_sm)
+            .progress()
+            .value(progress, maxProgress, false)
+            .build()
     }
 
     /** Emit a text push notification */
     fun simple(
-            context: Context,
-            title: String,
-            message: String,
-            bigMessage: String? = null,
-            autoClose: Boolean = false,
-            pendingIntent: PendingIntent? = null,
-            identifier: Int = 9,
-            builder: Load.() -> Load = { this }
+        context: Context,
+        title: String,
+        message: String,
+        bigMessage: String? = null,
+        autoClose: Boolean = false,
+        pendingIntent: PendingIntent? = null,
+        identifier: Int = 9,
+        builder: Load.() -> Load = { this }
     ) {
         Builder(context)
-                .title(title)
-                .message(message)
-                .apply { bigMessage?.let { bigTextStyle(it) } }
-                .identifier(identifier)
-                .smallIcon(R.drawable.logo_sm)
-                .largeIcon(R.drawable.logo_sm)
-                .autoCancel(autoClose)
-                .apply { pendingIntent?.let(this::click) }
-                .builder()
-                .simple()
-                .build()
+            .title(title)
+            .message(message)
+            .apply { bigMessage?.let { bigTextStyle(it) } }
+            .identifier(identifier)
+            .smallIcon(R.drawable.logo_sm)
+            .largeIcon(R.drawable.logo_sm)
+            .autoCancel(autoClose)
+            .apply { pendingIntent?.let(this::click) }
+            .builder()
+            .simple()
+            .build()
     }
 
     /**
@@ -64,22 +64,22 @@ object Notifications {
      * to the SplashActivity of the application
      */
     fun vibrating(
-            ctx: Context,
-            title: String,
-            message: String,
-            bigMessage: String? = null,
-            activityPendingIntent: PendingIntent? = null,
-            identifier: Int = 9,
-            builder: Load.() -> Load = { this }
+        ctx: Context,
+        title: String,
+        message: String,
+        bigMessage: String? = null,
+        activityPendingIntent: PendingIntent? = null,
+        identifier: Int = 9,
+        builder: Load.() -> Load = { this }
     ) {
         simple(
-                context = ctx,
-                title = title,
-                message = message,
-                bigMessage = bigMessage,
-                autoClose = true,
-                identifier = identifier,
-                pendingIntent = activityPendingIntent
+            context = ctx,
+            title = title,
+            message = message,
+            bigMessage = bigMessage,
+            autoClose = true,
+            identifier = identifier,
+            pendingIntent = activityPendingIntent
         ) {
             flags(Notification.DEFAULT_ALL)
             builder()

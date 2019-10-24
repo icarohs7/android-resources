@@ -40,8 +40,8 @@ object AppEventBus {
          */
         fun subscribeActivity(activity: FragmentActivity): Unit = with(activity) {
             activityOpFlow
-                    .onEach { action -> Try { action() }.fold(Timber::e) {} }
-                    .launchIn(activity.lifecycleScope)
+                .onEach { action -> Try { action() }.fold(Timber::e) {} }
+                .launchIn(activity.lifecycleScope)
         }
     }
 }

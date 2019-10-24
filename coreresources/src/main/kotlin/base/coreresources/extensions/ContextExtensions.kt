@@ -18,8 +18,8 @@ import kotlin.reflect.KClass
  * Launch the given activity
  */
 inline fun <reified T : AppCompatActivity> Context.startActivity(
-        extras: Bundle = bundleOf(),
-        finishActivity: Boolean = false
+    extras: Bundle = bundleOf(),
+    finishActivity: Boolean = false
 ) {
     startActivity(T::class, extras, finishActivity)
 }
@@ -28,10 +28,10 @@ inline fun <reified T : AppCompatActivity> Context.startActivity(
  * Launch the given activity
  */
 fun <T : AppCompatActivity> Context.startActivity(
-        destination: KClass<T>,
-        extras: Bundle = bundleOf(),
-        finishActivity: Boolean = false,
-        activityTransition: CoreRes.ActivityTransitionAnimation = CoreRes.defaultActivityTransition
+    destination: KClass<T>,
+    extras: Bundle = bundleOf(),
+    finishActivity: Boolean = false,
+    activityTransition: CoreRes.ActivityTransitionAnimation = CoreRes.defaultActivityTransition
 ) {
     val intent = Intent(this, destination.java)
     intent.putExtras(extras)
@@ -52,11 +52,11 @@ fun Context.dialogDatePicker(listener: (year: Int, month: Int, day: Int) -> Unit
     val day = c.get(Calendar.DAY_OF_MONTH)
 
     return DatePickerDialog(
-            this,
-            { _, y, m, d -> listener(y, m + 1, d) },
-            year,
-            month,
-            day)
+        this,
+        { _, y, m, d -> listener(y, m + 1, d) },
+        year,
+        month,
+        day)
 }
 
 /** @return A pending intent used to start the given activity */
@@ -76,8 +76,8 @@ val Activity.context: Context
 @Suppress("DEPRECATION")
 fun <T : Any> Context.isServiceRunning(service: KClass<T>): Boolean {
     return (activityManager)
-            .getRunningServices(Integer.MAX_VALUE)
-            .any { it.service.className == service.java.name }
+        .getRunningServices(Integer.MAX_VALUE)
+        .any { it.service.className == service.java.name }
 }
 
 /**

@@ -28,8 +28,8 @@ abstract class BaseBindingFragment<B : ViewDataBinding> : BaseMvRxFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = DataBindingUtil
-                .inflate<B>(inflater, getLayout(), container, false)
-                .apply { lifecycleOwner = this@BaseBindingFragment }
+            .inflate<B>(inflater, getLayout(), container, false)
+            .apply { lifecycleOwner = this@BaseBindingFragment }
 
         onBindingCreated(inflater, container, savedInstanceState)
         afterCreateView(inflater, container, savedInstanceState)

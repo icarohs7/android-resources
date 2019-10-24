@@ -10,32 +10,32 @@ import com.andrognito.flashbar.Flashbar
 object FlashBar {
     /** Show a flashbar snackbar */
     fun show(
-            context: Activity,
-            message: String,
-            duration: Int = 2000,
-            gravity: Flashbar.Gravity = Flashbar.Gravity.TOP,
-            customizer: Flashbar.Builder.() -> Flashbar.Builder = { this }
+        context: Activity,
+        message: String,
+        duration: Int = 2000,
+        gravity: Flashbar.Gravity = Flashbar.Gravity.TOP,
+        customizer: Flashbar.Builder.() -> Flashbar.Builder = { this }
     ) {
         Flashbar.Builder(context)
-                .gravity(gravity)
-                .duration(duration.toLong())
-                .message(message)
-                .messageSizeInSp(16f)
-                .customizer()
-                .build()
-                .show()
+            .gravity(gravity)
+            .duration(duration.toLong())
+            .message(message)
+            .messageSizeInSp(16f)
+            .customizer()
+            .build()
+            .show()
     }
 
     /** Show a flashbar snackbar */
     fun show(
-            message: String = "",
-            duration: Int = 1500,
-            gravity: Flashbar.Gravity = Flashbar.Gravity.TOP,
-            @ColorRes bgColorRes: Int? = null,
-            @DrawableRes bgDrawableRes: Int? = null,
-            bgDrawable: Drawable? = null,
-            context: Activity? = null,
-            builder: Flashbar.Builder.() -> Flashbar.Builder = { this }
+        message: String = "",
+        duration: Int = 1500,
+        gravity: Flashbar.Gravity = Flashbar.Gravity.TOP,
+        @ColorRes bgColorRes: Int? = null,
+        @DrawableRes bgDrawableRes: Int? = null,
+        bgDrawable: Drawable? = null,
+        context: Activity? = null,
+        builder: Flashbar.Builder.() -> Flashbar.Builder = { this }
     ) {
         fun messageBuilder(act: Activity) {
             show(act, message, duration, gravity) {
@@ -50,10 +50,10 @@ object FlashBar {
 
     /** Show a flashbar snackbar with a green gradient background */
     fun success(
-            message: String = "",
-            duration: Int = 1500,
-            gravity: Flashbar.Gravity = Flashbar.Gravity.TOP,
-            context: Activity? = null
+        message: String = "",
+        duration: Int = 1500,
+        gravity: Flashbar.Gravity = Flashbar.Gravity.TOP,
+        context: Activity? = null
     ) {
         fun messageBuilder(act: Activity) {
             show(act, message, duration, gravity) {
@@ -65,10 +65,10 @@ object FlashBar {
 
     /** Show a flashbar snackbar with a green gradient background */
     fun info(
-            message: String = "",
-            duration: Int = 1500,
-            gravity: Flashbar.Gravity = Flashbar.Gravity.TOP,
-            context: Activity? = null
+        message: String = "",
+        duration: Int = 1500,
+        gravity: Flashbar.Gravity = Flashbar.Gravity.TOP,
+        context: Activity? = null
     ) {
         fun messageBuilder(act: Activity) {
             show(act, message, duration, gravity) {
@@ -80,10 +80,10 @@ object FlashBar {
 
     /** Show a flashbar snackbar with a red gradient background */
     fun error(
-            message: String = "",
-            duration: Int = 1500,
-            gravity: Flashbar.Gravity = Flashbar.Gravity.TOP,
-            context: Activity? = null
+        message: String = "",
+        duration: Int = 1500,
+        gravity: Flashbar.Gravity = Flashbar.Gravity.TOP,
+        context: Activity? = null
     ) {
         fun messageBuilder(act: Activity) {
             show(act, message, duration, gravity) {

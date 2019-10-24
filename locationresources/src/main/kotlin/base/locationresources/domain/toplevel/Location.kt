@@ -40,7 +40,7 @@ inline fun getLocationFlow(configLocationRequest: LocationRequest.() -> Unit): F
 fun getLocationFlow(locationRequest: LocationRequest): Flow<Location> {
     return callbackFlow {
         if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
-                && !locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
+            && !locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
             error("Location provider is disabled")
         }
 

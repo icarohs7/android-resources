@@ -40,12 +40,12 @@ class BarcodeReadingActivity : BaseBindingActivity<ActivityBarcodeReadingBinding
     override fun onStart() {
         super.onStart()
         binding
-                .barcodeView
-                .drawOverlay()
-                .getFlow()
-                .onEach { processBarcode(it) }
-                .catch { Timber.e(it) }
-                .launchIn(barcodeScope)
+            .barcodeView
+            .drawOverlay()
+            .getFlow()
+            .onEach { processBarcode(it) }
+            .catch { Timber.e(it) }
+            .launchIn(barcodeScope)
     }
 
     override fun onStop() {

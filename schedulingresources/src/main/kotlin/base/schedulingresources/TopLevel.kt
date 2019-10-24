@@ -28,17 +28,17 @@ inline fun <reified T : ListenableWorker> scheduleOperation(timestamp: Date, tag
  * @return The id of the operation request
  */
 fun scheduleOperation(
-        workerClass: KClass<out ListenableWorker>,
-        timestamp: Date,
-        tag: String? = null
+    workerClass: KClass<out ListenableWorker>,
+    timestamp: Date,
+    tag: String? = null
 ): UUID? {
     if (timestamp < now) return null
 
     val interval = timestamp.time - now.time
     val request = OneTimeWorkRequest.Builder(workerClass.java)
-            .setInitialDelay(interval, TimeUnit.MILLISECONDS)
-            .apply { tag?.let(::addTag) }
-            .build()
+        .setInitialDelay(interval, TimeUnit.MILLISECONDS)
+        .apply { tag?.let(::addTag) }
+        .build()
     WorkManager.getInstance(appCtx).enqueue(request)
 
     Timber.i("Operation scheduled")

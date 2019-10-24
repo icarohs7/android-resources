@@ -9,16 +9,16 @@ import base.corextresources.domain.extensions.selectedItemIndex
 
 @BindingAdapter("app:entries", "app:entryLayout", "app:includeEmpty", requireAll = false)
 fun AutoCompleteTextView.setItems(
-        items: Array<String>?,
-        @LayoutRes layout: Int? = null,
-        includeEmpty: Boolean? = null
+    items: Array<String>?,
+    @LayoutRes layout: Int? = null,
+    includeEmpty: Boolean? = null
 ) {
     setAdapter(
-            ArrayAdapter(
-                    context,
-                    layout ?: android.R.layout.simple_spinner_dropdown_item,
-                    (if (includeEmpty == true) arrayOf("") else emptyArray()) + items.orEmpty()
-            )
+        ArrayAdapter(
+            context,
+            layout ?: android.R.layout.simple_spinner_dropdown_item,
+            (if (includeEmpty == true) arrayOf("") else emptyArray()) + items.orEmpty()
+        )
     )
 
     if (text?.toString().isNullOrBlank() && items?.isNotEmpty() == true)

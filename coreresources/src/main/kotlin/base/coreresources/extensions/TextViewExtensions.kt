@@ -38,9 +38,9 @@ fun TextView.setDrawableBottom(@DrawableRes drawable: Int) {
  * Add a text listener to the given [TextView]
  */
 fun TextView.onTextChange(
-        beforeChange: (s: CharSequence?, start: Int, count: Int, after: Int) -> Unit = { _, _, _, _ -> },
-        afterChange: (s: Editable?) -> Unit = {},
-        onChange: (s: CharSequence?, start: Int, before: Int, count: Int) -> Unit = { _, _, _, _ -> }
+    beforeChange: (s: CharSequence?, start: Int, count: Int, after: Int) -> Unit = { _, _, _, _ -> },
+    afterChange: (s: Editable?) -> Unit = {},
+    onChange: (s: CharSequence?, start: Int, before: Int, count: Int) -> Unit = { _, _, _, _ -> }
 ) {
     addTextChangedListener(object : TextWatcher {
         override fun afterTextChanged(s: Editable?) {

@@ -12,20 +12,20 @@ import androidx.recyclerview.widget.ListAdapter
  * Base adapter based on data binding
  */
 abstract class BaseBindingAdapter<T, DB : ViewDataBinding>(
-        @LayoutRes val itemLayout: Int,
-        diffCallback: DiffUtil.ItemCallback<T>? = null
+    @LayoutRes val itemLayout: Int,
+    diffCallback: DiffUtil.ItemCallback<T>? = null
 ) : ListAdapter<T, SimpleViewHolder>(
-        diffCallback ?: AllRefreshDiffCallback()
+    diffCallback ?: AllRefreshDiffCallback()
 ) {
     /**
      * Creation of the viewholder
      */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SimpleViewHolder {
         val binding: DB = DataBindingUtil.inflate(
-                LayoutInflater.from(parent.context),
-                itemLayout,
-                parent,
-                false
+            LayoutInflater.from(parent.context),
+            itemLayout,
+            parent,
+            false
         )
 
         return SimpleViewHolder(binding.root)

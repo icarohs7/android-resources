@@ -37,9 +37,9 @@ class BluetoothHelper : Closeable {
      * @return Whether the connection was successful or not
      */
     suspend fun connect(
-            device: BluetoothDevice,
-            uuid: UUID = defaultUUID,
-            timeoutMillis: Long = 5000L
+        device: BluetoothDevice,
+        uuid: UUID = defaultUUID,
+        timeoutMillis: Long = 5000L
     ): Try<Boolean> = tryBg {
         close()
         Try { withTimeout(timeoutMillis) { bluetoothKit.connect(device, uuid) } }.getOrElse(false)

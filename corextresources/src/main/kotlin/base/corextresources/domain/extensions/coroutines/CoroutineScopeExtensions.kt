@@ -15,10 +15,10 @@ import kotlin.coroutines.EmptyCoroutineContext
  * given [block]
  */
 fun CoroutineScope.launchAfterDelay(
-        delayMillis: Long,
-        context: CoroutineContext = EmptyCoroutineContext,
-        start: CoroutineStart = CoroutineStart.DEFAULT,
-        block: suspend () -> Unit
+    delayMillis: Long,
+    context: CoroutineContext = EmptyCoroutineContext,
+    start: CoroutineStart = CoroutineStart.DEFAULT,
+    block: suspend () -> Unit
 ): Job {
     return launch(context, start) {
         delay(delayMillis)
@@ -27,9 +27,9 @@ fun CoroutineScope.launchAfterDelay(
 }
 
 fun CoroutineScope.launchLoading(
-        context: CoroutineContext = EmptyCoroutineContext,
-        start: CoroutineStart = CoroutineStart.DEFAULT,
-        block: suspend CoroutineScope.() -> Unit
+    context: CoroutineContext = EmptyCoroutineContext,
+    start: CoroutineStart = CoroutineStart.DEFAULT,
+    block: suspend CoroutineScope.() -> Unit
 ): Job = launch(context, start) {
     whileLoading(fn = block)
 }

@@ -9,6 +9,6 @@ import kotlinx.coroutines.flow.onEach
  */
 fun CoroutineScope.addOnLoadingListener(block: suspend (isLoading: Boolean) -> Unit) {
     LoadingStore.flow
-            .onEach(block)
-            .launchIn(this)
+        .onEach(block)
+        .launchIn(this)
 }

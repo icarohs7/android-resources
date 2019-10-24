@@ -23,7 +23,7 @@ import base.corextresources.databinding.ItemEmptyBinding
  */
 @MainThread
 fun <T, DB : ViewDataBinding> RecyclerView.useUnoxAdapter(
-        builderBlock: UnoxAdapterBuilder<T, DB>.() -> Unit
+    builderBlock: UnoxAdapterBuilder<T, DB>.() -> Unit
 ): BaseBindingAdapter<T, DB> {
     val builder = UnoxAdapterBuilder<T, DB>(context).apply(builderBlock)
     val adapter = object : BaseBindingAdapter<T, DB>(builder.itemLayout) {
@@ -44,7 +44,7 @@ fun <T, DB : ViewDataBinding> RecyclerView.useUnoxAdapter(
  */
 @MainThread
 fun <T> RecyclerView.useContainerAdapter(
-        builder: UnoxAdapterBuilder<T, ItemEmptyBinding>.() -> Unit
+    builder: UnoxAdapterBuilder<T, ItemEmptyBinding>.() -> Unit
 ): BaseBindingAdapter<T, ItemEmptyBinding> {
     return useUnoxAdapter {
         useItemLayout(R.layout.item_empty)
@@ -59,8 +59,8 @@ fun <T> RecyclerView.useContainerAdapter(
  */
 @MainThread
 fun <T> RecyclerView.renderContainerAdapter(
-        items: List<T> = emptyList(),
-        bindFun: FrameLayout.(item: T) -> Unit
+    items: List<T> = emptyList(),
+    bindFun: FrameLayout.(item: T) -> Unit
 ): BaseBindingAdapter<T, ItemEmptyBinding> {
     return useContainerAdapter {
         bind { item -> bindFun(rootContainer, item) }

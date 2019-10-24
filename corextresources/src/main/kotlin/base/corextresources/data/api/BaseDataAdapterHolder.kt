@@ -18,13 +18,13 @@ interface BaseDataAdapterHolder {
      */
     fun String?.removeHtmlAndNull(): String {
         return this
-                .orEmpty()
-                .replace("&lt;", "<")
-                .replace("&gt;", ">")
-                .replace("<br>", "\n")
-                .replace("<br/>", "\n")
-                .replace("<br />", "\n")
-                .replace(Regex("<[^>]*>"), "")
-                .replace(Regex("^null$"), "")
+            .orEmpty()
+            .replace("&lt;", "<")
+            .replace("&gt;", ">")
+            .replace("<br>", "\n")
+            .replace("<br/>", "\n")
+            .replace("<br />", "\n")
+            .replace(Regex("<[^>]*>"), "")
+            .replace(Regex("^null$"), "")
     }
 }

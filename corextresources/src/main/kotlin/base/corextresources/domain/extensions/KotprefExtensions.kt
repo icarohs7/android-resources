@@ -18,23 +18,23 @@ import kotlin.reflect.KProperty
  */
 @UseExperimental(ImplicitReflectionSerializer::class)
 inline fun <reified T : Any> KotprefModel.jsonPref(
-        default: T,
-        key: String? = null,
-        commitByDefault: Boolean = commitAllPropertiesByDefault
+    default: T,
+    key: String? = null,
+    commitByDefault: Boolean = commitAllPropertiesByDefault
 ): ReadWriteProperty<KotprefModel, T> {
     return object : AbstractPref<T>() {
         override val key: String? = key
 
         override fun getFromPreference(property: KProperty<*>, preference: SharedPreferences): T {
             return preference.getString(key ?: property.name, null)
-                    ?.let { Json.parse<T>(it) }
-                    ?: default
+                ?.let { Json.parse<T>(it) }
+                ?: default
         }
 
         override fun setToPreference(property: KProperty<*>, value: T, preference: SharedPreferences) {
             preference.edit()
-                    .putString(key ?: property.name, Json.stringify(value))
-                    .execute(commitByDefault)
+                .putString(key ?: property.name, Json.stringify(value))
+                .execute(commitByDefault)
         }
 
         override fun setToEditor(property: KProperty<*>, value: T, editor: SharedPreferences.Editor) {

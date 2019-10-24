@@ -24,8 +24,8 @@ abstract class BaseBindingMapFragment<DB : ViewDataBinding> : BaseMapFragment() 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = DataBindingUtil
-                .inflate<DB>(inflater, getLayout(), container, false)
-                .apply { lifecycleOwner = this@BaseBindingMapFragment }
+            .inflate<DB>(inflater, getLayout(), container, false)
+            .apply { lifecycleOwner = this@BaseBindingMapFragment }
 
         onBindingCreated(inflater, container, savedInstanceState)
         afterCreateView(inflater, container, savedInstanceState)

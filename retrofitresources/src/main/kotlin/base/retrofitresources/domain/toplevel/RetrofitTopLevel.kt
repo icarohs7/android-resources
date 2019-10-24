@@ -18,17 +18,17 @@ import java.net.MalformedURLException
  * "Content-Type" header to "application/json"
  */
 inline fun <reified T> createRetrofitServiceJsonResponse(
-        baseUrl: String,
-        noinline clientExtraConfig: OkHttpClient.Builder.() -> Unit = {},
-        builderExtraConfig: Retrofit.Builder.() -> Unit = {}
+    baseUrl: String,
+    noinline clientExtraConfig: OkHttpClient.Builder.() -> Unit = {},
+    builderExtraConfig: Retrofit.Builder.() -> Unit = {}
 ): T {
     val clientSetup: OkHttpClient.Builder.() -> Unit = {
         addInterceptor {
             val req = it.request()
             val res = it.proceed(req)
-                    .newBuilder()
-                    .header("Content-Type", "application/json")
-                    .build()
+                .newBuilder()
+                .header("Content-Type", "application/json")
+                .build()
             res
         }
     }
@@ -45,19 +45,19 @@ inline fun <reified T> createRetrofitServiceJsonResponse(
  * an instance of a given service
  */
 inline fun <reified T> createRetrofitService(
-        baseUrl: String,
-        noinline clientExtraConfig: OkHttpClient.Builder.() -> Unit = {},
-        builderExtraConfig: Retrofit.Builder.() -> Unit = {}
+    baseUrl: String,
+    noinline clientExtraConfig: OkHttpClient.Builder.() -> Unit = {},
+    builderExtraConfig: Retrofit.Builder.() -> Unit = {}
 ): T {
     return try {
         Retrofit
-                .Builder()
-                .baseUrl(baseUrl)
-                .addConverterFactory(RetrofitExtensions.getKotlinxSerializationConverter())
-                .client(OkHttpRes.getDefaultHttpClient(clientExtraConfig))
-                .apply(builderExtraConfig)
-                .build()
-                .create()
+            .Builder()
+            .baseUrl(baseUrl)
+            .addConverterFactory(RetrofitExtensions.getKotlinxSerializationConverter())
+            .client(OkHttpRes.getDefaultHttpClient(clientExtraConfig))
+            .apply(builderExtraConfig)
+            .build()
+            .create()
     } catch (e: Exception) {
         if (e is IllegalArgumentException && e.message?.startsWith("Invalid URL") == true) {
             throw MalformedURLException(e.message)
@@ -71,7 +71,7 @@ object RetrofitExtensions {
     fun getKotlinxSerializationConverter(): Converter.Factory {
         val contentType = "application/json".toMediaType()
         return Json
-                .nonstrict
-                .asConverterFactory(contentType)
+            .nonstrict
+            .asConverterFactory(contentType)
     }
 }

@@ -62,12 +62,12 @@ fun String.asDate(format: String = DateFormat.REMOTE_DATETIME): Date {
     val try1 = Try { this.toDate(format) }
     val formats = DateFormat.run {
         listOf(
-                REMOTE_DATETIME,
-                BR_DATETIME,
-                REMOTE_DATE,
-                BR_DATE,
-                REMOTE_TIME,
-                SHORT_TIME)
+            REMOTE_DATETIME,
+            BR_DATETIME,
+            REMOTE_DATE,
+            BR_DATE,
+            REMOTE_TIME,
+            SHORT_TIME)
     }
     val date = formats.fold(try1) { acc, f ->
         when (acc) {
@@ -83,7 +83,7 @@ fun String.asDate(format: String = DateFormat.REMOTE_DATETIME): Date {
  * @return The new instance of [Date] with the given format
  */
 fun Date.map(newFormat: String): Date =
-        toString(newFormat).asDate(newFormat)
+    toString(newFormat).asDate(newFormat)
 
 /**
  * Convert the number representing an interval in miliseconds to the string

@@ -19,9 +19,9 @@ fun hasPermissions(vararg permissions: String): Boolean {
  * all were granted or not
  */
 internal suspend fun requestPermissionsInternal(
-        fragManager: FragmentManager,
-        lifecycle: Lifecycle,
-        vararg permissions: String
+    fragManager: FragmentManager,
+    lifecycle: Lifecycle,
+    vararg permissions: String
 ): Boolean {
     return permissions.all {
         requestPermission(fragManager, lifecycle, it) == PermissionRequestResult.Granted

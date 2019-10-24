@@ -98,12 +98,12 @@ abstract class BaseApplication : Application() {
 
     private fun getStateViewsBuilder(): StateViewsBuilder {
         return StateViewsBuilder.init().setState(
-                tag = EMPTY_ADAPTER_STATE_TAG,
-                title = str(R.string.nenhum_item_carregado),
-                description = "",
-                icon = drawable(R.drawable.ic_search_gray_24dp)
+            tag = EMPTY_ADAPTER_STATE_TAG,
+            title = str(R.string.nenhum_item_carregado),
+            description = "",
+            icon = drawable(R.drawable.ic_search_gray_24dp)
         )
-                .setIconSize(120)
+            .setIconSize(120)
     }
 
     companion object {

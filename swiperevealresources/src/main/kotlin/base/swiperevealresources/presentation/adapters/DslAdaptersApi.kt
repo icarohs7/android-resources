@@ -13,7 +13,7 @@ import base.swiperevealresources.databinding.LayoutSwipeMenuRightBinding
 import splitties.systemservices.layoutInflater
 
 fun <T> RecyclerView.useRightSwipeContainerAdapter(
-        builder: UnoxAdapterBuilder<T, LayoutSwipeMenuRightBinding>.() -> Unit
+    builder: UnoxAdapterBuilder<T, LayoutSwipeMenuRightBinding>.() -> Unit
 ): BaseBindingAdapter<T, LayoutSwipeMenuRightBinding> {
     return useUnoxAdapter {
         useItemLayout(R.layout.layout_swipe_menu_right)
@@ -22,8 +22,8 @@ fun <T> RecyclerView.useRightSwipeContainerAdapter(
 }
 
 fun <T> RecyclerView.renderRightSwipeContainerAdapter(
-        items: List<T> = emptyList(),
-        bindFun: LayoutSwipeMenuRightBinding.(item: T) -> Unit
+    items: List<T> = emptyList(),
+    bindFun: LayoutSwipeMenuRightBinding.(item: T) -> Unit
 ): BaseBindingAdapter<T, LayoutSwipeMenuRightBinding> {
     return useRightSwipeContainerAdapter {
         bind { item -> bindFun(item) }
@@ -32,8 +32,8 @@ fun <T> RecyclerView.renderRightSwipeContainerAdapter(
 }
 
 fun <T> RecyclerView.renderSwipeDeleteMenu(
-        items: List<T> = emptyList(),
-        bindFun: (item: T, layoutContent: FrameLayout, swipeMenu: LayoutSwipeMenuDeleteBinding) -> Unit
+    items: List<T> = emptyList(),
+    bindFun: (item: T, layoutContent: FrameLayout, swipeMenu: LayoutSwipeMenuDeleteBinding) -> Unit
 ): BaseBindingAdapter<T, LayoutSwipeMenuRightBinding> {
     return useRightSwipeContainerAdapter {
         bind { item ->
@@ -64,8 +64,8 @@ fun <T> RecyclerView.renderSwipeDeleteMenu(
  * ```
  */
 fun <T> RecyclerView.renderSwipeEditDeleteMenu(
-        items: List<T> = emptyList(),
-        bindFun: (item: T, layoutContent: FrameLayout, swipeMenu: LayoutSwipeMenuEditDeleteBinding) -> Unit
+    items: List<T> = emptyList(),
+    bindFun: (item: T, layoutContent: FrameLayout, swipeMenu: LayoutSwipeMenuEditDeleteBinding) -> Unit
 ): BaseBindingAdapter<T, LayoutSwipeMenuRightBinding> {
     return useRightSwipeContainerAdapter {
         bind { item ->

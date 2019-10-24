@@ -31,12 +31,12 @@ object Benchmarker {
         }
 
         val str = l
-                .zipWithNext { a, b ->
-                    val (nameA, timeA) = a
-                    val (nameB, timeB) = b
-                    "($nameA {${timeB - timeA}} $nameB)"
-                }
-                .joinToString(separator = " ")
+            .zipWithNext { a, b ->
+                val (nameA, timeA) = a
+                val (nameB, timeB) = b
+                "($nameA {${timeB - timeA}} $nameB)"
+            }
+            .joinToString(separator = " ")
 
         l.clear()
         log(str)

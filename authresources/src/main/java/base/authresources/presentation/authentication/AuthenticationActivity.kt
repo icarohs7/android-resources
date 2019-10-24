@@ -21,7 +21,7 @@ import splitties.views.textResource
 import kotlin.reflect.KClass
 
 abstract class AuthenticationActivity(
-        private val appVersion: String = "v1.00"
+    private val appVersion: String = "v1.00"
 ) : BaseBindingActivity<ActivityAuthenticationBinding>() {
     val handlers: MutableMap<KClass<out AuthenticationType>, LoginHandler> = mutableMapOf()
 
@@ -95,8 +95,8 @@ abstract class AuthenticationActivity(
      */
     fun showDefaultAuthErrorMessage(exception: Throwable? = null) {
         FlashBar.error(
-                "Ocorreu um erro ao tentar se autenticar, verifique suas credenciais e sua conexão.",
-                duration = 3500
+            "Ocorreu um erro ao tentar se autenticar, verifique suas credenciais e sua conexão.",
+            duration = 3500
         )
     }
 
@@ -105,9 +105,9 @@ abstract class AuthenticationActivity(
      * to a given authentication method
      */
     fun addButton(
-            @StringRes buttonTextRes: Int,
-            isVisible: Boolean = true,
-            navigationHandler: () -> Unit
+        @StringRes buttonTextRes: Int,
+        isVisible: Boolean = true,
+        navigationHandler: () -> Unit
     ): Unit = with(binding) {
         val button = PartialSwitchButtonBinding.inflate(layoutInflater, layoutButtonPanel, true).btnSwitchLoginMode
         with(button) {

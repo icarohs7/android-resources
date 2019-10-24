@@ -15,10 +15,10 @@ fun TimePickerDialog(ctx: Context, onTimeSelected: (hour: Int, minute: Int) -> U
     val minute = c.get(Calendar.MINUTE)
 
     return TimePickerDialog(
-            ctx,
-            { _, h, m -> onTimeSelected(h, m) },
-            hour,
-            minute,
-            DateFormat.is24HourFormat(ctx)
+        ctx,
+        { _, h, m -> onTimeSelected(h, m) },
+        hour,
+        minute,
+        DateFormat.is24HourFormat(ctx)
     )
 }

@@ -39,7 +39,7 @@ object CoreRes {
      * to another
      */
     class ActivityTransitionAnimation(
-            val enterRes: Int = R.anim.activity_transition_enter,
-            val exitRes: Int = R.anim.activity_transition_exit
+        val enterRes: Int = R.anim.activity_transition_enter,
+        val exitRes: Int = R.anim.activity_transition_exit
     )
 }

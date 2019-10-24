@@ -72,9 +72,9 @@ fun View.removeFromParent() {
  * when true it will [animateScaleIn], else will [animateScaleOut]
  */
 fun View.animateToggleScale(
-        show: Boolean,
-        duration: Long = 500L,
-        callback: ViewPropertyAnimator.() -> Unit = {}
+    show: Boolean,
+    duration: Long = 500L,
+    callback: ViewPropertyAnimator.() -> Unit = {}
 ): ViewPropertyAnimator {
     return if (show) {
         this.animateScaleIn(duration, callback)
@@ -104,9 +104,9 @@ fun View.animateScaleOut(duration: Long = 500L, callback: ViewPropertyAnimator.(
  * when true it will [animateFadeIn], else will [animateFadeOut]
  */
 fun View.animateToggleFade(
-        show: Boolean,
-        duration: Long = 500L,
-        callback: ViewPropertyAnimator.() -> Unit = {}
+    show: Boolean,
+    duration: Long = 500L,
+    callback: ViewPropertyAnimator.() -> Unit = {}
 ): ViewPropertyAnimator? {
     return if (show) {
         this.animateFadeIn(duration, callback)

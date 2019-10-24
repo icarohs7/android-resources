@@ -35,9 +35,9 @@ import kotlin.coroutines.suspendCoroutine
  * and inheriting from [BaseMvRxViewModel]
  */
 open class CoreMvRxViewModel<S : MvRxState>(initialState: S) : BaseMvRxViewModel<S>(
-        initialState,
-        appIsDebug,
-        RealMvRxStateStore(initialState)
+    initialState,
+    appIsDebug,
+    RealMvRxStateStore(initialState)
 ) {
     /**
      * Access the state after all pending changes
@@ -68,7 +68,7 @@ open class CoreMvRxViewModel<S : MvRxState>(initialState: S) : BaseMvRxViewModel
      */
     fun <T> Flow<T>.connectToState(transformer: S.(T) -> S): Flow<T> {
         return onEach { item -> setState { transformer(this, item) } }
-                .flowOn(Dispatchers.Default)
+            .flowOn(Dispatchers.Default)
     }
 
     /**
@@ -88,8 +88,8 @@ open class CoreMvRxViewModel<S : MvRxState>(initialState: S) : BaseMvRxViewModel
      */
     fun <T> Flowable<T>.connectToState(transformer: S.(T) -> S): Disposable {
         return subscribeOn(Schedulers.computation())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe { item -> setState { transformer(this, item) } }
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe { item -> setState { transformer(this, item) } }
     }
 
     /**
@@ -104,9 +104,9 @@ open class CoreMvRxViewModel<S : MvRxState>(initialState: S) : BaseMvRxViewModel
         setState { stateReducer(Loading()) }
 
         return map<T, Async<V>> { value -> Success(mapper(value)) }
-                .catch { emit(Fail(it)) }
-                .onEach { asyncData -> setState { stateReducer(asyncData) } }
-                .launchIn(viewModelScope)
+            .catch { emit(Fail(it)) }
+            .onEach { asyncData -> setState { stateReducer(asyncData) } }
+            .launchIn(viewModelScope)
     }
 
     /**
@@ -124,8 +124,8 @@ open class CoreMvRxViewModel<S : MvRxState>(initialState: S) : BaseMvRxViewModel
      */
     fun <A> selectStateFlow(selectFn: suspend S.() -> A): Flow<A> {
         return stateFlow()
-                .map(selectFn)
-                .flowOn(UnoxCore.backgroundDispatcher)
-                .distinctUntilChanged()
+            .map(selectFn)
+            .flowOn(UnoxCore.backgroundDispatcher)
+            .distinctUntilChanged()
     }
 }

@@ -14,11 +14,11 @@ import com.nikialeksey.fullscreendialog.buttons.SimpleButton
 import splitties.resources.appDrawable
 
 class SimpleFullscreenWithActionDialog(
-        ctx: Context,
-        title: String,
-        private val actionText: String,
-        content: View,
-        private val onAction: () -> Unit
+    ctx: Context,
+    title: String,
+    private val actionText: String,
+    content: View,
+    private val onAction: () -> Unit
 ) : SimpleFullscreenDialog(ctx, title, content) {
     override fun createDialog(toolbar: FsDialogToolbar, content: View): FsDialog {
         return super.createDialog(toolbar, content).apply {
@@ -28,10 +28,10 @@ class SimpleFullscreenWithActionDialog(
 
     override fun createToolbar(): FsDialogToolbar {
         return FsDialogToolbar(
-                context,
-                title,
-                FsCloseButton(SimpleButton(), appDrawable(R.drawable.fs_close_icon)!!),
-                FsActionButton(SimpleButton(), actionText)
+            context,
+            title,
+            FsCloseButton(SimpleButton(), appDrawable(R.drawable.fs_close_icon)!!),
+            FsActionButton(SimpleButton(), actionText)
         )
     }
 }

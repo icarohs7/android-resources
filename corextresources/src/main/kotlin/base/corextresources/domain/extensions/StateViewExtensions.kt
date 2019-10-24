@@ -26,9 +26,9 @@ fun StateView.displayStateWhenFlowListIsEmpty(scope: CoroutineScope, flow: Flow<
  */
 fun StateView.displayStateWhenTrue(scope: CoroutineScope, flow: Flow<Boolean>, stateTag: String): Job {
     return flow
-            .distinctUntilChanged()
-            .flowOnBackground()
-            .onEach { showState -> if (showState) displayState(stateTag) else hideStates() }
-            .flowOn(UnoxCore.foregroundDispatcher)
-            .launchIn(scope)
+        .distinctUntilChanged()
+        .flowOnBackground()
+        .onEach { showState -> if (showState) displayState(stateTag) else hideStates() }
+        .flowOn(UnoxCore.foregroundDispatcher)
+        .launchIn(scope)
 }

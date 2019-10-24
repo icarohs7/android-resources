@@ -13,7 +13,7 @@ import base.coreresources.toplevel.requestPermissionsInternal
 suspend fun Fragment.requestPermissions(vararg permissions: String): Boolean {
     return permissions.all { permission ->
         hasPermissions(permission) ||
-                requestPermissionsInternal(requireFragmentManager(),
-                        lifecycle, permission)
+            requestPermissionsInternal(requireFragmentManager(),
+                lifecycle, permission)
     }
 }

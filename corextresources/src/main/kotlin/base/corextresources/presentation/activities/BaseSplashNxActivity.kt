@@ -10,8 +10,8 @@ import base.coreresources.extensions.animateFadeIn
 import base.coreresources.state.addOnLoadingListener
 
 abstract class BaseSplashNxActivity(
-        private val version: String,
-        timeout: Int = 0
+    private val version: String,
+    timeout: Int = 0
 ) : BaseTimeoutActivity<ActivityBaseNxSplashBinding>(timeout) {
 
     @CallSuper
