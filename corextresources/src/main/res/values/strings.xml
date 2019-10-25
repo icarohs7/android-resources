@@ -324,6 +324,7 @@
     <string name="nao_ha_diarias_em_seu_historico">Não há diárias em seu histórico</string>
     <string name="nao_informada">Não informado(a)</string>
     <string name="nao_se_esqueca_de_efetuar_o_registro">Não se esqueça de efetuar o registro</string>
+    <string name="nao_sincronizada">Não Sincronizada</string>
     <string name="nao_sincronizado">Não Sincronizado</string>
     <string name="natureza_do_problema_colon">Natureza do problema:</string>
     <string name="nenhum_cliente_selecionado">Nenhum cliente selecionado</string>
@@ -538,6 +539,7 @@
     <string name="valor_desconto_upper_colon">VALOR DESCONTO:</string>
     <string name="valor_do_pedido">Valor seu pedido</string>
     <string name="valor_do_seu_pedido">Valor do seu pedido</string>
+    <string name="valor_final_colon">Valor Final:</string>
     <string name="valor_no_crediario_upper_colon">VALOR NO CREDIÁRIO:</string>
     <string name="valor_pago">Valor Pago</string>
     <string name="valor_total">Valor Total</string>
