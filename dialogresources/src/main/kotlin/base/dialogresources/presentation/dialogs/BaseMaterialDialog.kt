@@ -35,6 +35,7 @@ abstract class BaseMaterialDialog<T : ViewDataBinding>(
     private fun createBinding(): T {
         val inflater = context.layoutInflater
         return DataBindingUtil.inflate<T>(inflater, getLayout(), null, false)
+            .apply { lifecycleOwner = this@BaseMaterialDialog }
             .also { lifecycleScope.launchWhenCreated { onCreateBinding() } }
     }
 

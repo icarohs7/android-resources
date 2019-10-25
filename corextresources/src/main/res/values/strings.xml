@@ -82,12 +82,14 @@
     <string name="carteira_colon_content">Carteira: %s</string>
     <string name="carteiras_filtradas">Carteiras Filtradas</string>
     <string name="categoria">Categoria</string>
+    <string name="celular">Celular</string>
     <string name="cep">CEP</string>
     <string name="chegada">Chegada</string>
     <string name="cidade">Cidade</string>
     <string name="cidade_colon">Cidade:</string>
     <string name="cliente">Cliente</string>
     <string name="cliente_colon">Cliente:</string>
+    <string name="cliente_nao_definido">Cliente não definido</string>
     <string name="cliente_nao_encontrado">Cliente não encontrado</string>
     <string name="codigo">Código</string>
     <string name="codigo_de_barra">Código de barra</string>
@@ -222,6 +224,7 @@
     <string name="erro">Erro</string>
     <string name="erro_ao_carregar_nfc">Erro ao carregar recibo</string>
     <string name="erro_ao_carregar_recibo">Erro ao carregar recibo</string>
+    <string name="erro_ao_finalizar_a_venda">Erro ao finalizar a venda</string>
     <string name="erro_ao_finalizar_o_pedido">Erro ao finalizar o pedido</string>
     <string name="erro_sem_permissao_camera_scan_barcode">É necessário ceder o acesso à camera ao aplicativo para utilizar o scanner de códigos de barra</string>
     <string name="estoque">Estoque: </string>
@@ -331,6 +334,7 @@
     <string name="nenhum_pedido">Nenhum pedido</string>
     <string name="nenhum_pedido_encontrado">Nenhum pedido encontrado</string>
     <string name="nenhum_produto_encontrado">Nenhum produto encontrado</string>
+    <string name="nenhum_produto_na_venda">Nenhum produto na venda</string>
     <string name="nenhum_produto_selecionado">Nenhum produto selecionado</string>
     <string name="nenhuma_categoria_carregada">Nenhuma categoria carregada</string>
     <string name="nenhuma_impressora_conectada">Nenhuma Impressora Conectada</string>
@@ -519,6 +523,7 @@
     <string name="ultima_sincronização_colon_content">Última Sincronização: %s</string>
     <string name="ultima_viagem_colon">Última Viagem:</string>
     <string name="ultimo_registro_colon">Último Registro:</string>
+    <string name="um_ou_mais_campos_sao_invalidos">Um ou mais campos são inválidos</string>
     <string name="urgente">Alta</string>
     <string name="url_exemplo">Exemplo: suaempresa para suaempresa.sige.pro</string>
     <string name="url_hint">Informe o nome de sua empresa como consta na url de seu sistema</string>
