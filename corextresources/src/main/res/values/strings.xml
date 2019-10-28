@@ -271,6 +271,7 @@
     <string name="houve_um_erro_ao_salvar_a_diaria">Houve um erro ao salvar a diária</string>
     <string name="impressora_invalida">Impressora inválida</string>
     <string name="imprimir">Imprimir</string>
+    <string name="imprimir_comprovante">Imprimir\ncomprovante</string>
     <string name="informar_problema">Informar Problema</string>
     <string name="informar_quantidade">Informar Quantidade</string>
     <string name="iniciando">Iniciando</string>
@@ -399,6 +400,7 @@
     <string name="produto">Produto</string>
     <string name="produto_adicionado_sucesso">Produto adicionado com sucesso.</string>
     <string name="produto_colon">Produto:</string>
+    <string name="produto_indisponivel_no_accent">Produto Indisponivel</string>
     <string name="produto_invalido">Produto</string>
     <string name="produto_nao_encontrado">Produto não encontrado</string>
     <string name="produto_removido_sucesso">Produto Removido com Sucesso</string>
