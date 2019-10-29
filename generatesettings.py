@@ -12,4 +12,4 @@ with open("_settings.gradle.kts", "w") as file:
     )
     for module in modules:
         file.write(f"include(\":{module}\")\n")
-    file.write("\nsetKotlinPluginsVersion()\n")
+    file.write("\nsetupKotlinSettings()\n")
