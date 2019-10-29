@@ -10,6 +10,18 @@
         Duis ut tincidunt nisi, accumsan hendrerit neque. Integer facilisis mollis ex.
         Aenean vehicula.
     </string>
+    <string name="dominio_nao_encontrado_msg">
+        Seu domínio não foi encontrado em nossos servidores.\n\n
+
+        Verifique se digitou sua empresa corretamente e caso ainda não seja
+        nosso cliente, entre em contato conosco e torne-se cliente SIGE.\n\n
+
+        Site:\n
+        www.sige.pro.br\n\n
+
+        Telefone:\n
+        (31) 3829-1950
+    </string>
     <string name="nao_pode_editar_formulario_msg">
         O prontuário não pode ser editado, caso precise fazer alguma
         correção, preencha um novo.
@@ -194,6 +206,7 @@
     <string name="documento">Documento</string>
     <string name="dominio">Dominio</string>
     <string name="dominio_da_empresa">Dominio da empresa</string>
+    <string name="dominio_nao_encontrado">Domínio não encontrado</string>
     <string name="duracao_do_atendimento_colon">Duração do atendimento:</string>
     <string name="editar">Editar</string>
     <string name="editar_desconto">Editar Desconto</string>
@@ -564,6 +577,7 @@
     <string name="ver_mais_right_arrow">Ver Mais ></string>
     <string name="verifique_a_grade_produtos_e_caixa_selecionado">Verifique a grade de produtos ou se há uma tabela de preços selecionada</string>
     <string name="verifique_sua_conexão_e_recarregue_a_lista_arrastando_para_baixo">Verifique sua conexão e recarregue a lista arrastando para baixo</string>
+    <string name="versao_colon_content">Versão: %s</string>
     <string name="voltar">Voltar</string>
     <string name="website">Website</string>
     <string name="x">x</string>

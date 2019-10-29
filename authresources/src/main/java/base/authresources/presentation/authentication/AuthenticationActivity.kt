@@ -16,19 +16,22 @@ import base.authresources.presentation.fragments.UserPassLoginFragment
 import base.coreresources.toplevel.FlashBar
 import base.corextresources.presentation.CoreNavigation
 import base.corextresources.presentation._baseclasses.BaseBindingActivity
+import splitties.resources.str
 import splitties.views.onClick
 import splitties.views.textResource
 import kotlin.reflect.KClass
 
 abstract class AuthenticationActivity(
-    private val appVersion: String = "v1.00"
+    private val appVersion: String = "v1.00",
+    private val appDomain: String = ""
 ) : BaseBindingActivity<ActivityAuthenticationBinding>() {
     val handlers: MutableMap<KClass<out AuthenticationType>, LoginHandler> = mutableMapOf()
 
     override fun onBindingCreated(savedInstanceState: Bundle?) {
         super.onBindingCreated(savedInstanceState)
         binding.stateView.hideStates()
-        binding.txtVersion.text = appVersion
+        binding.txtVersion.text = str(R.string.versao_colon_content).format(appVersion)
+        binding.txtDomain.text = appDomain.replace("https://", "")
     }
 
     override fun afterInitialSetup(savedInstanceState: Bundle?) {

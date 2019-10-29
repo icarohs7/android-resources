@@ -32,15 +32,32 @@
                 android:gravity="center"
                 android:orientation="horizontal" />
 
-            <TextView
-                android:id="@+id/txt_version"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom|end"
-                android:layout_marginEnd="5dp"
-                android:layout_marginBottom="5dp"
-                tools:text="1.20" />
+                android:layout_gravity="bottom">
 
+                <TextView
+                    android:id="@+id/txt_version"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginBottom="5dp"
+                    tools:text="Versão: 1.20" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/txt_domain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="5dp"
+                    tools:text="1.20" />
+            </LinearLayout>
         </LinearLayout>
     </com.umutbey.stateviews.StateView>
 </layout>
