@@ -163,6 +163,7 @@
     <string name="desativar">Desativar</string>
     <string name="desconectar">Desconectar</string>
     <string name="desconto">Desconto</string>
+    <string name="desconto_absoluto_colon_content">Desconto absoluto: %s</string>
     <string name="desconto_colon">Desconto:</string>
     <string name="desconto_percentual_valor_maximo_content">Desconto percentual (valor máximo: %s)</string>
     <string name="desconto_valor_maximo_content">Desconto (valor máximo: %s)</string>
