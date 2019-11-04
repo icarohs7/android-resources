@@ -131,6 +131,7 @@
     <string name="conta_de_destino">Conta de Destino</string>
     <string name="conta_de_origem">Conta de Origem</string>
     <string name="contas">Contas</string>
+    <string name="content_pedidos_falharam_na_sincronizacao">%s pedidos falharam na sincronização</string>
     <string name="continuar">Continuar</string>
     <string name="continuar_atendimento">Continuar atendimento</string>
     <string name="continuar_mais_tarde">Continuar Mais Tarde</string>
@@ -241,6 +242,7 @@
     <string name="erro_ao_carregar_recibo">Erro ao carregar recibo</string>
     <string name="erro_ao_finalizar_a_venda">Erro ao finalizar a venda</string>
     <string name="erro_ao_finalizar_o_pedido">Erro ao finalizar o pedido</string>
+    <string name="erro_ao_sincronizar_pedidos">Erro ao sincronizar pedidos</string>
     <string name="erro_sem_permissao_camera_scan_barcode">É necessário ceder o acesso à camera ao aplicativo para utilizar o scanner de códigos de barra</string>
     <string name="estoque">Estoque: </string>
     <string name="estoque_colon">Estoque:</string>
@@ -398,6 +400,7 @@
     <string name="pedido">Pedido</string>
     <string name="pedidos_abertos">Pedidos Abertos</string>
     <string name="pedidos_entregues">Pedidos Entregues</string>
+    <string name="pedidos_sincronizados_com_sucesso">Pedidos sincronizados com sucesso</string>
     <string name="pedir_gas">Pedir Gás</string>
     <string name="pesquisa">Pesquisa</string>
     <string name="pesquisar">Pesquisar</string>
