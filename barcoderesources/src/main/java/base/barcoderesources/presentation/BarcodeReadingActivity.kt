@@ -1,16 +1,17 @@
 package base.barcoderesources.presentation
 
 import android.Manifest
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import arrow.core.Tuple2
 import base.barcoderesources.R
 import base.barcoderesources.databinding.ActivityBarcodeReadingBinding
 import base.barcoderesources.domain.getFlow
-import base.corextresources.presentation._baseclasses.BaseBindingActivity
 import base.coreresources.extensions.requestPermissions
 import base.coreresources.extensions.startActivity
 import base.coreresources.toplevel.FlashBar
+import base.corextresources.presentation._baseclasses.BaseBindingActivity
 import com.github.icarohs7.unoxcore.extensions.coroutines.job
 import com.google.android.gms.vision.barcode.Barcode
 import kotlinx.coroutines.CoroutineScope
@@ -68,7 +69,7 @@ class BarcodeReadingActivity : BaseBindingActivity<ActivityBarcodeReadingBinding
 
         suspend fun start(fragment: Fragment) {
             if (!requestCameraPermission(fragment)) showNoCameraPermissionError()
-            else appCtx.startActivity<BarcodeReadingActivity>()
+            else fragment.requireContext().startActivity<BarcodeReadingActivity>()
         }
 
         private suspend fun requestCameraPermission(fragment: Fragment): Boolean {
