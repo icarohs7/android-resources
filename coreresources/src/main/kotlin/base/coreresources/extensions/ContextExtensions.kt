@@ -19,9 +19,10 @@ import kotlin.reflect.KClass
  */
 inline fun <reified T : AppCompatActivity> Context.startActivity(
     extras: Bundle = bundleOf(),
-    finishActivity: Boolean = false
+    finishActivity: Boolean = false,
+    flags: List<Int> = emptyList()
 ) {
-    startActivity(T::class, extras, finishActivity)
+    startActivity(T::class, extras, finishActivity, flags = flags)
 }
 
 /**
@@ -31,10 +32,12 @@ fun <T : AppCompatActivity> Context.startActivity(
     destination: KClass<T>,
     extras: Bundle = bundleOf(),
     finishActivity: Boolean = false,
-    activityTransition: CoreRes.ActivityTransitionAnimation = CoreRes.defaultActivityTransition
+    activityTransition: CoreRes.ActivityTransitionAnimation = CoreRes.defaultActivityTransition,
+    flags: List<Int> = emptyList()
 ) {
     val intent = Intent(this, destination.java)
     intent.putExtras(extras)
+    flags.forEach { intent.addFlags(it) }
     startActivity(intent)
     if (this is Activity) {
         overridePendingTransition(activityTransition.enterRes, activityTransition.exitRes)
