@@ -10,6 +10,7 @@ plugins {
 
 dependencies {
     api(res(":bluetooth"))
+    api(res("dialog"))
 
     AndroidKaptDeps.core.forEach(::kapt)
 }
