@@ -16,6 +16,15 @@ object User : KotprefModel() {
     var email: String by stringPref("")
     var isRegistered: Boolean by booleanPref(false)
 
+    fun clearUserData() {
+        id = 0
+        pin = ""
+        hash = ""
+        name = ""
+        email = ""
+        isRegistered = false
+    }
+
     private var extraProperties: Map<String, String>
         get() {
             val deserializer = Pair(StringSerializer, StringSerializer).map
