@@ -3,6 +3,7 @@ package base.bluetoothresources.domain
 import android.bluetooth.BluetoothDevice
 import arrow.core.Try
 import arrow.core.orNull
+import base.corextresources.domain.extensions.not
 import com.github.icarohs7.unoxcore.extensions.getOrElse
 import com.github.icarohs7.unoxcore.toplevel.tryBg
 import com.sirvar.bluetoothkit.BluetoothKit
@@ -28,6 +29,18 @@ class BluetoothHelper : Closeable {
      * Whether there's a device connected or not
      */
     val isConnected get() = bluetoothKit.isConnected()
+
+    /**
+     * Connect to the given bluetooth device, changing the state
+     * of this singleton, enabling posterior writes to the device,
+     * if a device is already connected, automatically disconnect
+     * from it first
+     * @return Whether the connection was successful or not
+     */
+    suspend fun connect(address: String): Try<Boolean> = tryBg {
+        val device = pairedDevices.find { it.address == address } ?: error("Device $address not found")
+        !!connect(device)
+    }
 
     /**
      * Connect to the given bluetooth device, changing the state
