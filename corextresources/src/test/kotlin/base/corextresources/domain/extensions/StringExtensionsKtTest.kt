@@ -29,4 +29,14 @@ class StringExtensionsKtTest {
         """.trimIndent()
         item.deserialize<TestClass>() shouldEqual TestClass(1532, "ZA WARUDO!")
     }
+
+    @Test
+    fun `should remove accents from string`() {
+        val s1 = "áéí"
+        s1.unaccented() shouldEqual "aei"
+        val s2 = "ÁÉÍ"
+        s2.unaccented() shouldEqual "AEI"
+        val s3 = "âàÀêÊóÓãÃõÕ"
+        s3.unaccented() shouldEqual "aaAeEoOaAoO"
+    }
 }

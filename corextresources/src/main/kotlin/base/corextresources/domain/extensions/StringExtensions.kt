@@ -8,6 +8,7 @@ import kotlinx.serialization.ImplicitReflectionSerializer
 import kotlinx.serialization.KSerializer
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.parse
+import java.text.Normalizer
 
 fun <T : Any> String.deserialize(deserializer: KSerializer<T>): T {
     return Json.parse(deserializer, this)
@@ -17,6 +18,17 @@ fun <T : Any> String.deserialize(deserializer: KSerializer<T>): T {
 inline fun <reified T : Any> String.deserialize(): T {
     return Json.parse(this)
 }
+
+/**
+ * Replace all accented characters on the given
+ * string by their unaccented counterparts
+ */
+fun CharSequence.unaccented(): String {
+    val regexUnaccent = "\\p{InCombiningDiacriticalMarks}+".toRegex()
+    val temp = Normalizer.normalize(this, Normalizer.Form.NFD)
+    return regexUnaccent.replace(temp, "")
+}
+
 
 /**
  * Decode the given string from base64 and convert
