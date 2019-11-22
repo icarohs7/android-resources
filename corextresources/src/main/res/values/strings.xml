@@ -289,7 +289,8 @@
     <string name="houve_um_erro_ao_salvar_a_diaria">Houve um erro ao salvar a diária</string>
     <string name="impressora_invalida">Impressora inválida</string>
     <string name="imprimir">Imprimir</string>
-    <string name="imprimir_comprovante">Imprimir\ncomprovante</string>
+    <string name="imprimir_breakrow_comprovante">Imprimir\ncomprovante</string>
+    <string name="imprimir_comprovante">Imprimir comprovante</string>
     <string name="informar_problema">Informar Problema</string>
     <string name="informar_quantidade">Informar Quantidade</string>
     <string name="iniciando">Iniciando</string>
