@@ -133,6 +133,7 @@
     <string name="conta_de_origem">Conta de Origem</string>
     <string name="contas">Contas</string>
     <string name="content_pedidos_falharam_na_sincronizacao">%s pedidos falharam na sincronização</string>
+    <string name="content_vendas_falharam_na_sincronizacao">%s vendas falharam na sincronização</string>
     <string name="continuar">Continuar</string>
     <string name="continuar_atendimento">Continuar atendimento</string>
     <string name="continuar_mais_tarde">Continuar Mais Tarde</string>
@@ -245,6 +246,7 @@
     <string name="erro_ao_finalizar_a_venda">Erro ao finalizar a venda</string>
     <string name="erro_ao_finalizar_o_pedido">Erro ao finalizar o pedido</string>
     <string name="erro_ao_sincronizar_pedidos">Erro ao sincronizar pedidos</string>
+    <string name="erro_ao_sincronizar_vendas">Erro ao sincronizar vendas</string>
     <string name="erro_sem_permissao_camera_scan_barcode">É necessário ceder o acesso à camera ao aplicativo para utilizar o scanner de códigos de barra</string>
     <string name="estoque">Estoque: </string>
     <string name="estoque_colon">Estoque:</string>
@@ -508,6 +510,7 @@
     <string name="sincronizando">Sincronizando</string>
     <string name="sincronizando_pedidos">Sincronizando Pedidos</string>
     <string name="sincronizando_registros">Sincronizando registros</string>
+    <string name="sincronizando_vendas_elipsis">Sincronizando Vendas…</string>
     <string name="sincronizar">Sincronizar</string>
     <string name="solicitar_checklist">Solicitar checklist</string>
     <string name="status_colon">Status:</string>
@@ -580,6 +583,7 @@
     <string name="venda_rapida">Venda Rápida</string>
     <string name="venda_salva_sucesso">Venda Salva com Sucesso</string>
     <string name="vendas">Vendas</string>
+    <string name="vendas_sincronizados_com_sucesso">Vendas sincronizadas com sucesso</string>
     <string name="ver_mais">Ver Mais</string>
     <string name="ver_mais_right_arrow">Ver Mais ></string>
     <string name="verifique_a_grade_produtos_e_caixa_selecionado">Verifique a grade de produtos ou se há uma tabela de preços selecionada</string>
