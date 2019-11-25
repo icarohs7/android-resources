@@ -34,5 +34,3 @@ include(":schedulingresources")
 include(":searchbarresources")
 include(":spinnerresources")
 include(":swiperevealresources")
-
-setupKotlinSettings()
