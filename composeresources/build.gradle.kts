@@ -11,5 +11,8 @@ dependencies {
     api(res("corext"))
     api(res("dialog"))
 
+    api(AndroidDeps.androidxUiFoundation)
+    api(AndroidDeps.androidxUiLayout)
     api(AndroidDeps.androidxUiMaterial)
+    api(AndroidDeps.androidxUiTooling)
 }
