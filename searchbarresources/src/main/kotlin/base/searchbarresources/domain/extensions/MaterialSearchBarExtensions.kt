@@ -64,7 +64,7 @@ private fun MaterialSearchBar.onSearch(builder: MaterialSearchBarBuilder, text: 
     hideKeyboard()
     clearFocus()
     builder.onSearch?.invoke(text)
-    disableSearch()
+    closeSearch()
 }
 
 /**
