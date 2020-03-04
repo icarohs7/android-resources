@@ -3,9 +3,9 @@ package base.corextresources.data.entities
 import androidx.core.content.edit
 import base.corextresources.domain.extensions.deserialize
 import com.chibatching.kotpref.KotprefModel
-import kotlinx.serialization.internal.StringSerializer
+import kotlinx.serialization.builtins.MapSerializer
+import kotlinx.serialization.builtins.serializer
 import kotlinx.serialization.json.Json
-import kotlinx.serialization.map
 import kotlin.reflect.KProperty
 
 object User : KotprefModel() {
@@ -27,12 +27,12 @@ object User : KotprefModel() {
 
     private var extraProperties: Map<String, String>
         get() {
-            val deserializer = Pair(StringSerializer, StringSerializer).map
+            val deserializer = MapSerializer(String.serializer(), String.serializer())
             val serialized = preferences.getString("extraProperties", "{}") ?: "{}"
             return serialized.deserialize(deserializer)
         }
         set(value) {
-            val serializer = Pair(StringSerializer, StringSerializer).map
+            val serializer = MapSerializer(String.serializer(), String.serializer())
             preferences.edit {
                 putString("extraProperties", Json.stringify(serializer, value))
             }

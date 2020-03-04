@@ -1,9 +1,9 @@
 package base.dataresources.data.db.adapters
 
 import androidx.room.TypeConverter
+import kotlinx.serialization.builtins.list
+import kotlinx.serialization.builtins.serializer
 import kotlinx.serialization.json.Json
-import kotlinx.serialization.list
-import kotlinx.serialization.serializer
 
 /**
  * Type converters using json format
