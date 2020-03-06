@@ -17,12 +17,12 @@ var AbstractDrawerItemKt<*>.id: Int
         identifier = value.toLong()
     }
 
-operator fun Drawer.get(itemId: Int): IDrawerItem<*, *>? {
+operator fun Drawer.get(itemId: Int): IDrawerItem<*>? {
     return getDrawerItem(itemId.toLong())
 }
 
 fun Drawer.updateBadge(itemId: Int, badgeText: String?) {
-    val strHolder = if (badgeText == null) null else StringHolder(badgeText)
+    val strHolder = StringHolder(badgeText)
     updateBadge(itemId.toLong(), strHolder)
 }
 
@@ -32,12 +32,12 @@ fun Drawer.updateIntBadgeNoZero(itemId: Int, number: Int) {
 }
 
 fun Drawer.updateIsEnabled(itemId: Int, isEnabled: Boolean): Try<Unit> {
-    return updateItem(itemId) { withEnabled(isEnabled) }
+    return updateItem(itemId) { apply { this.isEnabled = isEnabled } }
 }
 
-fun Drawer.updateItem(itemId: Int, block: IDrawerItem<*, *>.() -> Any): Try<Unit> {
+fun Drawer.updateItem(itemId: Int, block: IDrawerItem<*>.() -> Any): Try<Unit> {
     return Try {
-        updateItem(this[itemId]!!.block() as IDrawerItem<*, *>)
+        updateItem(this[itemId]!!.block() as IDrawerItem<*>)
     }
 }
 
