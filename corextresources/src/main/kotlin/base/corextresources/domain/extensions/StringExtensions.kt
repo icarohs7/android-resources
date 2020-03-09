@@ -3,6 +3,7 @@ package base.corextresources.domain.extensions
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.util.Base64
+import base.corextresources.domain.toplevel.NXJson
 import com.github.icarohs7.unoxcore.extensions.coroutines.onBackground
 import kotlinx.serialization.ImplicitReflectionSerializer
 import kotlinx.serialization.KSerializer
@@ -11,12 +12,12 @@ import kotlinx.serialization.parse
 import java.text.Normalizer
 
 fun <T : Any> String.deserialize(deserializer: KSerializer<T>): T {
-    return Json.parse(deserializer, this)
+    return NXJson.parse(deserializer, this)
 }
 
 @ImplicitReflectionSerializer
 inline fun <reified T : Any> String.deserialize(): T {
-    return Json.parse(this)
+    return NXJson.parse(this)
 }
 
 /**

@@ -1,6 +1,7 @@
 package base.corextresources.domain.extensions
 
 import android.content.SharedPreferences
+import base.corextresources.domain.toplevel.NXJson
 import com.chibatching.kotpref.KotprefModel
 import com.chibatching.kotpref.execute
 import com.chibatching.kotpref.pref.AbstractPref
@@ -27,18 +28,18 @@ inline fun <reified T : Any> KotprefModel.jsonPref(
 
         override fun getFromPreference(property: KProperty<*>, preference: SharedPreferences): T {
             return preference.getString(key ?: property.name, null)
-                ?.let { Json.parse<T>(it) }
+                ?.let { NXJson.parse<T>(it) }
                 ?: default
         }
 
         override fun setToPreference(property: KProperty<*>, value: T, preference: SharedPreferences) {
             preference.edit()
-                .putString(key ?: property.name, Json.stringify(value))
+                .putString(key ?: property.name, NXJson.stringify(value))
                 .execute(commitByDefault)
         }
 
         override fun setToEditor(property: KProperty<*>, value: T, editor: SharedPreferences.Editor) {
-            editor.putString(key ?: property.name, Json.stringify(value))
+            editor.putString(key ?: property.name, NXJson.stringify(value))
         }
     }
 }

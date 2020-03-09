@@ -22,6 +22,9 @@ import base.coreresources.toplevel.FlashBar
 import base.coreresources.toplevel.Intent
 import base.coreresources.toplevel.onActivity
 import base.corextresources.presentation.main.BaseFragholderMainActivity
+import kotlinx.serialization.UpdateMode
+import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.JsonConfiguration
 import org.koin.core.get
 import splitties.init.appCtx
 import timber.log.Timber
@@ -156,3 +159,20 @@ inline fun <reified T : Service> startService(vararg bundleExtras: Pair<String, 
 fun killApp() {
     Process.killProcess(Process.myPid())
 }
+
+/**
+ * Object used to serialize and deserialize
+ * JSON Strings into Kotlin objects
+ */
+val NXJson = Json(JsonConfiguration(
+    encodeDefaults = false,
+    ignoreUnknownKeys = true,
+    isLenient = true,
+    serializeSpecialFloatingPointValues = true,
+    allowStructuredMapKeys = false,
+    prettyPrint = true,
+    unquotedPrint = false,
+    indent = "",
+    useArrayPolymorphism = true,
+    updateMode = UpdateMode.OVERWRITE
+))

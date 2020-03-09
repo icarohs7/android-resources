@@ -2,6 +2,7 @@ package base.corextresources.data.entities
 
 import androidx.core.content.edit
 import base.corextresources.domain.extensions.deserialize
+import base.corextresources.domain.toplevel.NXJson
 import com.chibatching.kotpref.KotprefModel
 import kotlinx.serialization.builtins.MapSerializer
 import kotlinx.serialization.builtins.serializer
@@ -34,7 +35,7 @@ object User : KotprefModel() {
         set(value) {
             val serializer = MapSerializer(String.serializer(), String.serializer())
             preferences.edit {
-                putString("extraProperties", Json.stringify(serializer, value))
+                putString("extraProperties", NXJson.stringify(serializer, value))
             }
         }
 

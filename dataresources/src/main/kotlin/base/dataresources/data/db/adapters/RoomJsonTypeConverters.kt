@@ -1,6 +1,7 @@
 package base.dataresources.data.db.adapters
 
 import androidx.room.TypeConverter
+import base.corextresources.domain.toplevel.NXJson
 import kotlinx.serialization.builtins.list
 import kotlinx.serialization.builtins.serializer
 import kotlinx.serialization.json.Json
@@ -14,11 +15,11 @@ import kotlinx.serialization.json.Json
 class RoomJsonTypeConverters {
     @TypeConverter
     fun fromListString(data: List<String>): String {
-        return Json.stringify(String.serializer().list, data)
+        return NXJson.stringify(String.serializer().list, data)
     }
 
     @TypeConverter
     fun toListString(data: String): List<String> {
-        return Json.parse(String.serializer().list, data)
+        return NXJson.parse(String.serializer().list, data)
     }
 }
