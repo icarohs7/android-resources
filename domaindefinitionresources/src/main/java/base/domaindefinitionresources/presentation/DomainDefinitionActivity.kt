@@ -3,7 +3,6 @@ package base.domaindefinitionresources.presentation
 import android.content.Context
 import android.os.Bundle
 import android.text.InputType
-import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.lifecycleScope
 import arrow.core.None
 import arrow.core.Option
@@ -40,6 +39,7 @@ open class DomainDefinitionActivity : BaseBindingActivity<ActivityDomainDefiniti
     private fun setupBinding(): Unit = with(binding) {
         btnConfirm.setOnClickListener { setDomain() }
         layoutEditDomainBinding.editText.inputType = InputType.TYPE_TEXT_VARIATION_URI
+        txtSystemSuffix.text = domainUrlSuffix
     }
 
     private fun setDomain() {
@@ -55,7 +55,7 @@ open class DomainDefinitionActivity : BaseBindingActivity<ActivityDomainDefiniti
     private fun getDomain(): Option<String> {
         val value = "${layoutEditDomainBinding.editText.text ?: ""}"
         return when (isValid(value)) {
-            true -> Option.just("https://${escapeDomainString(value)}.sige.pro/webservices/app/")
+            true -> Option.just("https://${escapeDomainString(value)}.$domainUrlSuffix/webservices/app/")
             false -> None
         }
     }
@@ -84,6 +84,7 @@ open class DomainDefinitionActivity : BaseBindingActivity<ActivityDomainDefiniti
     override fun getLayout(): Int = R.layout.activity_domain_definition
 
     companion object {
+        var domainUrlSuffix = "sige.pro"
         private var domainDefinitionListener: DomainDefinitionActivity.(String) -> Unit = {}
         fun onDomainDefined(listener: DomainDefinitionActivity.(String) -> Unit) {
             domainDefinitionListener = listener

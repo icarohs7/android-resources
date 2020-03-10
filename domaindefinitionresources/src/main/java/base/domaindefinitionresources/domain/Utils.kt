@@ -1,8 +1,10 @@
 package base.domaindefinitionresources.domain
 
+import java.util.Locale
+
 internal fun escapeDomainString(string: String): String {
     return string
-        .toLowerCase()
+        .toLowerCase(Locale.getDefault())
         .trim()
         .replace('ç', 'c')
         .replace('á', 'a')

@@ -1,5 +1,6 @@
 package base.domaindefinitionresources.data.entities
 
+import base.domaindefinitionresources.presentation.DomainDefinitionActivity
 import com.chibatching.kotpref.KotprefModel
 
 object DomainHolder : KotprefModel() {
@@ -7,6 +8,6 @@ object DomainHolder : KotprefModel() {
     val domainBase: String
         get() = domain
             .replace("https://", "")
-            .replace(".sige.pro", "")
+            .replace(DomainDefinitionActivity.domainUrlSuffix, "")
             .replace("/webservices/app/", "")
 }
