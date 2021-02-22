@@ -84,7 +84,7 @@ open class DomainDefinitionActivity : BaseBindingActivity<ActivityDomainDefiniti
     override fun getLayout(): Int = R.layout.activity_domain_definition
 
     companion object {
-        var domainUrlSuffix = "sige.pro"
+        var domainUrlSuffix = "sigesis.com.br"
         private var domainDefinitionListener: DomainDefinitionActivity.(String) -> Unit = {}
         fun onDomainDefined(listener: DomainDefinitionActivity.(String) -> Unit) {
             domainDefinitionListener = listener
