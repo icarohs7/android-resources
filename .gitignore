@@ -1,6 +1,14 @@
 # Created by https://www.gitignore.io/api/android,intellij+iml,gradle
 
+/repos
+*.ipa
+
+### Mason ###
+.mason/
+
 ### Android ###
+androidpublisher.dat
+
 # Built application files
 *.apk
 *.ap_
@@ -23,6 +31,7 @@ out/
 # Gradle files
 .gradle/
 build/
+captures/
 
 # Local configuration file (sdk path, etc)
 local.properties
@@ -44,6 +53,8 @@ captures/
 **/.idea/libraries
 **/.idea/caches
 **/.idea/artifacts
+**/.idea/navEditor.xml
+**/.idea/assetWizardSettings.xml
 
 # Keystore files
 *.jks
@@ -517,6 +528,7 @@ build/Release
 # Generated code
 graphql_api*.dart
 *.g.dart
+*.freezed.dart
 *.reflectable.dart
 
 # Miscellaneous
@@ -612,3 +624,9 @@ coverage/
 
 # Web related
 **/lib/generated_plugin_registrant.dart
+
+!release_cert.jks
+!release_cert_telecom.jks
+
+/buildscript/bundles
+/buildscript/webapps
